@@ -4,7 +4,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.*;
 
-//test
 // This class is for displaying the rules page, when user clicks on it
 public class Rules extends JFrame implements ActionListener {
 	
@@ -25,12 +24,13 @@ public class Rules extends JFrame implements ActionListener {
 		rulesImage1 = new JLabel(Rules);
 		rulesImage1.setBounds(-100, -60, 800, 800);
 		
-		backButton = new JButton("Glossary/Terms");
-		backButton.setBounds(230, 500, 250, 60);
+		backButton = new JButton("Back");
+		backButton.setBounds(610, 530, 100, 40);
 		backButton.addActionListener(this);
 		backButton.setBackground(Color.LIGHT_GRAY);
 		
 		frame.add(rulesImage1);
+		frame.add(backButton);
 		
 		
 		frame.setSize(730, 750);
@@ -49,7 +49,18 @@ public class Rules extends JFrame implements ActionListener {
 
 
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
+		if (e.getSource() == backButton) {
+			  
+			  frame.dispose();
+			  
+			  try {
+				MainMenu newMenu = new MainMenu();
+			  } 
+			  catch (IOException e1) {
+				e1.printStackTrace();
+			  }
+			  
+		  }
 		
 	}
 

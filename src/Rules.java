@@ -4,7 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.*;
 
-
+//test
 // This class is for displaying the rules page, when user clicks on it
 public class Rules extends JFrame implements ActionListener {
 	

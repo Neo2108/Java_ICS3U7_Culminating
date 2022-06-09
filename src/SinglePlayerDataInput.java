@@ -6,7 +6,7 @@ import java.io.*;
 
 
 // Class for user to enter their data (name, age, occupation) and then export it to text file, for use later while outputting the final results
-public class PlayerDataInput extends JFrame implements ActionListener {
+public class SinglePlayerDataInput extends JFrame implements ActionListener {
 	
 	JFrame frame = new JFrame();
 	JLabel heading;
@@ -21,7 +21,7 @@ public class PlayerDataInput extends JFrame implements ActionListener {
 	JTextField jobSelect;
 	JButton submit;
 	
-	public PlayerDataInput() throws IOException {
+	public SinglePlayerDataInput() throws IOException {
 
 		frame.setLayout(null);
 		
@@ -90,7 +90,7 @@ public class PlayerDataInput extends JFrame implements ActionListener {
 	
 	// call the method with the GUI elements
 	public static void main(String[] args) throws IOException {
-		new PlayerDataInput();
+		new SinglePlayerDataInput();
 		
 		
 	}

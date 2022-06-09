@@ -75,7 +75,7 @@ public class levelOfDifficulty extends JFrame implements ActionListener {
 			  difficultyChoice = 0;
 			  
 			  try {
-				PlayerDataInput beginner = new PlayerDataInput();
+				SinglePlayerDataInput beginner = new SinglePlayerDataInput();
 			  } 
 			  catch (IOException e1) {
 				e1.printStackTrace();
@@ -90,7 +90,7 @@ public class levelOfDifficulty extends JFrame implements ActionListener {
 			  difficultyChoice = 1;
 			  
 			  try {
-				  PlayerDataInput intermediate = new PlayerDataInput();
+				  SinglePlayerDataInput intermediate = new SinglePlayerDataInput();
 			  } 
 			  catch (IOException e1) {
 				// TODO Auto-generated catch block
@@ -105,7 +105,7 @@ public class levelOfDifficulty extends JFrame implements ActionListener {
 			  difficultyChoice = 2;
 			  
 			  try {
-				  PlayerDataInput advanced = new PlayerDataInput();
+				  SinglePlayerDataInput advanced = new SinglePlayerDataInput();
 			  } 
 			  catch (IOException e1) {
 				// TODO Auto-generated catch block

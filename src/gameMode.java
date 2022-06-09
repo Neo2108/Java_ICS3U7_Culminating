@@ -4,7 +4,7 @@ import java.awt.event.ActionListener;
 import java.io.*;
 import javax.swing.*;
 
-// Class for user to pick the gameMode they want to play, either multiplayer or singleplayer
+// Class for user to pick the gameMode they want to play, either multiplayer with a friend or single-player against computer
 public class gameMode extends JFrame implements ActionListener {
 	
 	JFrame frame;
@@ -82,7 +82,7 @@ public class gameMode extends JFrame implements ActionListener {
 			  modeChoice = 1;
 			  
 			  try {
-				  levelOfDifficulty difficultyPick = new levelOfDifficulty();
+				  SinglePlayerDataInput multiplayerModeSelect = new SinglePlayerDataInput();
 			  } 
 			  catch (IOException e1) {
 				// TODO Auto-generated catch block

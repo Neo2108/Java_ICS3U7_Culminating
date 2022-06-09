@@ -1,14 +1,17 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.*;
 
 
 // Glossary class
-public class Glossary extends JFrame {
+public class Glossary extends JFrame implements ActionListener {
 	
 	JFrame frame;
 	ImageIcon Glossary;
 	JLabel glossaryImage1;
+	JButton backButton;
 	
 	// Method for all GUI elements on page
 	public Glossary() throws IOException {
@@ -21,7 +24,13 @@ public class Glossary extends JFrame {
 		glossaryImage1 = new JLabel(Glossary);
 		glossaryImage1.setBounds(-100, -60, 800, 800);
 		
+		backButton = new JButton("Back");
+		backButton.setBounds(610, 530, 100, 40);
+		backButton.addActionListener(this);
+		backButton.setBackground(Color.LIGHT_GRAY);
+		
 		frame.add(glossaryImage1);
+		frame.add(backButton);
 		
 		
 		frame.setSize(730, 750);
@@ -33,9 +42,26 @@ public class Glossary extends JFrame {
 
 	// Call Glossary Page method
 	public static void main(String[] args) throws IOException {
-		new Rules(); 
+		new Glossary(); 
 		
 
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == backButton) {
+			  
+			  frame.dispose();
+			  
+			  try {
+				MainMenu newMenu = new MainMenu();
+			  } 
+			  catch (IOException e1) {
+				e1.printStackTrace();
+			  }
+			  
+		  }
+		
 	}
 
 }

@@ -1,0 +1,3 @@
+Name: edr
+Occupation: vftg
+Age: 18

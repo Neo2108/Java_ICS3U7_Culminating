@@ -16,9 +16,9 @@ public class TitlePage extends JFrame implements ActionListener {
 	   
 	  frame = new JFrame();
 	  frame.setLayout(null);
-	  img = new ImageIcon(this.getClass().getResource("3dDollarSign.png"));
-	  img2 = new ImageIcon(this.getClass().getResource("fatcapitalist.png"));
-	  img3 = new ImageIcon(this.getClass().getResource("3dDollarSign.png"));
+	  img = new ImageIcon(this.getClass().getResource("ImagesFolder1/3dDollarSign.png"));
+	  img2 = new ImageIcon(this.getClass().getResource("ImagesFolder1/fatcapitalist.png"));
+	  img3 = new ImageIcon(this.getClass().getResource("ImagesFolder1/3dDollarSign.png"));
 	  image = new JLabel(img);
 	  image2 = new JLabel(img2);
 	  image3 = new JLabel(img3);

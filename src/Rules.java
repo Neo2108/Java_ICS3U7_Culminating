@@ -17,7 +17,7 @@ public class Rules extends JFrame implements ActionListener {
 	public Rules() throws IOException {
 		frame = new JFrame();
 		frame.setLayout(null);
-		Rules = new ImageIcon(this.getClass().getResource("RulesPage.png"));
+		Rules = new ImageIcon(this.getClass().getResource("ImagesFolder1/RulesPage.png"));
 		Image image = Rules.getImage();
         Image newImg = image.getScaledInstance(600, 700,  java.awt.Image.SCALE_SMOOTH);
         Rules = new ImageIcon(newImg);

@@ -17,7 +17,7 @@ public class Glossary extends JFrame implements ActionListener {
 	public Glossary() throws IOException {
 		frame = new JFrame();
 		frame.setLayout(null);
-		Glossary = new ImageIcon(this.getClass().getResource("GlossaryPage.png"));
+		Glossary = new ImageIcon(this.getClass().getResource("ImagesFolder1/GlossaryPage.png"));
 		Image image = Glossary.getImage();
         Image newImg = image.getScaledInstance(600, 700,  java.awt.Image.SCALE_SMOOTH);
         Glossary = new ImageIcon(newImg);

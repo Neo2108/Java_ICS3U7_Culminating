@@ -82,7 +82,7 @@ public class gameMode extends JFrame implements ActionListener {
 			  modeChoice = 1;
 			  
 			  try {
-				  SinglePlayerDataInput multiplayerModeSelect = new SinglePlayerDataInput();
+				  MultiPlayerDataInput1 multiplayerModeSelect = new MultiPlayerDataInput1();
 			  } 
 			  catch (IOException e1) {
 				// TODO Auto-generated catch block

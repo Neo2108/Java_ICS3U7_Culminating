@@ -110,7 +110,7 @@ public class MultiPlayerDataInput1 extends JFrame implements ActionListener {
 			  
 			  
 			try {
-				FileWriter dataWriter = new FileWriter("userData.txt");
+				FileWriter dataWriter = new FileWriter("userData1.txt");
 				BufferedWriter writer = new BufferedWriter(dataWriter);
 				writer.write("Name: " + nameText + "\n");
 				writer.write("Occupation: " + occupationText + "\n");

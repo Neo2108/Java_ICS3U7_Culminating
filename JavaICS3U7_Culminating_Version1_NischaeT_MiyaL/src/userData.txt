@@ -1,3 +1,0 @@
-Name: neo
-Occupation: auctioneer
-Age: 18

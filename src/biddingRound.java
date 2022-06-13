@@ -3,7 +3,7 @@ public class biddingRound {
 
 	public static void main(String[] args) {
 		
-		int itemNumber = ((int) (Math.random()*12));
+		int itemNumber = ((int) (Math.random()*10) + 1);
 		
 		String currentRoundItem = itemName(itemNumber);
 		String currentRoundImage = itemImage(itemNumber);

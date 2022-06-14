@@ -34,7 +34,7 @@ public class MainMenu extends JFrame implements ActionListener {
 		
 		button2 = new JButton("Play");
 		button2.setBounds(230, 350, 250, 60);
-		// button2.addActionListener(this);
+		button2.addActionListener(this);
 		button2.setBackground(color1);
 		
 		button3 = new JButton("Glossary/Terms");
@@ -74,15 +74,20 @@ public class MainMenu extends JFrame implements ActionListener {
 			  }
 			  
 		  }
-		  // This button leads to actually playing the game, and will be finished at the end of version 2
-		  /*
+		  
 		  else if (e.getSource() == button2) {
 			  
 			  frame.dispose();
 			  
+			  try {
+					itemDisplayPage displayItem = new itemDisplayPage();
+			  } 
+			  catch (IOException e1) {
+					e1.printStackTrace();
+				  }
 			  
 		  }
-		  */
+		  
 		  
 		  else if (e.getSource() == button3) {
 			  
@@ -92,7 +97,6 @@ public class MainMenu extends JFrame implements ActionListener {
 				Glossary displayGlossary = new Glossary();
 			  } 
 			  catch (IOException e1) {
-				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			  }
 		  }

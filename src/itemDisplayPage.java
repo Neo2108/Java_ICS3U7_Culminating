@@ -5,7 +5,7 @@ import java.io.*;
 
 
 
-public class itemDisplayPage extends JFrame {
+public class itemDisplayPage extends JFrame implements ActionListener {
 	
 	JFrame frame = new JFrame();
 	ImageIcon itemDisplay;
@@ -15,6 +15,8 @@ public class itemDisplayPage extends JFrame {
 	JLabel itemAppreciationRateProperty;
 	JLabel itemLiquidityProperty;
 	JLabel itemPriceProperty;
+	JButton rulesBackButton;
+	JButton glossaryBackButton;
 	
 	public itemDisplayPage() throws IOException {
 		
@@ -30,6 +32,16 @@ public class itemDisplayPage extends JFrame {
 		int currentRoundItemLiquidity = itemLiquidity(itemNumber);
 
 		frame.setLayout(null);
+		
+		rulesBackButton = new JButton("Rules");
+		rulesBackButton.setBounds(1150, 20, 100, 40);
+		rulesBackButton.addActionListener(this);
+		rulesBackButton.setBackground(Color.LIGHT_GRAY);
+		
+		glossaryBackButton = new JButton("Glossary");
+		glossaryBackButton.setBounds(1150, 70, 100, 40);
+		glossaryBackButton.addActionListener(this);
+		glossaryBackButton.setBackground(Color.LIGHT_GRAY);
 		
 		itemDisplay = new ImageIcon(this.getClass().getResource(currentRoundImage));
 		Image image = itemDisplay.getImage();
@@ -50,11 +62,11 @@ public class itemDisplayPage extends JFrame {
 		itemAgeProperty.setFont(new Font("Impact", Font.PLAIN, 35));
 		itemAgeProperty.setBounds(400,470,800,40);
 		
-		itemAppreciationRateProperty = new JLabel("Appreciation Rate (Per Round): " + currentRoundItemAppreciationRate);
+		itemAppreciationRateProperty = new JLabel("Appreciation Rate (Per Round): " + currentRoundItemAppreciationRate + "%");
 		itemAppreciationRateProperty.setFont(new Font("Impact", Font.PLAIN, 35));
 		itemAppreciationRateProperty.setBounds(400,530,800,40);
 		
-		itemLiquidityProperty = new JLabel("Liquidity Rate (Scale from 1 (Worst) - 10 (Best): " + currentRoundItemLiquidity);
+		itemLiquidityProperty = new JLabel("Liquidity Rate (1 being worst and 10 being best): " + currentRoundItemLiquidity);
 		itemLiquidityProperty.setFont(new Font("Impact", Font.PLAIN, 35));
 		itemLiquidityProperty.setBounds(400,590,800,50);
 		
@@ -66,6 +78,8 @@ public class itemDisplayPage extends JFrame {
 		frame.add(itemAppreciationRateProperty);
 		frame.add(itemLiquidityProperty);
 		frame.add(Img1);
+		frame.add(glossaryBackButton);
+		frame.add(rulesBackButton);
 		
 		
 		
@@ -127,6 +141,35 @@ public class itemDisplayPage extends JFrame {
 		// Liquidity is shown on a scale from 1 - 10 (1 being the worst, and 10 being the best)
 		int [] liquidity = {3, 2, 4, 3, 7, 6, 8, 2, 5, 2, 8};
 		return liquidity[itemNumber];
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == rulesBackButton) {
+			  
+			  frame.dispose();
+			  
+			  try {
+				  Rules newRulesPage = new Rules();
+			  } 
+			  catch (IOException e1) {
+				e1.printStackTrace();
+			  }
+			  
+		  }
+		  
+		  else if (e.getSource() == glossaryBackButton) {
+			  
+			  frame.dispose();
+			  
+			  try {
+				  Glossary howToPlay = new Glossary();
+			  } 
+			  catch (IOException e1) {
+				e1.printStackTrace();
+			  }
+		  }
+		
 	}
 	
 	

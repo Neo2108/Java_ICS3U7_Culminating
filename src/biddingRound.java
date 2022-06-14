@@ -1,7 +1,41 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
 
-public class biddingRound {
 
-	public static void main(String[] args) {
+
+public class biddingRound extends JFrame {
+	
+	JFrame frame = new JFrame();
+	JLabel heading;
+	JLabel age;
+	JLabel name;
+	JLabel occupation;
+	static String nameText;
+	static String occupationText;
+	static String ageText;
+	JComboBox ageSelect;
+	JTextField nameSelect;
+	JTextField jobSelect;
+	JButton submit;
+	
+	public biddingRound() throws IOException {
+
+		frame.setLayout(null);
+		
+		
+		
+		
+		frame.setSize(1275, 775);
+		Color color2 = new Color (195, 195, 0);
+		frame.getContentPane().setBackground(color2);
+		frame.setVisible(true);
+	    frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
+	    
+	}
+
+	public static void main(String[] args) throws IOException {
 		
 		int itemNumber = ((int) (Math.random()*10) + 1);
 		
@@ -12,15 +46,16 @@ public class biddingRound {
 		int currentRoundItemAppreciationRate = itemAppreciationRate(itemNumber);
 		int currentRoundItemLiquidity = itemLiquidity(itemNumber);
 		
-		System.out.println(currentRoundItem);
-		System.out.println(currentRoundImage);
-		System.out.println(currentRoundYearItemMade);
-		System.out.println(currentRoundItemPrice);
-		System.out.println(currentRoundItemAppreciationRate);
-		System.out.println(currentRoundItemLiquidity);
+		new biddingRound();
+		
+		
+		
+		
+		
 		
 	}
 
+	
 	
 	public static String itemName(int itemNumber) {
 		

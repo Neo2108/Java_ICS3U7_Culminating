@@ -1,3 +1,0 @@
-Name: Neo
-Occupation: Astronaut
-Age: 18

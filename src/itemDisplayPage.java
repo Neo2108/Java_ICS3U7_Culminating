@@ -3,8 +3,6 @@ import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
 
-
-
 public class itemDisplayPage extends JFrame implements ActionListener {
 	
 	JFrame frame = new JFrame();
@@ -34,12 +32,12 @@ public class itemDisplayPage extends JFrame implements ActionListener {
 		frame.setLayout(null);
 		
 		rulesBackButton = new JButton("Rules");
-		rulesBackButton.setBounds(1150, 20, 100, 40);
+		rulesBackButton.setBounds(1140, 20, 100, 40);
 		rulesBackButton.addActionListener(this);
 		rulesBackButton.setBackground(Color.LIGHT_GRAY);
 		
 		glossaryBackButton = new JButton("Glossary");
-		glossaryBackButton.setBounds(1150, 70, 100, 40);
+		glossaryBackButton.setBounds(1140, 70, 100, 40);
 		glossaryBackButton.addActionListener(this);
 		glossaryBackButton.setBackground(Color.LIGHT_GRAY);
 		
@@ -70,8 +68,7 @@ public class itemDisplayPage extends JFrame implements ActionListener {
 		itemLiquidityProperty.setFont(new Font("Impact", Font.PLAIN, 35));
 		itemLiquidityProperty.setBounds(400,590,800,50);
 		
-		
-		
+
 		frame.add(itemNameProperty);
 		frame.add(itemAgeProperty);
 		frame.add(itemPriceProperty);
@@ -80,7 +77,6 @@ public class itemDisplayPage extends JFrame implements ActionListener {
 		frame.add(Img1);
 		frame.add(glossaryBackButton);
 		frame.add(rulesBackButton);
-		
 		
 		
 		frame.setSize(1275, 775);
@@ -95,15 +91,8 @@ public class itemDisplayPage extends JFrame implements ActionListener {
 		
 		new itemDisplayPage();
 		
-		
-		
-		
-		
-		
 	}
 
-	
-	
 	public static String itemName(int itemNumber) {
 		
 		String[] itemNames = {"Anglo-Austrian Urn", "Silver Japanese Dining Goblet", "British Ballroom Gramophone", "Napoleon-era Parisian Mirror", "Al Capone's Bedside Telephone", "Gilded Porcelain Carousel", "Vintage Portuguese Lamp", "Thousand-year old Roman Clock", "Persian Astronomy Globe", "19th Century Chrysanthemum Oil Painting", "WW1-era British Vintage Car"};
@@ -172,14 +161,4 @@ public class itemDisplayPage extends JFrame implements ActionListener {
 		
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
 }

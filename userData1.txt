@@ -1,0 +1,3 @@
+Name: noe
+Occupation: boi
+Age: 18

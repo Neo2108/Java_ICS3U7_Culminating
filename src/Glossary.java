@@ -11,7 +11,7 @@ public class Glossary extends JFrame implements ActionListener {
 	JFrame frame;
 	ImageIcon Glossary;
 	JLabel glossaryImage1;
-	JButton backButton;
+	JButton closeButton;
 	
 	// Method for all GUI elements on page
 	public Glossary() throws IOException {
@@ -22,18 +22,18 @@ public class Glossary extends JFrame implements ActionListener {
         Image newImg = image.getScaledInstance(600, 700,  java.awt.Image.SCALE_SMOOTH);
         Glossary = new ImageIcon(newImg);
 		glossaryImage1 = new JLabel(Glossary);
-		glossaryImage1.setBounds(-100, -60, 800, 800);
+		glossaryImage1.setBounds(-100, -40, 800, 800);
 		
-		backButton = new JButton("Close");
-		backButton.setBounds(610, 530, 100, 40);
-		backButton.addActionListener(this);
-		backButton.setBackground(Color.LIGHT_GRAY);
+		closeButton = new JButton("Close");
+		closeButton.setBounds(610, 530, 100, 40);
+		closeButton.addActionListener(this);
+		closeButton.setBackground(Color.LIGHT_GRAY);
 		
 		frame.add(glossaryImage1);
-		frame.add(backButton);
+		frame.add(closeButton);
 		
 		
-		frame.setSize(730, 750);
+		frame.setSize(710, 730);
 		Color color2 = new Color (195, 195, 0);
 		frame.getContentPane().setBackground(color2);
 	    frame.setVisible(true);
@@ -49,7 +49,7 @@ public class Glossary extends JFrame implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if (e.getSource() == backButton) {
+		if (e.getSource() == closeButton) {
 			  
 			  frame.dispose();
 		  }

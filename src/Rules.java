@@ -10,7 +10,7 @@ public class Rules extends JFrame implements ActionListener {
 	JFrame frame;
 	ImageIcon Rules;
 	JLabel rulesImage1;
-	JButton backButton;
+	JButton closeButton;
 	
 	// Method with all GUI elements on it
 	// *Back-button* for user will be added in Version 2, for user to go back to the main menu if desired
@@ -24,13 +24,13 @@ public class Rules extends JFrame implements ActionListener {
 		rulesImage1 = new JLabel(Rules);
 		rulesImage1.setBounds(-100, -60, 800, 800);
 		
-		backButton = new JButton("Close");
-		backButton.setBounds(610, 530, 100, 40);
-		backButton.addActionListener(this);
-		backButton.setBackground(Color.LIGHT_GRAY);
+		closeButton = new JButton("Close");
+		closeButton.setBounds(610, 530, 100, 40);
+		closeButton.addActionListener(this);
+		closeButton.setBackground(Color.LIGHT_GRAY);
 		
 		frame.add(rulesImage1);
-		frame.add(backButton);
+		frame.add(closeButton);
 		
 		
 		frame.setSize(730, 750);
@@ -49,7 +49,7 @@ public class Rules extends JFrame implements ActionListener {
 
 
 	public void actionPerformed(ActionEvent e) {
-		if (e.getSource() == backButton) {
+		if (e.getSource() == closeButton) {
 			  
 			  frame.dispose();
 			  

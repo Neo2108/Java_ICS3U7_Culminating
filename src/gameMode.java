@@ -14,7 +14,7 @@ public class gameMode extends JFrame implements ActionListener {
 	JLabel modeExplanation;
 	JLabel rules;
 	// If modeChoice = 0, gameMode selected is 'Single-player', and if modeChoice = 1, gameMode is 'Multiplayer'
-	int modeChoice = 0;
+	public int modeChoice = 0;
 	
 		
 	public gameMode() throws IOException {

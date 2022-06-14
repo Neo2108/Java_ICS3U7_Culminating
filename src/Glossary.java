@@ -24,7 +24,7 @@ public class Glossary extends JFrame implements ActionListener {
 		glossaryImage1 = new JLabel(Glossary);
 		glossaryImage1.setBounds(-100, -60, 800, 800);
 		
-		backButton = new JButton("Back");
+		backButton = new JButton("Close");
 		backButton.setBounds(610, 530, 100, 40);
 		backButton.addActionListener(this);
 		backButton.setBackground(Color.LIGHT_GRAY);
@@ -52,14 +52,6 @@ public class Glossary extends JFrame implements ActionListener {
 		if (e.getSource() == backButton) {
 			  
 			  frame.dispose();
-			  
-			  try {
-				MainMenu newMenu = new MainMenu();
-			  } 
-			  catch (IOException e1) {
-				e1.printStackTrace();
-			  }
-			  
 		  }
 		
 	}

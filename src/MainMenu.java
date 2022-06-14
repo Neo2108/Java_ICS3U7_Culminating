@@ -26,7 +26,7 @@ public class MainMenu extends JFrame implements ActionListener {
 		heading.setBounds(480,20,800,60);
 		
 		
-		button = new JButton("How to Play?");
+		button = new JButton("Rules");
 		button.setBounds(230, 200, 250, 60);
 		button.addActionListener(this);
 		Color color1 = new Color (0, 210, 0);
@@ -64,7 +64,7 @@ public class MainMenu extends JFrame implements ActionListener {
 		   
 		  if (e.getSource() == button) {
 			  
-			  frame.dispose();
+			  // frame.dispose();
 			  
 			  try {
 				Rules displayRules = new Rules();
@@ -91,7 +91,7 @@ public class MainMenu extends JFrame implements ActionListener {
 		  
 		  else if (e.getSource() == button3) {
 			  
-			  frame.dispose();
+			  // frame.dispose();
 			  
 			  try {
 				Glossary displayGlossary = new Glossary();

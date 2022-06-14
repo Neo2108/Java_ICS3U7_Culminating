@@ -136,7 +136,7 @@ public class itemDisplayPage extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == rulesBackButton) {
 			  
-			  frame.dispose();
+			  //frame.dispose();
 			  
 			  try {
 				  Rules newRulesPage = new Rules();
@@ -149,7 +149,7 @@ public class itemDisplayPage extends JFrame implements ActionListener {
 		  
 		  else if (e.getSource() == glossaryBackButton) {
 			  
-			  frame.dispose();
+			  //frame.dispose();
 			  
 			  try {
 				  Glossary howToPlay = new Glossary();

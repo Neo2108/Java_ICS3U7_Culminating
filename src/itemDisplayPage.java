@@ -15,6 +15,15 @@ public class itemDisplayPage extends JFrame implements ActionListener {
 	JLabel itemPriceProperty;
 	JButton rulesBackButton;
 	JButton glossaryBackButton;
+	JButton continueButton;
+	JLabel continueButtonMessage;
+	public String currentRoundItemName;
+	public String currentRoundImage;
+	public int currentRoundYearItemMade;
+	public int currentRoundItemPrice;
+	public int currentRoundItemAppreciationRate;
+	public int currentRoundItemLiquidity;
+	
 	
 	public itemDisplayPage() throws IOException {
 		
@@ -22,12 +31,12 @@ public class itemDisplayPage extends JFrame implements ActionListener {
 		int itemNumber = ((int) (Math.random()*10) + 1);
 		
 		// Assign item properties to variables for convenience in using
-		String currentRoundItemName = itemName(itemNumber);
-		String currentRoundImage = itemImage(itemNumber);
-		int currentRoundYearItemMade = yearItemMade(itemNumber);
-		int currentRoundItemPrice = itemPrices(itemNumber);
-		int currentRoundItemAppreciationRate = itemAppreciationRate(itemNumber);
-		int currentRoundItemLiquidity = itemLiquidity(itemNumber);
+		currentRoundItemName = itemName(itemNumber);
+		currentRoundImage = itemImage(itemNumber);
+		currentRoundYearItemMade = yearItemMade(itemNumber);
+		currentRoundItemPrice = itemPrices(itemNumber);
+		currentRoundItemAppreciationRate = itemAppreciationRate(itemNumber);
+		currentRoundItemLiquidity = itemLiquidity(itemNumber);
 
 		frame.setLayout(null);
 		
@@ -40,6 +49,15 @@ public class itemDisplayPage extends JFrame implements ActionListener {
 		glossaryBackButton.setBounds(1140, 70, 100, 40);
 		glossaryBackButton.addActionListener(this);
 		glossaryBackButton.setBackground(Color.LIGHT_GRAY);
+		
+		continueButton = new JButton("Proceed");
+		continueButton.setBounds(120, 200, 150, 60);
+		continueButton.addActionListener(this);
+		continueButton.setBackground(Color.LIGHT_GRAY);
+		
+		continueButtonMessage = new JLabel("After clicking this, you will dive right into the game, player 1 will have 10 seconds to place their bid, press only when fully prepared to play");
+		continueButtonMessage.setFont(new Font("Impact", Font.PLAIN, 20));
+		continueButtonMessage.setBounds(10,300,8000,40);
 		
 		itemDisplay = new ImageIcon(this.getClass().getResource(currentRoundImage));
 		Image image = itemDisplay.getImage();
@@ -76,6 +94,8 @@ public class itemDisplayPage extends JFrame implements ActionListener {
 		frame.add(itemLiquidityProperty);
 		frame.add(Img1);
 		frame.add(glossaryBackButton);
+		frame.add(continueButton);
+		frame.add(continueButtonMessage);
 		frame.add(rulesBackButton);
 		
 		
@@ -153,6 +173,18 @@ public class itemDisplayPage extends JFrame implements ActionListener {
 			  
 			  try {
 				  Glossary howToPlay = new Glossary();
+			  } 
+			  catch (IOException e1) {
+				e1.printStackTrace();
+			  }
+		  }
+		
+		  else if (e.getSource() == continueButton) {
+			  
+			  frame.dispose();
+			  
+			  try {
+				  biddingRound1 askFirstBid = new biddingRound1();
 			  } 
 			  catch (IOException e1) {
 				e1.printStackTrace();

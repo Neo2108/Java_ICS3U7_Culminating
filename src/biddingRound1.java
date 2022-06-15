@@ -3,17 +3,21 @@ import java.awt.*;
 import java.io.*;
 import java.awt.event.*;
 
-public class biddingRound extends JFrame implements ActionListener {
+public class biddingRound1 extends JFrame implements ActionListener {
 	
 	JFrame frame = new JFrame();
-	ImageIcon image;
 	JTextField player1Bid;
 	JLabel bidPrompt;
+	JLabel dollarSign;
+	int secondsPassed = 0;
+	int maxBid = 0;
+	int player1BidValue = 0;
+	JLabel countdownDisplay;
 	JButton submitBid;
 	JButton glossaryBackButton;
 	JButton rulesBackButton;
 	
-	public biddingRound() throws IOException {
+	public biddingRound1() throws IOException {
 			
 			frame.setLayout(null);
 			
@@ -27,18 +31,31 @@ public class biddingRound extends JFrame implements ActionListener {
 			glossaryBackButton.addActionListener(this);
 			glossaryBackButton.setBackground(Color.LIGHT_GRAY);
 			
+			submitBid = new JButton("Submit Bid");
+			submitBid.setBounds(522, 300, 100, 40);
+			submitBid.addActionListener(this);
+			submitBid.setBackground(Color.LIGHT_GRAY);
+			
 			bidPrompt = new JLabel("Player 1 - Enter your Bid, you have 5 seconds: ");
 			bidPrompt.setFont(new Font("Impact", Font.PLAIN, 30));
-			bidPrompt.setBounds(380,153,800,90);
+			bidPrompt.setBounds(380,145,800,90);
+			
+			dollarSign = new JLabel("$");
+			dollarSign.setFont(new Font("Impact", Font.PLAIN, 32));
+			dollarSign.setBounds(475,215,800,90);
 			
 			player1Bid = new JTextField();
-			player1Bid.setBounds(500, 225, 150, 45);
+			player1Bid.setBounds(500, 240, 150, 45);
+			
+			
 		
 			
+			frame.add(submitBid);
 			frame.add(glossaryBackButton);
 			frame.add(rulesBackButton);
 			frame.add(player1Bid);
 			frame.add(bidPrompt);
+			frame.add(dollarSign);
 			
 			
 			frame.setSize(1275, 775);
@@ -47,10 +64,21 @@ public class biddingRound extends JFrame implements ActionListener {
 			frame.setVisible(true);
 		    frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		    
+		    new java.util.Timer().schedule( 
+			        new java.util.TimerTask() {
+			            @Override
+			            public void run() {
+			                frame.dispose();
+			                
+			            }
+			        }, 
+			        10000 
+			);
+		    
 		}
 
 	public static void main(String[] args) throws IOException {
-		new biddingRound();
+		new biddingRound1();
 
 	}
 
@@ -79,6 +107,24 @@ public class biddingRound extends JFrame implements ActionListener {
 			  catch (IOException e1) {
 				e1.printStackTrace();
 			  }
+		  }
+		
+		  else if (e.getSource() == submitBid) {
+			  
+			  frame.dispose();
+			  
+			  player1BidValue = Integer.parseInt(player1Bid.getText());
+			  player1BidValue = maxBid;
+			  
+
+			  /*
+			  try {
+				  biddingRound2 player2Turn = new biddingRound2();
+			  } 
+			  catch (IOException e1) {
+				e1.printStackTrace();
+			  }
+			  */
 		  }
 		
 	}

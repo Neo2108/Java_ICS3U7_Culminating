@@ -6,16 +6,21 @@ import java.awt.event.*;
 public class biddingRoundPlayer2 extends JFrame implements ActionListener {
 	
 	JFrame frame = new JFrame();
-	JTextField player1Bid;
+	MaxBidCalculator maxBid2 = MaxBidCalculator.getInstance();
+	int bid2 = maxBid2.getBidValue();
+	JTextField player2Bid;
 	JLabel bidPrompt;
 	JLabel dollarSign;
 	int secondsPassed = 0;
-	int maxBid = 0;
-	int player1BidValue = 0;
+	int player2BidValue;
+	JLabel maxBidDisplay;
 	JLabel countdownDisplay;
+	JLabel player1BidDisplay;
 	JButton submitBid;
 	JButton glossaryBackButton;
 	JButton rulesBackButton;
+	
+	
 	
 	public biddingRoundPlayer2() throws IOException {
 			
@@ -36,16 +41,20 @@ public class biddingRoundPlayer2 extends JFrame implements ActionListener {
 			submitBid.addActionListener(this);
 			submitBid.setBackground(Color.LIGHT_GRAY);
 			
-			bidPrompt = new JLabel("Player 2 - Enter your Bid, you have 5 seconds: ");
+			bidPrompt = new JLabel("Player 2 - Enter your Bid, you have 10 seconds: ");
 			bidPrompt.setFont(new Font("Impact", Font.PLAIN, 30));
 			bidPrompt.setBounds(380,145,800,90);
+			
+			maxBidDisplay = new JLabel("Max bid so far: $" + bid2);
+			maxBidDisplay.setFont(new Font("Impact", Font.PLAIN, 30));
+			maxBidDisplay.setBounds(440,320,800,90);
 			
 			dollarSign = new JLabel("$");
 			dollarSign.setFont(new Font("Impact", Font.PLAIN, 32));
 			dollarSign.setBounds(475,215,800,90);
 			
-			player1Bid = new JTextField();
-			player1Bid.setBounds(500, 240, 150, 45);
+			player2Bid = new JTextField();
+			player2Bid.setBounds(500, 240, 150, 45);
 			
 			
 		
@@ -53,9 +62,10 @@ public class biddingRoundPlayer2 extends JFrame implements ActionListener {
 			frame.add(submitBid);
 			frame.add(glossaryBackButton);
 			frame.add(rulesBackButton);
-			frame.add(player1Bid);
+			frame.add(player2Bid);
 			frame.add(bidPrompt);
 			frame.add(dollarSign);
+			frame.add(maxBidDisplay);
 			
 			
 			frame.setSize(1275, 775);
@@ -72,13 +82,13 @@ public class biddingRoundPlayer2 extends JFrame implements ActionListener {
 			                
 			            }
 			        }, 
-			        10000 
+			        20000 
 			);
 		    
 		}
 
 	public static void main(String[] args) throws IOException {
-		new biddingRoundPlayer1();
+		new biddingRoundPlayer2();
 
 	}
 
@@ -113,20 +123,20 @@ public class biddingRoundPlayer2 extends JFrame implements ActionListener {
 			  
 			  frame.dispose();
 			  
-			  player1BidValue = Integer.parseInt(player1Bid.getText());
-			  player1BidValue = maxBid;
+			  player2BidValue = Integer.parseInt(player2Bid.getText());
+			  
+			  if (player2BidValue > bid2) {
+				  maxBid2.setBidValue(player2BidValue);
+			  }
 			  
 			  
-			  
-
-			  /*
 			  try {
-				  biddingRound2 player2Turn = new biddingRound2();
+				  biddingRoundPlayer1 player1Turn = new biddingRoundPlayer1();
 			  } 
 			  catch (IOException e1) {
 				e1.printStackTrace();
 			  }
-			  */
+			  
 		  }
 		
 	}

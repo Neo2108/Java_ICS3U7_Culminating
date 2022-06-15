@@ -6,11 +6,13 @@ import java.awt.event.*;
 public class biddingRoundPlayer1 extends JFrame implements ActionListener {
 	
 	JFrame frame = new JFrame();
+	MaxBidCalculator maxBid1 = MaxBidCalculator.getInstance();
+	int bid1 = maxBid1.getBidValue();
 	JTextField player1Bid;
 	JLabel bidPrompt;
 	JLabel dollarSign;
 	int secondsPassed = 0;
-	public int maxBid;
+	JLabel maxBidDisplay;
 	public int player1BidValue;
 	JLabel countdownDisplay;
 	JButton submitBid;
@@ -20,6 +22,8 @@ public class biddingRoundPlayer1 extends JFrame implements ActionListener {
 	public biddingRoundPlayer1() throws IOException {
 			
 			frame.setLayout(null);
+			
+			//MaxBidCalculator maxBid1 = new MaxBidCalculator();
 			
 			rulesBackButton = new JButton("Rules");
 			rulesBackButton.setBounds(1140, 20, 100, 40);
@@ -40,6 +44,10 @@ public class biddingRoundPlayer1 extends JFrame implements ActionListener {
 			bidPrompt.setFont(new Font("Impact", Font.PLAIN, 30));
 			bidPrompt.setBounds(380,145,800,90);
 			
+			maxBidDisplay = new JLabel("Max bid so far: $" + bid1);
+			maxBidDisplay.setFont(new Font("Impact", Font.PLAIN, 30));
+			maxBidDisplay.setBounds(440,320,800,90);
+			
 			dollarSign = new JLabel("$");
 			dollarSign.setFont(new Font("Impact", Font.PLAIN, 32));
 			dollarSign.setBounds(475,215,800,90);
@@ -56,6 +64,7 @@ public class biddingRoundPlayer1 extends JFrame implements ActionListener {
 			frame.add(player1Bid);
 			frame.add(bidPrompt);
 			frame.add(dollarSign);
+			frame.add(maxBidDisplay);
 			
 			
 			frame.setSize(1275, 775);
@@ -70,9 +79,16 @@ public class biddingRoundPlayer1 extends JFrame implements ActionListener {
 			            public void run() {
 			                frame.dispose();
 			                
+			                try {
+			  				  biddingRoundPlayer2 player2Turn = new biddingRoundPlayer2();
+			  			  	} 
+			  			  	catch (IOException e1) {
+			  			  		e1.printStackTrace();
+			  			  	}
+			                
 			            }
 			        }, 
-			        10000 
+			        20000 
 			);
 		    
 		}
@@ -112,21 +128,22 @@ public class biddingRoundPlayer1 extends JFrame implements ActionListener {
 		  else if (e.getSource() == submitBid) {
 			  
 			  frame.dispose();
+			  // MaxBidCalculator maxBid1 = new MaxBidCalculator();
 			  
 			  player1BidValue = Integer.parseInt(player1Bid.getText());
-			  player1BidValue = maxBid;
 			  
+			  if (player1BidValue > bid1) {
+				  maxBid1.setBidValue(player1BidValue);
+			  }
 			  
-			  
-
-			  /*
 			  try {
-				  biddingRound2 player2Turn = new biddingRound2();
+				  biddingRoundPlayer2 player2Turn = new biddingRoundPlayer2();
+				  
 			  } 
 			  catch (IOException e1) {
 				e1.printStackTrace();
 			  }
-			  */
+			  
 		  }
 		
 	}

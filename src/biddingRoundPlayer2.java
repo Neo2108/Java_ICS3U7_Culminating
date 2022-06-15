@@ -123,6 +123,7 @@ public class biddingRoundPlayer2 extends JFrame implements ActionListener {
 		  else if (e.getSource() == submitBid) {
 			  
 			  frame.dispose();
+			  // MaxBidCalculator maxBid1 = new MaxBidCalculator();
 			  
 			  player2BidValue = Integer.parseInt(player2Bid.getText());
 			  
@@ -130,9 +131,19 @@ public class biddingRoundPlayer2 extends JFrame implements ActionListener {
 				  maxBid2.setBidValue(player2BidValue);
 			  }
 			  
+			  else if (player2BidValue <= bid2) {
+				  try {
+					  exceptionPage errorOcurred = new exceptionPage();
+					  
+				  } 
+				  catch (IOException e1) {
+					e1.printStackTrace();
+				  }
+			  }
 			  
 			  try {
 				  biddingRoundPlayer1 player1Turn = new biddingRoundPlayer1();
+				  
 			  } 
 			  catch (IOException e1) {
 				e1.printStackTrace();

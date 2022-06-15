@@ -13,12 +13,19 @@ public class exceptionPage extends JFrame implements ActionListener {
 	JButton button;
 	
 	public exceptionPage() throws IOException  {
+		
 		frame = new JFrame();
-		JButton button = new JButton("Close Tab");
+		button = new JButton("Close Tab");
 		button.addActionListener(this);
+		button.setBounds(200, 500, 160, 100);
 		
 		label = new JLabel ("01 - Please enter an integer");
+		label.setFont(new Font("Impact", Font.PLAIN, 30));
+		label.setBounds(10,125,800,90);
+		
 		label2 = new JLabel ("02 - Please enter a bid greater than maxBid!");
+		label2.setFont(new Font("Impact", Font.PLAIN, 30));
+		label2.setBounds(580,125,800,90);
 		
 		
 		frame.add(button);
@@ -26,7 +33,7 @@ public class exceptionPage extends JFrame implements ActionListener {
 		frame.add(label2);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setTitle("Our GUI!");
-		frame.pack();
+		frame.setSize(1275, 775);
 		frame.setVisible(true);
 	}
 
@@ -41,13 +48,6 @@ public class exceptionPage extends JFrame implements ActionListener {
 		if (e.getSource() == button) {
 			  
 			  frame.dispose();
-			  
-			  try {
-				  Rules newRulesPage1 = new Rules();
-			  } 
-			  catch (IOException e1) {
-				e1.printStackTrace();
-			  }
 			  
 		  }
 		

@@ -135,8 +135,14 @@ public class biddingRoundPlayer1 extends JFrame implements ActionListener {
 				  maxBid1.setBidValue(player1BidValue);
 			  }
 			  
-			  else {
-				  
+			  else if (player1BidValue <= bid1) {
+				  try {
+					  exceptionPage errorOcurred = new exceptionPage();
+					  
+				  } 
+				  catch (IOException e1) {
+					e1.printStackTrace();
+				  }
 			  }
 			  
 			  try {

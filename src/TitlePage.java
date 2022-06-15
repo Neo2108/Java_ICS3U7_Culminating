@@ -48,6 +48,8 @@ public class TitlePage extends JFrame implements ActionListener {
       frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
    }
    
+   
+   
    // If button clicked... go to the next class
    public void actionPerformed(ActionEvent e) {
 	   

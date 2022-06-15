@@ -6,6 +6,7 @@ import java.io.*;
 public class itemDisplayPage extends JFrame implements ActionListener {
 	
 	JFrame frame = new JFrame();
+	selectedAuctionItem itemSelected = selectedAuctionItem.getInstance();
 	ImageIcon itemDisplay;
 	JLabel Img1;
 	JLabel itemAgeProperty;
@@ -32,9 +33,12 @@ public class itemDisplayPage extends JFrame implements ActionListener {
 		
 		// Assign item properties to variables for convenience in using
 		currentRoundItemName = itemName(itemNumber);
+		itemSelected.setItemName(currentRoundItemName);
 		currentRoundImage = itemImage(itemNumber);
 		currentRoundYearItemMade = yearItemMade(itemNumber);
+		itemSelected.setYearItemMade(currentRoundItemName);
 		currentRoundItemPrice = itemPrices(itemNumber);
+		itemSelected.setItemName(currentRoundItemName);
 		currentRoundItemAppreciationRate = itemAppreciationRate(itemNumber);
 		currentRoundItemLiquidity = itemLiquidity(itemNumber);
 

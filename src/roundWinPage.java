@@ -22,7 +22,11 @@ public class roundWinPage extends JFrame implements ActionListener {
 		frame.setLayout(null);
 		winnerPagePic = new ImageIcon(this.getClass().getResource("ImagesFolder1/WinPageSimulation.JPG"));
 		picLabel = new JLabel(winnerPagePic);
-		picLabel.setBounds(-100, -40, 800, 800);
+		picLabel.setBounds(20, 40, 800, 800);
+		
+		winnerDisplay = new JLabel("Player " + gameWinner + "/" + nameOfWinner + " wins the round!");
+		winnerDisplay.setFont(new Font("Impact", Font.PLAIN, 20));
+		winnerDisplay.setBounds(280,20,800,60);
 		
 		closeButton = new JButton("Close");
 		closeButton.setBounds(610, 530, 100, 40);
@@ -31,6 +35,7 @@ public class roundWinPage extends JFrame implements ActionListener {
 		
 		frame.add(picLabel);
 		frame.add(closeButton);
+		frame.add(winnerDisplay);
 		
 		
 		frame.setSize(710, 730);

@@ -133,9 +133,24 @@ public class biddingRoundPlayer1 extends JFrame implements ActionListener {
 			  
 			  if (player1BidValue > bid1) {
 				  maxBid1.setBidValue(player1BidValue);
+				  
+				  try {
+					  biddingRoundPlayer2 player2Turn = new biddingRoundPlayer2();
+					  
+				  } 
+				  catch (IOException e1) {
+					  e1.printStackTrace();
+				  }
 			  }
 			  
 			  else if (player1BidValue <= bid1) {
+				  try {
+					  biddingRoundPlayer2 player2Turn = new biddingRoundPlayer2();
+					  
+				  } 
+				  catch (IOException e1) {
+					  e1.printStackTrace();
+				  }
 				  try {
 					  exceptionPage errorOcurred = new exceptionPage();
 					  
@@ -143,14 +158,6 @@ public class biddingRoundPlayer1 extends JFrame implements ActionListener {
 				  catch (IOException e1) {
 					e1.printStackTrace();
 				  }
-			  }
-			  
-			  try {
-				  biddingRoundPlayer2 player2Turn = new biddingRoundPlayer2();
-				  
-			  } 
-			  catch (IOException e1) {
-				e1.printStackTrace();
 			  }
 			  
 		  }

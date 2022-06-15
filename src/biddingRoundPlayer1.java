@@ -23,8 +23,6 @@ public class biddingRoundPlayer1 extends JFrame implements ActionListener {
 			
 			frame.setLayout(null);
 			
-			//MaxBidCalculator maxBid1 = new MaxBidCalculator();
-			
 			rulesBackButton = new JButton("Rules");
 			rulesBackButton.setBounds(1140, 20, 100, 40);
 			rulesBackButton.addActionListener(this);

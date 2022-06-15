@@ -11,7 +11,7 @@ public class biddingRoundPlayer1 extends JFrame implements ActionListener {
 	JTextField player1Bid;
 	JLabel bidPrompt;
 	JLabel dollarSign;
-	int secondsPassed = 0;
+	int secondsLeft = 20;
 	JLabel maxBidDisplay;
 	public int player1BidValue;
 	JLabel countdownDisplay;
@@ -76,6 +76,7 @@ public class biddingRoundPlayer1 extends JFrame implements ActionListener {
 			            @Override
 			            public void run() {
 			                frame.dispose();
+			                secondsLeft--;
 			                
 			                try {
 			  				  biddingRoundPlayer2 player2Turn = new biddingRoundPlayer2();
@@ -132,6 +133,10 @@ public class biddingRoundPlayer1 extends JFrame implements ActionListener {
 			  
 			  if (player1BidValue > bid1) {
 				  maxBid1.setBidValue(player1BidValue);
+			  }
+			  
+			  else {
+				  
 			  }
 			  
 			  try {

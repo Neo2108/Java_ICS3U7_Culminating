@@ -79,6 +79,7 @@ public class biddingRoundPlayer2 extends JFrame implements ActionListener {
 			            @Override
 			            public void run() {
 			                frame.dispose();
+			                secondsPassed--;
 			                
 			            }
 			        }, 

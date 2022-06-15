@@ -184,7 +184,7 @@ public class itemDisplayPage extends JFrame implements ActionListener {
 			  frame.dispose();
 			  
 			  try {
-				  biddingRound1 askFirstBid = new biddingRound1();
+				  biddingRoundPlayer1 askFirstBid = new biddingRoundPlayer1();
 			  } 
 			  catch (IOException e1) {
 				e1.printStackTrace();

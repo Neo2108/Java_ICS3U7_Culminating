@@ -3,21 +3,21 @@ import java.awt.*;
 import java.io.*;
 import java.awt.event.*;
 
-public class biddingRound1 extends JFrame implements ActionListener {
+public class biddingRoundPlayer1 extends JFrame implements ActionListener {
 	
 	JFrame frame = new JFrame();
 	JTextField player1Bid;
 	JLabel bidPrompt;
 	JLabel dollarSign;
 	int secondsPassed = 0;
-	int maxBid = 0;
-	int player1BidValue = 0;
+	public int maxBid;
+	public int player1BidValue;
 	JLabel countdownDisplay;
 	JButton submitBid;
 	JButton glossaryBackButton;
 	JButton rulesBackButton;
 	
-	public biddingRound1() throws IOException {
+	public biddingRoundPlayer1() throws IOException {
 			
 			frame.setLayout(null);
 			
@@ -36,7 +36,7 @@ public class biddingRound1 extends JFrame implements ActionListener {
 			submitBid.addActionListener(this);
 			submitBid.setBackground(Color.LIGHT_GRAY);
 			
-			bidPrompt = new JLabel("Player 1 - Enter your Bid, you have 5 seconds: ");
+			bidPrompt = new JLabel("Player 1 - Enter your Bid, you have 10 seconds: ");
 			bidPrompt.setFont(new Font("Impact", Font.PLAIN, 30));
 			bidPrompt.setBounds(380,145,800,90);
 			
@@ -78,7 +78,7 @@ public class biddingRound1 extends JFrame implements ActionListener {
 		}
 
 	public static void main(String[] args) throws IOException {
-		new biddingRound1();
+		new biddingRoundPlayer1();
 
 	}
 
@@ -115,6 +115,8 @@ public class biddingRound1 extends JFrame implements ActionListener {
 			  
 			  player1BidValue = Integer.parseInt(player1Bid.getText());
 			  player1BidValue = maxBid;
+			  
+			  
 			  
 
 			  /*

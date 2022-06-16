@@ -1,13 +1,17 @@
 import javax.swing.*;
 import java.awt.*;
 import java.io.*;
+import java.util.*;
+import java.util.Timer;
 import java.awt.event.*;
 
 public class biddingRoundPlayer1 extends JFrame implements ActionListener {
 	
 	JFrame frame = new JFrame();
+	Timer timer = new Timer();
 	MaxBidCalculator maxBid1 = MaxBidCalculator.getInstance();
 	selectedAuctionItem itemSelected = selectedAuctionItem.getInstance();
+	playerDataProperties1 userData1 = playerDataProperties1.getInstance();
 	int bid1 = maxBid1.getBidValue();
 	JTextField player1Bid;
 	JLabel bidPrompt;
@@ -17,6 +21,7 @@ public class biddingRoundPlayer1 extends JFrame implements ActionListener {
 	public int player1BidValue;
 	JLabel countdownDisplay;
 	JButton submitBid;
+	int gameWinner = 1;
 	JButton glossaryBackButton;
 	JButton rulesBackButton;
 	JButton endBid;
@@ -45,7 +50,7 @@ public class biddingRoundPlayer1 extends JFrame implements ActionListener {
 			endBid.addActionListener(this);
 			endBid.setBackground(Color.LIGHT_GRAY);
 			
-			bidPrompt = new JLabel("Player 1 - Enter your Bid, you have 10 seconds: ");
+			bidPrompt = new JLabel("Player 1 - Enter your Bid, you have 15 seconds: ");
 			bidPrompt.setFont(new Font("Impact", Font.PLAIN, 30));
 			bidPrompt.setBounds(380,145,800,90);
 			
@@ -70,6 +75,7 @@ public class biddingRoundPlayer1 extends JFrame implements ActionListener {
 			frame.add(bidPrompt);
 			frame.add(dollarSign);
 			frame.add(maxBidDisplay);
+			frame.add(endBid);
 			
 			
 			frame.setSize(1275, 775);
@@ -78,11 +84,16 @@ public class biddingRoundPlayer1 extends JFrame implements ActionListener {
 			frame.setVisible(true);
 		    frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		    
-		    new java.util.Timer().schedule( 
-			        new java.util.TimerTask() {
+		    
+		    
+		    timer.schedule(new TimerTask() 
+		    			{
 			            @Override
 			            public void run() {
-			                
+			            	
+			            	frame.dispose();
+			            	
+			            	
 			                try {
 			  				  roundWinPage roundWinner = new roundWinPage();
 			  			  	} 
@@ -92,7 +103,7 @@ public class biddingRoundPlayer1 extends JFrame implements ActionListener {
 			                
 			            }
 			        }, 
-			        20000 
+			        15000
 			);
 		    
 		}
@@ -132,13 +143,14 @@ public class biddingRoundPlayer1 extends JFrame implements ActionListener {
 		  else if (e.getSource() == submitBid) {
 			  
 			  frame.dispose();
+			  timer.cancel();
 			  // MaxBidCalculator maxBid1 = new MaxBidCalculator();
 			  
-			  player1BidValue = Integer.parseInt(player1Bid.getText());
+			  player1BidValue = Integer.parseInt(player1Bid.getText()); 
 			  
 			  
-			  
-			  if (player1BidValue > bid1 && bid1 > itemSelected.getPrice()) {
+			  if (player1BidValue > bid1 && player1BidValue > itemSelected.getPrice()) {
+				  System.out.println("I am inside if-statement");
 				  maxBid1.setBidValue(player1BidValue);
 				  
 				  try {
@@ -150,7 +162,7 @@ public class biddingRoundPlayer1 extends JFrame implements ActionListener {
 				  }
 			  }
 			  
-			  else {
+			  else if (player1BidValue < bid1 || bid1 < itemSelected.getPrice()) {
 				  try {
 					  biddingRoundPlayer2 player2Turn = new biddingRoundPlayer2();
 					  
@@ -172,9 +184,11 @@ public class biddingRoundPlayer1 extends JFrame implements ActionListener {
 		  else if (e.getSource() == endBid) {
 			  
 			  frame.dispose();
+			  gameWinner = 0;
+			  userData1.setGameWinner(gameWinner);
 			  
 			  try {
-				  Glossary howToPlay1 = new Glossary();
+				  roundWinPage winnerShow = new roundWinPage();
 			  } 
 			  catch (IOException e1) {
 				e1.printStackTrace();

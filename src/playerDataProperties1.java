@@ -10,6 +10,7 @@ public class playerDataProperties1 {
 	private String name;
 	private int age;
 	private String occupation;
+	private int gameWinner;
 	
 	public void setPlayerName(String playerName) {
 		this.name = playerName;
@@ -23,6 +24,10 @@ public class playerDataProperties1 {
 		this.occupation = playerOccupation;
 	}
 	
+	public void setGameWinner(int winner) {
+		this.gameWinner = winner;
+	}
+	
 	public String getPlayerName() {
 		return this.name;
 	}
@@ -33,6 +38,10 @@ public class playerDataProperties1 {
 	
 	public String getPlayerOccupation() {
 		return this.occupation;
+	}
+	
+	public int getGameWinner() {
+		return this.gameWinner;
 	}
 
 	

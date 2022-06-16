@@ -9,7 +9,8 @@ import java.io.*;
 public class roundWinPage extends JFrame implements ActionListener {
 	
 	JFrame frame;
-	playerDataProperties1 userData = playerDataProperties1.getInstance();
+	playerDataProperties1 userData1 = playerDataProperties1.getInstance();
+	playerDataProperties1 userData2 = playerDataProperties1.getInstance();
 	ImageIcon winnerPagePic;
 	JLabel picLabel;
 	JLabel winnerDisplay;
@@ -25,9 +26,18 @@ public class roundWinPage extends JFrame implements ActionListener {
 		picLabel = new JLabel(winnerPagePic);
 		picLabel.setBounds(20, 40, 800, 800);
 		
-		winnerDisplay = new JLabel(userData.getPlayerName() + " wins the round!");
-		winnerDisplay.setFont(new Font("Impact", Font.PLAIN, 20));
-		winnerDisplay.setBounds(280,20,800,60);
+		
+		if (userData1.getGameWinner() == 0) {
+			winnerDisplay = new JLabel(userData2.getPlayerName() + " wins the round!");
+			winnerDisplay.setFont(new Font("Impact", Font.PLAIN, 20));
+			winnerDisplay.setBounds(280,20,800,60);
+		}
+		
+		else if (userData2.getGameWinner() == 0) {
+			winnerDisplay = new JLabel(userData1.getPlayerName() + " wins the round!");
+			winnerDisplay.setFont(new Font("Impact", Font.PLAIN, 20));
+			winnerDisplay.setBounds(280,20,800,60);
+		}
 		
 		closeButton = new JButton("Close");
 		closeButton.setBounds(610, 530, 100, 40);
@@ -39,7 +49,7 @@ public class roundWinPage extends JFrame implements ActionListener {
 		frame.add(winnerDisplay);
 		
 		
-		frame.setSize(710, 730);
+		frame.setSize(1275, 775);
 		Color color2 = new Color (195, 195, 0);
 		frame.getContentPane().setBackground(color2);
 	    frame.setVisible(true);

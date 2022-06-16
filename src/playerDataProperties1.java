@@ -11,6 +11,7 @@ public class playerDataProperties1 {
 	private int age;
 	private String occupation;
 	private int gameWinner;
+	private int winningBid;
 	
 	public void setPlayerName(String playerName) {
 		this.name = playerName;
@@ -28,6 +29,10 @@ public class playerDataProperties1 {
 		this.gameWinner = winner;
 	}
 	
+	public void setWinningBid(int bid) {
+		this.winningBid = bid;
+	}
+	
 	public String getPlayerName() {
 		return this.name;
 	}
@@ -42,6 +47,10 @@ public class playerDataProperties1 {
 	
 	public int getGameWinner() {
 		return this.gameWinner;
+	}
+	
+	public int getWinningBid() {
+		return this.winningBid;
 	}
 
 	

@@ -1,0 +1,3 @@
+Name: Bob
+Occupation: Teacher
+Age: 18

@@ -28,13 +28,13 @@ public class roundWinPage extends JFrame implements ActionListener {
 		
 		
 		if (userData1.getGameWinner() == 0) {
-			winnerDisplay = new JLabel(userData2.getPlayerName() + " wins the round!");
+			winnerDisplay = new JLabel(userData1.getPlayerName() + " wins the round!");
 			winnerDisplay.setFont(new Font("Impact", Font.PLAIN, 20));
 			winnerDisplay.setBounds(280,20,800,60);
 		}
 		
 		else if (userData2.getGameWinner() == 0) {
-			winnerDisplay = new JLabel(userData1.getPlayerName() + " wins the round!");
+			winnerDisplay = new JLabel(userData2.getPlayerName() + " wins the round!");
 			winnerDisplay.setFont(new Font("Impact", Font.PLAIN, 20));
 			winnerDisplay.setBounds(280,20,800,60);
 		}

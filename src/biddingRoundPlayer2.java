@@ -185,6 +185,7 @@ public class biddingRoundPlayer2 extends JFrame implements ActionListener {
 		  else if (e.getSource() == endBid) {
 			  
 			  frame.dispose();
+			  timer2.cancel();
 			  gameWinner = 0;
 			  userData2.setGameWinner(gameWinner);
 			  

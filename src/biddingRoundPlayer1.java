@@ -144,13 +144,12 @@ public class biddingRoundPlayer1 extends JFrame implements ActionListener {
 			  
 			  frame.dispose();
 			  timer.cancel();
-			  // MaxBidCalculator maxBid1 = new MaxBidCalculator();
 			  
 			  player1BidValue = Integer.parseInt(player1Bid.getText()); 
 			  
 			  
 			  if (player1BidValue > bid1 && player1BidValue > itemSelected.getPrice()) {
-				  System.out.println("I am inside if-statement");
+				  
 				  maxBid1.setBidValue(player1BidValue);
 				  
 				  try {
@@ -184,6 +183,7 @@ public class biddingRoundPlayer1 extends JFrame implements ActionListener {
 		  else if (e.getSource() == endBid) {
 			  
 			  frame.dispose();
+			  timer.cancel();
 			  gameWinner = 0;
 			  userData1.setGameWinner(gameWinner);
 			  

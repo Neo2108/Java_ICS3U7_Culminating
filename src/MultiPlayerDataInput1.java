@@ -9,6 +9,7 @@ import java.io.*;
 public class MultiPlayerDataInput1 extends JFrame implements ActionListener {
 	
 	JFrame frame = new JFrame();
+	playerDataProperties1 userData = playerDataProperties1.getInstance();
 	JLabel heading;
 	JLabel age;
 	JLabel name;
@@ -104,9 +105,12 @@ public class MultiPlayerDataInput1 extends JFrame implements ActionListener {
 			  
 			  
 			  
-			   nameText = nameSelect.getText();
-			   occupationText = jobSelect.getText();
+			  nameText = nameSelect.getText();
+			  userData.setPlayerName(nameText);
+			  occupationText = jobSelect.getText();
+			  userData.setPlayerOccupation(occupationText);
 			  ageText =  (String) ageSelect.getSelectedItem();
+			  userData.setPlayerAge(Integer.parseInt(ageText));
 			  
 			  
 			try {

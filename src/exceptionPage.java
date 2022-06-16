@@ -23,7 +23,7 @@ public class exceptionPage extends JFrame implements ActionListener {
 		label.setFont(new Font("Impact", Font.PLAIN, 30));
 		label.setBounds(10,125,800,90);
 		
-		label2 = new JLabel ("02 - Please enter a bid greater than maxBid!");
+		label2 = new JLabel ("02 - Please enter a bid greater than maxBid and the starting price!");
 		label2.setFont(new Font("Impact", Font.PLAIN, 30));
 		label2.setBounds(580,125,800,90);
 		

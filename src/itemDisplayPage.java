@@ -36,11 +36,13 @@ public class itemDisplayPage extends JFrame implements ActionListener {
 		itemSelected.setItemName(currentRoundItemName);
 		currentRoundImage = itemImage(itemNumber);
 		currentRoundYearItemMade = yearItemMade(itemNumber);
-		itemSelected.setYearItemMade(currentRoundItemName);
+		itemSelected.setYearMade(currentRoundYearItemMade);
 		currentRoundItemPrice = itemPrices(itemNumber);
-		itemSelected.setItemName(currentRoundItemName);
+		itemSelected.setPrice(currentRoundItemPrice);
 		currentRoundItemAppreciationRate = itemAppreciationRate(itemNumber);
+		itemSelected.setAppreciationRate(currentRoundItemAppreciationRate);
 		currentRoundItemLiquidity = itemLiquidity(itemNumber);
+		itemSelected.setLiquidity(currentRoundItemLiquidity);
 
 		frame.setLayout(null);
 		

@@ -7,6 +7,7 @@ public class biddingRoundPlayer1 extends JFrame implements ActionListener {
 	
 	JFrame frame = new JFrame();
 	MaxBidCalculator maxBid1 = MaxBidCalculator.getInstance();
+	selectedAuctionItem itemSelected = selectedAuctionItem.getInstance();
 	int bid1 = maxBid1.getBidValue();
 	JTextField player1Bid;
 	JLabel bidPrompt;
@@ -18,6 +19,7 @@ public class biddingRoundPlayer1 extends JFrame implements ActionListener {
 	JButton submitBid;
 	JButton glossaryBackButton;
 	JButton rulesBackButton;
+	JButton endBid;
 	
 	public biddingRoundPlayer1() throws IOException {
 			
@@ -37,6 +39,11 @@ public class biddingRoundPlayer1 extends JFrame implements ActionListener {
 			submitBid.setBounds(522, 300, 100, 40);
 			submitBid.addActionListener(this);
 			submitBid.setBackground(Color.LIGHT_GRAY);
+			
+			endBid = new JButton("End Bid");
+			endBid.setBounds(322, 300, 100, 40);
+			endBid.addActionListener(this);
+			endBid.setBackground(Color.LIGHT_GRAY);
 			
 			bidPrompt = new JLabel("Player 1 - Enter your Bid, you have 10 seconds: ");
 			bidPrompt.setFont(new Font("Impact", Font.PLAIN, 30));
@@ -75,11 +82,9 @@ public class biddingRoundPlayer1 extends JFrame implements ActionListener {
 			        new java.util.TimerTask() {
 			            @Override
 			            public void run() {
-			                frame.dispose();
-			                secondsLeft--;
 			                
 			                try {
-			  				  biddingRoundPlayer2 player2Turn = new biddingRoundPlayer2();
+			  				  roundWinPage roundWinner = new roundWinPage();
 			  			  	} 
 			  			  	catch (IOException e1) {
 			  			  		e1.printStackTrace();
@@ -131,7 +136,9 @@ public class biddingRoundPlayer1 extends JFrame implements ActionListener {
 			  
 			  player1BidValue = Integer.parseInt(player1Bid.getText());
 			  
-			  if (player1BidValue > bid1) {
+			  
+			  
+			  if (player1BidValue > bid1 && bid1 > itemSelected.getPrice()) {
 				  maxBid1.setBidValue(player1BidValue);
 				  
 				  try {
@@ -143,7 +150,7 @@ public class biddingRoundPlayer1 extends JFrame implements ActionListener {
 				  }
 			  }
 			  
-			  else if (player1BidValue <= bid1) {
+			  else {
 				  try {
 					  biddingRoundPlayer2 player2Turn = new biddingRoundPlayer2();
 					  
@@ -160,6 +167,18 @@ public class biddingRoundPlayer1 extends JFrame implements ActionListener {
 				  }
 			  }
 			  
+		  }
+		
+		  else if (e.getSource() == endBid) {
+			  
+			  frame.dispose();
+			  
+			  try {
+				  Glossary howToPlay1 = new Glossary();
+			  } 
+			  catch (IOException e1) {
+				e1.printStackTrace();
+			  }
 		  }
 		
 	}

@@ -7,6 +7,7 @@ public class biddingRoundPlayer2 extends JFrame implements ActionListener {
 	
 	JFrame frame = new JFrame();
 	MaxBidCalculator maxBid2 = MaxBidCalculator.getInstance();
+	selectedAuctionItem itemSelected = selectedAuctionItem.getInstance();
 	int bid2 = maxBid2.getBidValue();
 	JTextField player2Bid;
 	JLabel bidPrompt;
@@ -19,7 +20,7 @@ public class biddingRoundPlayer2 extends JFrame implements ActionListener {
 	JButton submitBid;
 	JButton glossaryBackButton;
 	JButton rulesBackButton;
-	
+	JButton endBid;
 	
 	
 	public biddingRoundPlayer2() throws IOException {
@@ -127,7 +128,7 @@ public class biddingRoundPlayer2 extends JFrame implements ActionListener {
 			  
 			  player2BidValue = Integer.parseInt(player2Bid.getText());
 			  
-			  if (player2BidValue > bid2) {
+			  if (player2BidValue > bid2 && bid2 > itemSelected.getPrice()) {
 				  maxBid2.setBidValue(player2BidValue);
 				  
 				  try {
@@ -139,7 +140,7 @@ public class biddingRoundPlayer2 extends JFrame implements ActionListener {
 				  }
 			  }
 			  
-			  else if (player2BidValue <= bid2) {
+			  else {
 				  try {
 					  biddingRoundPlayer1 player1Turn = new biddingRoundPlayer1();
 					  

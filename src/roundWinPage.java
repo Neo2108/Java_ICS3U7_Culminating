@@ -9,6 +9,7 @@ import java.io.*;
 public class roundWinPage extends JFrame implements ActionListener {
 	
 	JFrame frame;
+	playerDataProperties1 userData = playerDataProperties1.getInstance();
 	ImageIcon winnerPagePic;
 	JLabel picLabel;
 	JLabel winnerDisplay;
@@ -24,7 +25,7 @@ public class roundWinPage extends JFrame implements ActionListener {
 		picLabel = new JLabel(winnerPagePic);
 		picLabel.setBounds(20, 40, 800, 800);
 		
-		winnerDisplay = new JLabel("Player " + gameWinner + "/" + nameOfWinner + " wins the round!");
+		winnerDisplay = new JLabel(userData.getPlayerName() + " wins the round!");
 		winnerDisplay.setFont(new Font("Impact", Font.PLAIN, 20));
 		winnerDisplay.setBounds(280,20,800,60);
 		

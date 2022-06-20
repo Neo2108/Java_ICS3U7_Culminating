@@ -1,0 +1,3 @@
+Name: Kelvin
+Occupation: Student
+Age: 18

@@ -1,0 +1,3 @@
+Name: Neo
+Occupation: Student
+Age: 18

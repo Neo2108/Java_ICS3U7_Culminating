@@ -24,10 +24,11 @@ public class TitlePage extends JFrame implements ActionListener {
 	  image3 = new JLabel(img3);
 	  title = new JLabel("The Auctioneer!");
 	  title.setFont(new Font("Impact", Font.PLAIN, 60));
-	  title.setBounds(480,20,800,60);
+	  title.setBounds(480,20,800,150);
 	  image.setBounds(680,200,600,400);
-	  image2.setBounds(20, 20, 600, 600);
+	  image2.setBounds(20, 20, 550, 650);
 	  image3.setBounds(810,80,600,400);
+	  title.setForeground(Color.white);
 	  button = new JButton("Proceed");
 	  button.setBounds(530, 400, 250, 60);
 	  button.addActionListener(this);
@@ -42,7 +43,7 @@ public class TitlePage extends JFrame implements ActionListener {
 	  frame.add(button);
 	  
 	  frame.setSize(1275, 775);
-	  Color color2 = new Color (195, 195, 0);
+	  Color color2 = new Color (32, 82, 92);
 	  frame.getContentPane().setBackground(color2);
       frame.setVisible(true);
       frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -58,7 +59,7 @@ public class TitlePage extends JFrame implements ActionListener {
 		  frame.dispose();
 		  
 		  try {
-			  GameMode newMenu = new GameMode();
+			  gameMode newMenu = new gameMode();
 		  } 
 		  catch (IOException e1) {
 			  e1.printStackTrace();

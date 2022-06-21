@@ -32,20 +32,29 @@ public class Rules extends JFrame implements ActionListener {
 		frame.add(rulesImage1);
 		frame.add(closeButton);
 		
+		
 		frame.setSize(730, 750);
 		Color color2 = new Color (83, 195, 0);
 		frame.getContentPane().setBackground(color2);
 	    frame.setVisible(true);
 	    frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
 	}
+
 	// Call method, that is the Rules page
 	public static void main(String[] args) throws IOException {
 		new Rules(); 
+		
+
 	}
+
+
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == closeButton) {
 			  
-			  frame.dispose();	  
+			  frame.dispose();
+			  
 		  }
+		
 	}
+
 }

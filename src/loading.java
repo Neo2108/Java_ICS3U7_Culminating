@@ -4,12 +4,12 @@ import java.awt.event.ActionListener;
 import java.io.*;
 import javax.swing.*;
 
-public class loading extends JFrame implements ActionListener {
+public class Loading extends JFrame implements ActionListener {
 	JFrame frame;
 	ImageIcon img;
 	JLabel image;
     
-    public loading() throws IOException, InterruptedException{
+    public Loading() throws IOException, InterruptedException{
     	frame = new JFrame();
 		frame.setLayout(null);
 		img = new ImageIcon(this.getClass().getResource("ImagesFolder1/512x512.gif"));
@@ -33,7 +33,7 @@ public class loading extends JFrame implements ActionListener {
 		
 	}
 	public static void main(String[] args) throws Exception {
-		 new loading();
+		 new Loading();
 	 }
     }
 

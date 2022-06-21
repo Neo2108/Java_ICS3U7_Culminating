@@ -3,10 +3,10 @@ import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
 
-public class itemDisplayPage extends JFrame implements ActionListener {
+public class ItemDisplayPage extends JFrame implements ActionListener {
 	
 	JFrame frame = new JFrame();
-	selectedAuctionItem itemSelected = selectedAuctionItem.getInstance();
+	SelectedAuctionItem itemSelected = SelectedAuctionItem.getInstance();
 	ImageIcon itemDisplay;
 	JLabel Img1;
 	JLabel itemAgeProperty;
@@ -26,7 +26,7 @@ public class itemDisplayPage extends JFrame implements ActionListener {
 	public int currentRoundItemLiquidity;
 	
 	
-	public itemDisplayPage() throws IOException {
+	public ItemDisplayPage() throws IOException {
 		
 		// Picks random item from the number of items available
 		int itemNumber = ((int) (Math.random()*10) + 1);
@@ -115,7 +115,7 @@ public class itemDisplayPage extends JFrame implements ActionListener {
 
 	public static void main(String[] args) throws IOException {
 		
-		new itemDisplayPage();
+		new ItemDisplayPage();
 		
 	}
 
@@ -190,7 +190,7 @@ public class itemDisplayPage extends JFrame implements ActionListener {
 			  frame.dispose();
 			  
 			  try {
-				  biddingRoundPlayer1 askFirstBid = new biddingRoundPlayer1();
+				  BiddingRoundPlayer1 askFirstBid = new BiddingRoundPlayer1();
 			  } 
 			  catch (IOException e1) {
 				e1.printStackTrace();

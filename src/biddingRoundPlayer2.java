@@ -4,13 +4,13 @@ import java.io.*;
 import java.awt.event.*;
 import java.util.Timer;
 
-public class biddingRoundPlayer2 extends JFrame implements ActionListener {
+public class BiddingRoundPlayer2 extends JFrame implements ActionListener {
 	
 	JFrame frame = new JFrame();
 	Timer timer2 = new Timer();
 	MaxBidCalculator maxBid2 = MaxBidCalculator.getInstance();
-	selectedAuctionItem itemSelected = selectedAuctionItem.getInstance();
-	playerDataProperties1 userData2 = playerDataProperties1.getInstance();
+	SelectedAuctionItem itemSelected = SelectedAuctionItem.getInstance();
+	PlayerDataProperties1 userData2 = PlayerDataProperties1.getInstance();
 	int bid2 = maxBid2.getBidValue();
 	JTextField player2Bid;
 	JLabel bidPrompt;
@@ -27,7 +27,7 @@ public class biddingRoundPlayer2 extends JFrame implements ActionListener {
 	JButton endBid;
 	
 	
-	public biddingRoundPlayer2() throws IOException {
+	public BiddingRoundPlayer2() throws IOException {
 			
 			frame.setLayout(null);
 			
@@ -95,7 +95,7 @@ public class biddingRoundPlayer2 extends JFrame implements ActionListener {
 			                
 			            	
 			                try {
-			  				  roundWinPage roundWinner2 = new roundWinPage();
+			  				  RoundWinPage roundWinner2 = new RoundWinPage();
 			  			  	} 
 			  			  	catch (IOException e1) {
 			  			  		e1.printStackTrace();
@@ -109,7 +109,7 @@ public class biddingRoundPlayer2 extends JFrame implements ActionListener {
 		}
 
 	public static void main(String[] args) throws IOException {
-		new biddingRoundPlayer2();
+		new BiddingRoundPlayer2();
 
 	}
 
@@ -152,7 +152,7 @@ public class biddingRoundPlayer2 extends JFrame implements ActionListener {
 				  maxBid2.setBidValue(player2BidValue);
 				  
 				  try {
-					  biddingRoundPlayer1 player1Turn = new biddingRoundPlayer1();
+					  BiddingRoundPlayer1 player1Turn = new BiddingRoundPlayer1();
 					  
 				  } 
 				  catch (IOException e1) {
@@ -162,7 +162,7 @@ public class biddingRoundPlayer2 extends JFrame implements ActionListener {
 			  
 			  else if (player2BidValue > bid2 && player2BidValue > itemSelected.getPrice()) {
 				  try {
-					  biddingRoundPlayer1 player1Turn = new biddingRoundPlayer1();
+					  BiddingRoundPlayer1 player1Turn = new BiddingRoundPlayer1();
 					  
 				  } 
 				  catch (IOException e1) {
@@ -170,7 +170,7 @@ public class biddingRoundPlayer2 extends JFrame implements ActionListener {
 				  }
 				  
 				  try {
-					  exceptionPage errorOcurred = new exceptionPage();
+					  ExceptionPage errorOcurred = new ExceptionPage();
 					  
 				  } 
 				  catch (IOException e1) {
@@ -190,7 +190,7 @@ public class biddingRoundPlayer2 extends JFrame implements ActionListener {
 			  userData2.setGameWinner(gameWinner);
 			  
 			  try {
-				  roundWinPage winnerShow = new roundWinPage();
+				  RoundWinPage winnerShow = new RoundWinPage();
 			  } 
 			  catch (IOException e1) {
 				e1.printStackTrace();

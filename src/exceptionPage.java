@@ -5,14 +5,14 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class exceptionPage extends JFrame implements ActionListener {
+public class ExceptionPage extends JFrame implements ActionListener {
 	
 	private JLabel label;
 	private JLabel label2;
 	private JFrame frame;
 	JButton button;
 	
-	public exceptionPage() throws IOException  {
+	public ExceptionPage() throws IOException  {
 		
 		frame = new JFrame();
 		button = new JButton("Close Tab");
@@ -38,7 +38,7 @@ public class exceptionPage extends JFrame implements ActionListener {
 	}
 
 	public static void main(String[] args) throws IOException {
-		new exceptionPage();
+		new ExceptionPage();
 		
 		
 	}

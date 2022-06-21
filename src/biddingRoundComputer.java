@@ -5,13 +5,13 @@ import java.util.*;
 import java.util.Timer;
 import java.awt.event.*;
 
-public class biddingRoundComputer extends JFrame implements ActionListener {
+public class BiddingRoundComputer extends JFrame implements ActionListener {
 	
 	JFrame frame = new JFrame();
 	Timer timer = new Timer();
 	MaxBidCalculator maxBid1 = MaxBidCalculator.getInstance();
-	selectedAuctionItem itemSelected = selectedAuctionItem.getInstance();
-	playerDataProperties1 userData1 = playerDataProperties1.getInstance();
+	SelectedAuctionItem itemSelected = SelectedAuctionItem.getInstance();
+	PlayerDataProperties1 userData1 = PlayerDataProperties1.getInstance();
 	int bid1 = maxBid1.getBidValue();
 	JTextField player1Bid;
 	JLabel bidPrompt;
@@ -26,7 +26,7 @@ public class biddingRoundComputer extends JFrame implements ActionListener {
 	JButton rulesBackButton;
 	JButton endBid;
 	
-	public biddingRoundComputer() throws IOException {
+	public BiddingRoundComputer() throws IOException {
 			
 			frame.setLayout(null);
 			
@@ -95,7 +95,7 @@ public class biddingRoundComputer extends JFrame implements ActionListener {
 			            	
 			            	
 			                try {
-			  				  roundWinPage roundWinner = new roundWinPage();
+			  				  RoundWinPage roundWinner = new RoundWinPage();
 			  			  	} 
 			  			  	catch (IOException e1) {
 			  			  		e1.printStackTrace();
@@ -109,7 +109,7 @@ public class biddingRoundComputer extends JFrame implements ActionListener {
 		}
 
 	public static void main(String[] args) throws IOException {
-		new biddingRoundComputer();
+		new BiddingRoundComputer();
 
 	}
 

@@ -1,5 +1,5 @@
 
-public class cashValueCalculation {
+public class CashValueCalculation {
 	
 	int player1CashValue = 1000000;
 	int player2CashValue = 1000000;

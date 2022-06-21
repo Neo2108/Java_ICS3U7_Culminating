@@ -9,7 +9,7 @@ import java.io.*;
 public class MultiPlayerDataInput1 extends JFrame implements ActionListener {
 	
 	JFrame frame = new JFrame();
-	playerDataProperties1 userData1 = playerDataProperties1.getInstance();
+	PlayerDataProperties1 userData1 = PlayerDataProperties1.getInstance();
 	JLabel heading;
 	JLabel age;
 	JLabel name;

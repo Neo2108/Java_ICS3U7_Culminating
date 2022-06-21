@@ -80,7 +80,7 @@ public class MainMenu extends JFrame implements ActionListener {
 			  frame.dispose();
 			  
 			  try {
-					itemDisplayPage displayItem = new itemDisplayPage();
+					ItemDisplayPage displayItem = new ItemDisplayPage();
 			  } 
 			  catch (IOException e1) {
 					e1.printStackTrace();

@@ -5,13 +5,13 @@ import java.util.*;
 import java.util.Timer;
 import java.awt.event.*;
 
-public class biddingRoundSinglePlayer extends JFrame implements ActionListener {
+public class BiddingRoundSinglePlayer extends JFrame implements ActionListener {
 	
 	JFrame frame = new JFrame();
 	Timer timer = new Timer();
 	MaxBidCalculator maxBid1 = MaxBidCalculator.getInstance();
-	selectedAuctionItem itemSelected = selectedAuctionItem.getInstance();
-	playerDataProperties1 userData1 = playerDataProperties1.getInstance();
+	SelectedAuctionItem itemSelected = SelectedAuctionItem.getInstance();
+	PlayerDataProperties1 userData1 = PlayerDataProperties1.getInstance();
 	int bid1 = maxBid1.getBidValue();
 	JTextField player1Bid;
 	JLabel bidPrompt;
@@ -26,7 +26,7 @@ public class biddingRoundSinglePlayer extends JFrame implements ActionListener {
 	JButton rulesBackButton;
 	JButton endBid;
 	
-	public biddingRoundSinglePlayer() throws IOException {
+	public BiddingRoundSinglePlayer() throws IOException {
 			
 			frame.setLayout(null);
 			
@@ -95,7 +95,7 @@ public class biddingRoundSinglePlayer extends JFrame implements ActionListener {
 			            	
 			            	
 			                try {
-			  				  roundWinPage roundWinner = new roundWinPage();
+			  				  RoundWinPage roundWinner = new RoundWinPage();
 			  			  	} 
 			  			  	catch (IOException e1) {
 			  			  		e1.printStackTrace();
@@ -109,7 +109,7 @@ public class biddingRoundSinglePlayer extends JFrame implements ActionListener {
 		}
 
 	public static void main(String[] args) throws IOException {
-		new biddingRoundSinglePlayer();
+		new BiddingRoundSinglePlayer();
 
 	}
 
@@ -153,7 +153,7 @@ public class biddingRoundSinglePlayer extends JFrame implements ActionListener {
 				  maxBid1.setBidValue(player1BidValue);
 				  
 				  try {
-					  biddingRoundComputer computerTurn = new biddingRoundComputer();
+					  BiddingRoundComputer computerTurn = new BiddingRoundComputer();
 					  
 				  } 
 				  catch (IOException e1) {
@@ -163,14 +163,14 @@ public class biddingRoundSinglePlayer extends JFrame implements ActionListener {
 			  
 			  else if (player1BidValue < bid1 || bid1 < itemSelected.getPrice()) {
 				  try {
-					  biddingRoundComputer computerTurn = new biddingRoundComputer();
+					  BiddingRoundComputer computerTurn = new BiddingRoundComputer();
 					  
 				  } 
 				  catch (IOException e1) {
 					  e1.printStackTrace();
 				  }
 				  try {
-					  exceptionPage errorOcurred = new exceptionPage();
+					  ExceptionPage errorOcurred = new ExceptionPage();
 					  
 				  } 
 				  catch (IOException e1) {
@@ -188,7 +188,7 @@ public class biddingRoundSinglePlayer extends JFrame implements ActionListener {
 			  userData1.setGameWinner(gameWinner);
 			  
 			  try {
-				  roundWinPage winnerShow = new roundWinPage();
+				  RoundWinPage winnerShow = new RoundWinPage();
 			  } 
 			  catch (IOException e1) {
 				e1.printStackTrace();

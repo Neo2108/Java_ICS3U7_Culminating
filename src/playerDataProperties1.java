@@ -1,10 +1,10 @@
-public class playerDataProperties1 {
+public class PlayerDataProperties1 {
 	
-	private static playerDataProperties1 itemSelectedSingleton = new playerDataProperties1();
+	private static PlayerDataProperties1 itemSelectedSingleton = new PlayerDataProperties1();
 	
-	private playerDataProperties1() {}
+	private PlayerDataProperties1() {}
 	
-	public static playerDataProperties1 getInstance() {
+	public static PlayerDataProperties1 getInstance() {
 		return itemSelectedSingleton;
 	}
 	private String name;

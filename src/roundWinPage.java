@@ -6,11 +6,11 @@ import java.io.*;
 
 
 // Glossary class
-public class roundWinPage extends JFrame implements ActionListener {
+public class RoundWinPage extends JFrame implements ActionListener {
 	
 	JFrame frame;
-	playerDataProperties1 userData1 = playerDataProperties1.getInstance();
-	playerDataProperties1 userData2 = playerDataProperties1.getInstance();
+	PlayerDataProperties1 userData1 = PlayerDataProperties1.getInstance();
+	PlayerDataProperties1 userData2 = PlayerDataProperties1.getInstance();
 	ImageIcon winnerPagePic;
 	JLabel picLabel;
 	JLabel winnerDisplay;
@@ -19,7 +19,7 @@ public class roundWinPage extends JFrame implements ActionListener {
 	String nameOfWinner = "";
 	
 	// Method for all GUI elements on page
-	public roundWinPage() throws IOException {
+	public RoundWinPage() throws IOException {
 		frame = new JFrame();
 		frame.setLayout(null);
 		winnerPagePic = new ImageIcon(this.getClass().getResource("ImagesFolder1/WinPageSimulation.JPG"));
@@ -58,7 +58,7 @@ public class roundWinPage extends JFrame implements ActionListener {
 
 	// Call Glossary Page method
 	public static void main(String[] args) throws IOException {
-		new roundWinPage(); 
+		new RoundWinPage(); 
 		
 
 	}

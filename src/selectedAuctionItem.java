@@ -1,10 +1,10 @@
-public class selectedAuctionItem {
+public class SelectedAuctionItem {
 	
-	private static selectedAuctionItem itemSelectedSingleton = new selectedAuctionItem();
+	private static SelectedAuctionItem itemSelectedSingleton = new SelectedAuctionItem();
 	
-	private selectedAuctionItem() {}
+	private SelectedAuctionItem() {}
 	
-	public static selectedAuctionItem getInstance() {
+	public static SelectedAuctionItem getInstance() {
 		return itemSelectedSingleton;
 	}
 	private String name;

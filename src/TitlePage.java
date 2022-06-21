@@ -58,7 +58,7 @@ public class TitlePage extends JFrame implements ActionListener {
 		  frame.dispose();
 		  
 		  try {
-			  gameMode newMenu = new gameMode();
+			  GameMode newMenu = new GameMode();
 		  } 
 		  catch (IOException e1) {
 			  e1.printStackTrace();

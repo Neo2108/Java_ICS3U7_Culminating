@@ -3,10 +3,10 @@ import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
 
-public class ItemDisplayPage extends JFrame implements ActionListener {
+public class itemDisplayPage extends JFrame implements ActionListener {
 	
 	JFrame frame = new JFrame();
-	SelectedAuctionItem itemSelected = SelectedAuctionItem.getInstance();
+	selectedAuctionItem itemSelected = selectedAuctionItem.getInstance();
 	ImageIcon itemDisplay;
 	JLabel Img1;
 	JLabel itemAgeProperty;
@@ -17,7 +17,8 @@ public class ItemDisplayPage extends JFrame implements ActionListener {
 	JButton rulesBackButton;
 	JButton glossaryBackButton;
 	JButton continueButton;
-	JLabel continueButtonMessage;
+	JLabel continueButtonMessage1;
+	JLabel continueButtonMessage2;
 	public String currentRoundItemName;
 	public String currentRoundImage;
 	public int currentRoundYearItemMade;
@@ -26,7 +27,7 @@ public class ItemDisplayPage extends JFrame implements ActionListener {
 	public int currentRoundItemLiquidity;
 	
 	
-	public ItemDisplayPage() throws IOException {
+	public itemDisplayPage() throws IOException {
 		
 		// Picks random item from the number of items available
 		int itemNumber = ((int) (Math.random()*10) + 1);
@@ -61,36 +62,49 @@ public class ItemDisplayPage extends JFrame implements ActionListener {
 		continueButton.addActionListener(this);
 		continueButton.setBackground(Color.LIGHT_GRAY);
 		
-		continueButtonMessage = new JLabel("After clicking this, you will dive right into the game, player 1 will have 10 seconds to place their bid, press only when fully prepared to play");
-		continueButtonMessage.setFont(new Font("Impact", Font.PLAIN, 20));
-		continueButtonMessage.setBounds(10,300,8000,40);
+		continueButtonMessage1 = new JLabel("Player 1 will have 10 seconds to place their bid");
+		continueButtonMessage1.setFont(new Font("Barlow", Font.PLAIN, 20));
+		continueButtonMessage1.setBounds(20,250+1*20,8000,30);
+		continueButtonMessage1.setForeground(Color.white);
+		
+		continueButtonMessage2 = new JLabel("Press only when fully prepared to play");
+		continueButtonMessage2.setFont(new Font("Barlow", Font.PLAIN, 20));
+		continueButtonMessage2.setBounds(20,250+2*20,8000,30);
+		continueButtonMessage2.setForeground(Color.white);
 		
 		itemDisplay = new ImageIcon(this.getClass().getResource(currentRoundImage));
-		Image image = itemDisplay.getImage();
-        Image newImg = image.getScaledInstance(450, 350,  java.awt.Image.SCALE_SMOOTH);
+		Image image = itemDisplay.getImage(); // 450, 350
+        Image newImg = image.getScaledInstance(image.getWidth(null)*350/image.getHeight(null), 350,  java.awt.Image.SCALE_SMOOTH);
         itemDisplay = new ImageIcon(newImg);
 		Img1 = new JLabel(itemDisplay);
-		Img1.setBounds(200, -240, 800, 800);
+		int imgWidth = newImg.getWidth(null);
+		int imgHeight = newImg.getHeight(null);
+		Img1.setBounds((1275-imgWidth)/2, 30, imgWidth, imgHeight);
 		
 		itemNameProperty = new JLabel("Item Name: " + currentRoundItemName);
-		itemNameProperty.setFont(new Font("Impact", Font.PLAIN, 35));
-		itemNameProperty.setBounds(400,350,800,40);
+		itemNameProperty.setFont(new Font("Barlow", Font.PLAIN, 25));
+		itemNameProperty.setBounds(400,450+1*30,800,40);
+		itemNameProperty.setForeground(Color.white);
 		
 		itemPriceProperty = new JLabel("Starting Price: " + currentRoundItemPrice);
-		itemPriceProperty.setFont(new Font("Impact", Font.PLAIN, 35));
-		itemPriceProperty.setBounds(400,410,800,40);
+		itemPriceProperty.setFont(new Font("Barlow", Font.PLAIN, 25));
+		itemPriceProperty.setBounds(400,450+2*30,800,30);
+		itemPriceProperty.setForeground(Color.white);
 		
 		itemAgeProperty = new JLabel("Year Made: " + currentRoundYearItemMade);
-		itemAgeProperty.setFont(new Font("Impact", Font.PLAIN, 35));
-		itemAgeProperty.setBounds(400,470,800,40);
+		itemAgeProperty.setFont(new Font("Barlow", Font.PLAIN, 25));
+		itemAgeProperty.setBounds(400,450+3*30,800,30);
+		itemAgeProperty.setForeground(Color.white);
 		
 		itemAppreciationRateProperty = new JLabel("Appreciation Rate (Per Round): " + currentRoundItemAppreciationRate + "%");
-		itemAppreciationRateProperty.setFont(new Font("Impact", Font.PLAIN, 35));
-		itemAppreciationRateProperty.setBounds(400,530,800,40);
+		itemAppreciationRateProperty.setFont(new Font("Barlow", Font.PLAIN, 25));
+		itemAppreciationRateProperty.setBounds(400,450+4*30,800,30);
+		itemAppreciationRateProperty.setForeground(Color.white);
 		
 		itemLiquidityProperty = new JLabel("Liquidity Rate (1 being worst and 10 being best): " + currentRoundItemLiquidity);
-		itemLiquidityProperty.setFont(new Font("Impact", Font.PLAIN, 35));
-		itemLiquidityProperty.setBounds(400,590,800,50);
+		itemLiquidityProperty.setFont(new Font("Barlow", Font.PLAIN, 25));
+		itemLiquidityProperty.setBounds(400,450+5*30,800,30);
+		itemLiquidityProperty.setForeground(Color.white);
 		
 
 		frame.add(itemNameProperty);
@@ -101,12 +115,13 @@ public class ItemDisplayPage extends JFrame implements ActionListener {
 		frame.add(Img1);
 		frame.add(glossaryBackButton);
 		frame.add(continueButton);
-		frame.add(continueButtonMessage);
+		frame.add(continueButtonMessage1);
+		frame.add(continueButtonMessage2);
 		frame.add(rulesBackButton);
 		
 		
 		frame.setSize(1275, 775);
-		Color color2 = new Color (195, 195, 0);
+		Color color2 = new Color (32, 82, 92);
 		frame.getContentPane().setBackground(color2);
 		frame.setVisible(true);
 	    frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -115,7 +130,7 @@ public class ItemDisplayPage extends JFrame implements ActionListener {
 
 	public static void main(String[] args) throws IOException {
 		
-		new ItemDisplayPage();
+		new itemDisplayPage();
 		
 	}
 
@@ -190,7 +205,7 @@ public class ItemDisplayPage extends JFrame implements ActionListener {
 			  frame.dispose();
 			  
 			  try {
-				  BiddingRoundPlayer1 askFirstBid = new BiddingRoundPlayer1();
+				  biddingRoundPlayer1 askFirstBid = new biddingRoundPlayer1();
 			  } 
 			  catch (IOException e1) {
 				e1.printStackTrace();

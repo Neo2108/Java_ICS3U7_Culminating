@@ -5,7 +5,7 @@ import java.io.*;
 import javax.swing.*;
 
 // Class for user to pick the gameMode they want to play, either multiplayer with a friend or single-player against computer
-public class GameMode extends JFrame implements ActionListener {
+public class gameMode extends JFrame implements ActionListener {
 	
 	JFrame frame;
 	JButton button;
@@ -17,17 +17,21 @@ public class GameMode extends JFrame implements ActionListener {
 	public int modeChoice = 0;
 	
 		
-	public GameMode() throws IOException {
+	public gameMode() throws IOException {
+		// between player data and main menu
+		// between itemdisplay and biddinground1
 		
 		frame = new JFrame();
 		frame.setLayout(null);
 		heading = new JLabel("Mode Choice");
 		heading.setFont(new Font("Impact", Font.PLAIN, 60));
-		heading.setBounds(480,20,800,60);
+		heading.setBounds(480,20,800,150);
+		heading.setForeground(Color.white);
 		
-		modeExplanation = new JLabel("Please pick the game mode you want to play: ");
+		modeExplanation = new JLabel("Please pick the game mode you want to play ");
 		modeExplanation.setFont(new Font("Barlow", Font.PLAIN, 30));
-		modeExplanation.setBounds(180,200,800,60);
+		modeExplanation.setBounds(280,200,800,60);
+		modeExplanation.setForeground(Color.white);
 		
 		
 		button = new JButton("Single-Player Mode");
@@ -52,7 +56,7 @@ public class GameMode extends JFrame implements ActionListener {
 		
 		
 		 frame.setSize(1275, 775);
-		 Color color2 = new Color (195, 195, 0);
+		 Color color2 = new Color (32, 82, 92);
 		 frame.getContentPane().setBackground(color2);
 	     frame.setVisible(true);
 	     frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -67,7 +71,7 @@ public class GameMode extends JFrame implements ActionListener {
 			  modeChoice = 0;
 			  
 			  try {
-				  SinglePlayerDataInput intermediate = new SinglePlayerDataInput();
+				  levelOfDifficulty difficultyPick = new levelOfDifficulty();
 			  } 
 			  catch (IOException e1) {
 				e1.printStackTrace();
@@ -92,6 +96,6 @@ public class GameMode extends JFrame implements ActionListener {
 	  }
 	 
 	 public static void main(String[] args) throws Exception {
-		 new GameMode();
+		 new gameMode();
 	 }
 }

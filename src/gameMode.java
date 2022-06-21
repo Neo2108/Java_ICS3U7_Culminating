@@ -67,7 +67,7 @@ public class gameMode extends JFrame implements ActionListener {
 			  modeChoice = 0;
 			  
 			  try {
-				  levelOfDifficulty difficultyPick = new levelOfDifficulty();
+				  SinglePlayerDataInput intermediate = new SinglePlayerDataInput();
 			  } 
 			  catch (IOException e1) {
 				e1.printStackTrace();

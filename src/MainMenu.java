@@ -23,7 +23,8 @@ public class MainMenu extends JFrame implements ActionListener {
 		frame.setLayout(null);
 		heading = new JLabel("Main Menu");
 		heading.setFont(new Font("Impact", Font.PLAIN, 60));
-		heading.setBounds(480,20,800,60);
+		heading.setBounds(530,20,800,150);
+		heading.setForeground(Color.white);
 		
 		
 		button = new JButton("Rules");
@@ -53,7 +54,7 @@ public class MainMenu extends JFrame implements ActionListener {
 		
 		
 		 frame.setSize(1275, 775);
-		 Color color2 = new Color (195, 195, 0);
+		 Color color2 = new Color (32, 82, 92);
 		 frame.getContentPane().setBackground(color2);
 	     frame.setVisible(true);
 	     frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -80,7 +81,7 @@ public class MainMenu extends JFrame implements ActionListener {
 			  frame.dispose();
 			  
 			  try {
-					ItemDisplayPage displayItem = new ItemDisplayPage();
+					itemDisplayPage displayItem = new itemDisplayPage();
 			  } 
 			  catch (IOException e1) {
 					e1.printStackTrace();

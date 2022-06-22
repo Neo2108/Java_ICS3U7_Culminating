@@ -6,7 +6,7 @@ import javax.swing.*;
 
 // Class for user to pick the gameMode they want to play, either multiplayer with a friend or single-player against computer
 public class GameMode extends JFrame implements ActionListener {
-	
+	PlayerDataProperties1 userData1 = PlayerDataProperties1.getInstance();
 	JFrame frame;
 	JButton button;
 	JButton button2;
@@ -68,7 +68,7 @@ public class GameMode extends JFrame implements ActionListener {
 			  
 			  frame.dispose();
 			  
-			  modeChoice = 0;
+			  userData1.setGameMode("Singleplayer");
 			  
 			  try {
 				  SinglePlayerDataInput difficultyPick = new SinglePlayerDataInput();
@@ -83,7 +83,7 @@ public class GameMode extends JFrame implements ActionListener {
 			  
 			  frame.dispose();
 			  
-			  modeChoice = 1;
+			  userData1.setGameMode("Multiplayer");
 			  
 			  try {
 				  MultiPlayerDataInput1 multiplayerModeSelect = new MultiPlayerDataInput1();

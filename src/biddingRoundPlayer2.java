@@ -56,7 +56,7 @@ public class BiddingRoundPlayer2 extends JFrame implements ActionListener {
 				userData2.setPurseValue(1000000);
 			}
 			
-			bidPrompt = new JLabel(userData2.getPlayerName() + "You have $" + userData2.getPurseValue() + ", Enter your Bid, you have 15 seconds: ");
+			bidPrompt = new JLabel(userData2.getPlayerName() + " You have $" + userData2.getPurseValue() + ", Enter your Bid, you have 15 seconds: ");
 			bidPrompt.setFont(new Font("Impact", Font.PLAIN, 30));
 			bidPrompt.setBounds(380,145,800,90);
 			

@@ -8,6 +8,7 @@ import java.io.*;
 // Class for user to enter their data (name, age, occupation) and then export it to text file, for use later while outputting the final results
 public class SinglePlayerDataInput extends JFrame implements ActionListener {
 	
+	SinglePlayerDataProperties playerData = SinglePlayerDataProperties.getInstance();
 	JFrame frame = new JFrame();
 	JLabel heading;
 	JLabel age;
@@ -105,12 +106,10 @@ public class SinglePlayerDataInput extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		
 		if (e.getSource() == submit) {
-			  
-			  
-			  
-			   nameText = nameSelect.getText();
-			   occupationText = jobSelect.getText();
-			  ageText =  (String) ageSelect.getSelectedItem();
+			   
+			playerData.setPlayerName(nameSelect.getText());
+			playerData.setPlayerOccupation(jobSelect.getText());
+			playerData.setPlayerAge((int) ageSelect.getSelectedItem());
 			  
 			  
 			try {

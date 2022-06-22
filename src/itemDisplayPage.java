@@ -6,6 +6,7 @@ import java.io.*;
 public class ItemDisplayPage extends JFrame implements ActionListener {
 	
 	JFrame frame = new JFrame();
+	PlayerDataProperties1 userData1 = PlayerDataProperties1.getInstance();
 	SelectedAuctionItem itemSelected = SelectedAuctionItem.getInstance();
 	MaxBidCalculator maxBid = MaxBidCalculator.getInstance();
 	ImageIcon itemDisplay;
@@ -206,10 +207,20 @@ public class ItemDisplayPage extends JFrame implements ActionListener {
 			  frame.dispose();
 			  
 			  try {
-				  maxBid.setNumRounds(maxBid.getNumRounds()+1);
-				  maxBid.setBidValue(0);
-				  maxBid.setBidWinner(null);
-				  BiddingRoundPlayer1 askFirstBid = new BiddingRoundPlayer1();
+				  if (userData1.getGameMode().equals("Singleplayer")) {
+					  maxBid.setNumRounds(maxBid.getNumRounds()+1);
+					  maxBid.setBidValue(0);
+					  maxBid.setBidWinner(null);
+					  BiddingRoundSinglePlayer askFirstBid = new BiddingRoundSinglePlayer();
+				  }
+				  
+				  else if (userData1.getGameMode().equals("Multiplayer")) {
+					  maxBid.setNumRounds(maxBid.getNumRounds()+1);
+					  maxBid.setBidValue(0);
+					  maxBid.setBidWinner(null);
+					  BiddingRoundPlayer1 askFirstBid = new BiddingRoundPlayer1();
+				  }
+				  
 			  } 
 			  catch (IOException e1) {
 				e1.printStackTrace();

@@ -11,7 +11,7 @@ public class BiddingRoundSinglePlayer extends JFrame implements ActionListener {
 	Timer timer = new Timer();
 	MaxBidCalculator maxBid1 = MaxBidCalculator.getInstance();
 	SelectedAuctionItem itemSelected = SelectedAuctionItem.getInstance();
-	PlayerDataProperties1 userData1 = PlayerDataProperties1.getInstance();
+	SinglePlayerDataProperties playerData = SinglePlayerDataProperties.getInstance();
 	int bid1 = maxBid1.getBidValue();
 	JTextField player1Bid;
 	JLabel bidPrompt;
@@ -50,7 +50,7 @@ public class BiddingRoundSinglePlayer extends JFrame implements ActionListener {
 			endBid.addActionListener(this);
 			endBid.setBackground(Color.LIGHT_GRAY);
 			
-			bidPrompt = new JLabel("Player 1 - Enter your Bid, you have 15 seconds: ");
+			bidPrompt = new JLabel(playerData.getPlayerName() + ", please enter your bid, you have 15 seconds: ");
 			bidPrompt.setFont(new Font("Impact", Font.PLAIN, 30));
 			bidPrompt.setBounds(380,145,800,90);
 			
@@ -185,7 +185,7 @@ public class BiddingRoundSinglePlayer extends JFrame implements ActionListener {
 			  frame.dispose();
 			  timer.cancel();
 			  gameWinner = 0;
-			  userData1.setGameWinner(gameWinner);
+			  playerData.setGameWinner(gameWinner);
 			  
 			  try {
 				  RoundWinPage winnerShow = new RoundWinPage();

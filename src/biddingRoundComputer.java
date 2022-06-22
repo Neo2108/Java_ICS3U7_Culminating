@@ -17,7 +17,6 @@ public class BiddingRoundComputer extends JFrame implements ActionListener {
 	JLabel maxBidDisplay;
 	JLabel description;
 	public int player1BidValue;
-	int gameWinner = 1;
 	JLabel countdownDisplay;
 
 	

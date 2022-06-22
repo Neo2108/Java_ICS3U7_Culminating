@@ -130,13 +130,10 @@ public class SinglePlayerDataInput extends JFrame implements ActionListener {
 			  
 			  		  
 			  try {
-				  try {
-					Loading newLoad = new Loading();
-				} catch (InterruptedException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-				  MainMenu newMenu = new MainMenu();
+		    		 frame.dispose();
+				MainMenu newMenu = new MainMenu();
+				Loading newLoad = new Loading();
+
 			  } 
 			  catch (IOException e1) {
 				e1.printStackTrace();

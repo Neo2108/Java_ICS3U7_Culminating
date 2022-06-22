@@ -34,7 +34,7 @@ public class Rules extends JFrame implements ActionListener {
 		
 		
 		frame.setSize(730, 750);
-		Color color2 = new Color (195, 195, 0);
+		Color color2 = new Color (83, 195, 0);
 		frame.getContentPane().setBackground(color2);
 	    frame.setVisible(true);
 	    frame.setDefaultCloseOperation(EXIT_ON_CLOSE);

@@ -6,7 +6,7 @@ import java.io.*;
 public class itemDisplayPage extends JFrame implements ActionListener {
 	
 	JFrame frame = new JFrame();
-	selectedAuctionItem itemSelected = selectedAuctionItem.getInstance();
+	SelectedAuctionItem itemSelected = SelectedAuctionItem.getInstance();
 	ImageIcon itemDisplay;
 	JLabel Img1;
 	JLabel itemAgeProperty;
@@ -205,7 +205,7 @@ public class itemDisplayPage extends JFrame implements ActionListener {
 			  frame.dispose();
 			  
 			  try {
-				  biddingRoundPlayer1 askFirstBid = new biddingRoundPlayer1();
+				  BiddingRoundPlayer1 askFirstBid = new BiddingRoundPlayer1();
 			  } 
 			  catch (IOException e1) {
 				e1.printStackTrace();

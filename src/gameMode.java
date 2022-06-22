@@ -5,7 +5,7 @@ import java.io.*;
 import javax.swing.*;
 
 // Class for user to pick the gameMode they want to play, either multiplayer with a friend or single-player against computer
-public class gameMode extends JFrame implements ActionListener {
+public class GameMode extends JFrame implements ActionListener {
 	
 	JFrame frame;
 	JButton button;
@@ -17,7 +17,7 @@ public class gameMode extends JFrame implements ActionListener {
 	public int modeChoice = 0;
 	
 		
-	public gameMode() throws IOException {
+	public GameMode() throws IOException {
 		// between player data and main menu
 		// between itemdisplay and biddinground1
 		
@@ -96,6 +96,6 @@ public class gameMode extends JFrame implements ActionListener {
 	  }
 	 
 	 public static void main(String[] args) throws Exception {
-		 new gameMode();
+		 new GameMode();
 	 }
 }

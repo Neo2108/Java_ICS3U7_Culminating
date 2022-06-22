@@ -100,7 +100,7 @@ public class RoundWinPage extends JFrame implements ActionListener {
 				  
 				  try {
 					  
-					  itemDisplayPage newRound = new itemDisplayPage();
+					  ItemDisplayPage newRound = new ItemDisplayPage();
 				  } 
 				  catch (IOException e1) {
 					  e1.printStackTrace();
@@ -108,7 +108,21 @@ public class RoundWinPage extends JFrame implements ActionListener {
 				  
 	    }
 		
+		if (e.getSource() == resultsButton) {
+			  
 			  frame.dispose();
+			  
+			  try {
+				  
+				   EndScreen round3End = new EndScreen();
+			  } 
+			  catch (IOException e1) {
+				  e1.printStackTrace();
+			  }
+			  
+  }
+		
+			  
 		  }
 		
 	}

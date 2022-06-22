@@ -5,31 +5,27 @@ import java.io.*;
 import javax.swing.*;
 
 // Title page
-public class TitlePage extends JFrame implements ActionListener {
+public class EndScreen extends JFrame implements ActionListener {
    ImageIcon img, img2, img3;
    JLabel image, image2, image3, title;
    JFrame frame;
    JButton button;
    
    // This method contains all the GUI elements required to form up the JFrame
-   public TitlePage() throws IOException {
+   public EndScreen() throws IOException {
 	   
 	  frame = new JFrame();
 	  frame.setLayout(null);
-	  img = new ImageIcon(this.getClass().getResource("ImagesFolder1/3dDollarSign.png"));
 	  img2 = new ImageIcon(this.getClass().getResource("ImagesFolder1/fatcapitalist.png"));
-	  img3 = new ImageIcon(this.getClass().getResource("ImagesFolder1/3dDollarSign.png"));
-	  image = new JLabel(img);
 	  image2 = new JLabel(img2);
-	  image3 = new JLabel(img3);
-	  title = new JLabel("The Auctioneer!");
+	  title = new JLabel("Thank you for playing the Auctioneer!");
 	  title.setFont(new Font("Impact", Font.PLAIN, 60));
 	  title.setBounds(480,20,800,150);
 	  image.setBounds(680,200,600,400);
 	  image2.setBounds(20, 20, 550, 650);
 	  image3.setBounds(810,80,600,400);
 	  title.setForeground(Color.white);
-	  button = new JButton("Proceed");
+	  button = new JButton("End Game!");
 	  button.setBounds(530, 400, 250, 60);
 	  button.addActionListener(this);
 	  Color color1 = new Color (0, 210, 0);
@@ -58,19 +54,12 @@ public class TitlePage extends JFrame implements ActionListener {
 		  
 		  frame.dispose();
 		  
-		  try {
-			  GameMode newMenu = new GameMode();
-		  } 
-		  catch (IOException e1) {
-			  e1.printStackTrace();
-		  }
-		  
 	  }
    }
    
    // Call the titlePage method, with all the various GUI elements on it
    public static void main(String[] args) throws Exception {
-      new TitlePage();
+      new EndScreen();
       
    }
 }	

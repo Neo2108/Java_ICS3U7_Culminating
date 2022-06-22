@@ -3,7 +3,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
 
-public class itemDisplayPage extends JFrame implements ActionListener {
+public class ItemDisplayPage extends JFrame implements ActionListener {
 	
 	JFrame frame = new JFrame();
 	SelectedAuctionItem itemSelected = SelectedAuctionItem.getInstance();
@@ -28,7 +28,7 @@ public class itemDisplayPage extends JFrame implements ActionListener {
 	public int currentRoundItemLiquidity;
 	
 	
-	public itemDisplayPage() throws IOException {
+	public ItemDisplayPage() throws IOException {
 		
 		// Picks random item from the number of items available
 		int itemNumber = ((int) (Math.random()*10) + 1);
@@ -131,7 +131,7 @@ public class itemDisplayPage extends JFrame implements ActionListener {
 
 	public static void main(String[] args) throws IOException {
 		
-		new itemDisplayPage();
+		new ItemDisplayPage();
 		
 	}
 

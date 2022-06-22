@@ -13,36 +13,63 @@ public class BiddingRoundComputer extends JFrame implements ActionListener {
 	SelectedAuctionItem itemSelected = SelectedAuctionItem.getInstance();
 	int bid1 = maxBid1.getBidValue();
 	JLabel computerBid;
-	JLabel dollarSign;
-	int secondsLeft = 20;
+	int computerBidValue;
 	JLabel maxBidDisplay;
+	JLabel description;
 	public int player1BidValue;
+	int gameWinner = 1;
 	JLabel countdownDisplay;
-	JButton proceedButton;
 
 	
 	public BiddingRoundComputer() throws IOException {
 			
 			frame.setLayout(null);
 			
-			computerBid = new JLabel("Player 1 - Enter your Bid, you have 15 seconds: ");
-			computerBid.setFont(new Font("Impact", Font.PLAIN, 30));
+			if (itemSelected.getPrice()* itemSelected.getAppreciationRate() >= maxBid1.getBidValue()) {
+				computerBidValue = maxBid1.getBidValue() + 5000;
+			}
+			
+			else if (itemSelected.getPrice()* itemSelected.getAppreciationRate() <= maxBid1.getBidValue() && itemSelected.getPrice()* (itemSelected.getAppreciationRate()*3) >= maxBid1.getBidValue() && itemSelected.getLiquidity() >= 8) {
+				computerBidValue = maxBid1.getBidValue() + (int)Math.random()*1000 + 800;
+			}
+			
+			else if (itemSelected.getPrice()* itemSelected.getAppreciationRate() <= maxBid1.getBidValue() && itemSelected.getPrice()* (itemSelected.getAppreciationRate()*2.6) >= maxBid1.getBidValue() && itemSelected.getLiquidity() >= 7) {
+				computerBidValue = maxBid1.getBidValue() + (int)Math.random()*1000 + 400;
+			}
+			
+			else if (itemSelected.getPrice()* itemSelected.getAppreciationRate() <= maxBid1.getBidValue() && itemSelected.getPrice()* (itemSelected.getAppreciationRate()*2.3) >= maxBid1.getBidValue() && itemSelected.getLiquidity() >= 5) {
+				computerBidValue = maxBid1.getBidValue() + (int)Math.random()*1000 + 200;
+			}
+			
+			else if (itemSelected.getPrice()* itemSelected.getAppreciationRate() <= maxBid1.getBidValue() && itemSelected.getPrice()* (itemSelected.getAppreciationRate()*2.2) >= maxBid1.getBidValue()) {
+				computerBidValue = maxBid1.getBidValue() + 1000;
+			}
+			
+			
+			
+			
+			
+			
+			
+			
+			description = new JLabel("You have 5 seconds to look at the computer's bid! Get ready for your turn!");
+			description.setFont(new Font("Barlow", Font.PLAIN, 20));
+			description.setBounds(180,145,800,90);
+			
+			
+			computerBid = new JLabel("Computer bids: $" + computerBidValue);
+			computerBid.setFont(new Font("Barlow", Font.PLAIN, 25));
 			computerBid.setBounds(380,145,800,90);
 			
 			maxBidDisplay = new JLabel("Max bid so far: $" + bid1);
 			maxBidDisplay.setFont(new Font("Impact", Font.PLAIN, 30));
 			maxBidDisplay.setBounds(440,320,800,90);
 			
-			dollarSign = new JLabel("$");
-			dollarSign.setFont(new Font("Impact", Font.PLAIN, 32));
-			dollarSign.setBounds(475,215,800,90);
-			
 		
 			
 			frame.add(computerBid);
-			frame.add(dollarSign);
 			frame.add(maxBidDisplay);
-			frame.add(proceedButton);
+			frame.add(description);
 			
 			
 			frame.setSize(1275, 775);
@@ -62,7 +89,7 @@ public class BiddingRoundComputer extends JFrame implements ActionListener {
 			            	
 			            	
 			                try {
-			  				  RoundWinPage roundWinner = new RoundWinPage();
+			  				  BiddingRoundSinglePlayer singlePlayerTurn = new BiddingRoundSinglePlayer();
 			  			  	} 
 			  			  	catch (IOException e1) {
 			  			  		e1.printStackTrace();
@@ -70,7 +97,7 @@ public class BiddingRoundComputer extends JFrame implements ActionListener {
 			                
 			            }
 			        }, 
-			        15000
+			        5000
 			);
 		    
 		}

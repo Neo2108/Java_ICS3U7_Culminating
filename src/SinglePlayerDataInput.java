@@ -9,6 +9,7 @@ import java.io.*;
 public class SinglePlayerDataInput extends JFrame implements ActionListener {
 	
 	JFrame frame = new JFrame();
+	PlayerDataProperties1 userData1 = PlayerDataProperties1.getInstance();
 	JLabel heading;
 	JLabel age;
 	JLabel name;
@@ -105,16 +106,17 @@ public class SinglePlayerDataInput extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		
 		if (e.getSource() == submit) {
-			  
-			  
-			  
-			   nameText = nameSelect.getText();
-			   occupationText = jobSelect.getText();
-			  ageText =  (String) ageSelect.getSelectedItem();
+			    
+			nameText = nameSelect.getText();
+			userData1.setPlayerName(nameText);
+			occupationText = jobSelect.getText();
+			userData1.setPlayerOccupation(occupationText);
+			ageText =  (String) ageSelect.getSelectedItem();
+			userData1.setPlayerAge(Integer.parseInt(ageText));
 			  
 			  
 			try {
-				FileWriter dataWriter = new FileWriter("userData.txt");
+				FileWriter dataWriter = new FileWriter("userDataSingle.txt");
 				BufferedWriter writer = new BufferedWriter(dataWriter);
 				writer.write("Name: " + nameText + "\n");
 				writer.write("Occupation: " + occupationText + "\n");

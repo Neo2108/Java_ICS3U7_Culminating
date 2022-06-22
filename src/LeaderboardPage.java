@@ -1,5 +1,4 @@
 
-
 public class LeaderboardPage {
 
 	public static void main(String[] args) {

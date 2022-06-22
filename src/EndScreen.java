@@ -20,10 +20,8 @@ public class EndScreen extends JFrame implements ActionListener {
 	  image2 = new JLabel(img2);
 	  title = new JLabel("Thank you for playing the Auctioneer!");
 	  title.setFont(new Font("Impact", Font.PLAIN, 60));
-	  title.setBounds(480,20,800,150);
-	  image.setBounds(680,200,600,400);
-	  image2.setBounds(20, 20, 550, 650);
-	  image3.setBounds(810,80,600,400);
+	  title.setBounds(280,20,800,150);
+	  image2.setBounds(0, 20, 550, 650);
 	  title.setForeground(Color.white);
 	  button = new JButton("End Game!");
 	  button.setBounds(530, 400, 250, 60);
@@ -33,9 +31,7 @@ public class EndScreen extends JFrame implements ActionListener {
 	  
 
 	  frame.add(title);
-	  frame.add(image);
 	  frame.add(image2);
-	  frame.add(image3);
 	  frame.add(button);
 	  
 	  frame.setSize(1275, 775);

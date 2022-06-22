@@ -46,9 +46,9 @@ public class RoundWinPage extends JFrame implements ActionListener {
 		
 		purseValueDisplay = new JLabel(userData1.getPlayerName() + ", You have $" + userData1.getPurseValue() + " left in your wallet! \n " + userData2.getPlayerName() + ", You have $" + userData2.getPurseValue() + " left in your wallet! ");
 		purseValueDisplay.setFont(new Font("Impact", Font.PLAIN, 20));
-		purseValueDisplay.setBounds(310,20,800,60);
+		purseValueDisplay.setBounds(280,60,800,60);
 		
-		if (maxBid.getNumRounds() < 2) {
+		if (maxBid.getNumRounds() < 5) {
 			closeButton = new JButton("Next Round!");
 			closeButton.setBounds(610, 530, 100, 40);
 			closeButton.addActionListener(this);
@@ -60,7 +60,7 @@ public class RoundWinPage extends JFrame implements ActionListener {
 			frame.add(purseValueDisplay);
 		}
 		
-		else if (maxBid.getNumRounds() == 2) {
+		else if (maxBid.getNumRounds() == 5) {
 					
 			resultsButton = new JButton("See Results!");
 			resultsButton.setBounds(610, 530, 100, 40);
@@ -114,7 +114,7 @@ public class RoundWinPage extends JFrame implements ActionListener {
 			  
 			  try {
 				  
-				   EndScreen round3End = new EndScreen();
+				   EndScreen roundEnd = new EndScreen();
 			  } 
 			  catch (IOException e1) {
 				  e1.printStackTrace();

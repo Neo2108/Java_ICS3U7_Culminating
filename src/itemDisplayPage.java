@@ -7,6 +7,7 @@ public class itemDisplayPage extends JFrame implements ActionListener {
 	
 	JFrame frame = new JFrame();
 	SelectedAuctionItem itemSelected = SelectedAuctionItem.getInstance();
+	MaxBidCalculator maxBid = MaxBidCalculator.getInstance();
 	ImageIcon itemDisplay;
 	JLabel Img1;
 	JLabel itemAgeProperty;
@@ -205,6 +206,9 @@ public class itemDisplayPage extends JFrame implements ActionListener {
 			  frame.dispose();
 			  
 			  try {
+				  maxBid.setNumRounds(maxBid.getNumRounds()+1);
+				  maxBid.setBidValue(0);
+				  maxBid.setBidWinner(null);
 				  BiddingRoundPlayer1 askFirstBid = new BiddingRoundPlayer1();
 			  } 
 			  catch (IOException e1) {

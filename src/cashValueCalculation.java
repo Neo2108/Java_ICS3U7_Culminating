@@ -5,6 +5,8 @@ public class CashValueCalculation {
 	int player2CashValue = 1000000;
 	int player1NetWorth = 1000000;
 	int player2NetWorth = 1000000;
+	
+	
 	int singlePlayerCashValue = 1000000;
 	int singlePlayerNetWorth = 1000000; 
 	int computerCashValue = 1000000;

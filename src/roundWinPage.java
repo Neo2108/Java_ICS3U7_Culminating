@@ -10,11 +10,14 @@ public class RoundWinPage extends JFrame implements ActionListener {
 	
 	JFrame frame;
 	PlayerDataProperties1 userData1 = PlayerDataProperties1.getInstance();
-	PlayerDataProperties1 userData2 = PlayerDataProperties1.getInstance();
+	PlayerDataProperties2 userData2 = PlayerDataProperties2.getInstance();
+	MaxBidCalculator maxBid = MaxBidCalculator.getInstance();
 	ImageIcon winnerPagePic;
 	JLabel picLabel;
 	JLabel winnerDisplay;
+	JLabel purseValueDisplay;
 	JButton closeButton;
+	JButton resultsButton;
 	int gameWinner = 0;
 	String nameOfWinner = "";
 	
@@ -27,26 +30,51 @@ public class RoundWinPage extends JFrame implements ActionListener {
 		picLabel.setBounds(20, 40, 800, 800);
 		
 		
-		if (userData1.getGameWinner() == 0) {
-			winnerDisplay = new JLabel(userData1.getPlayerName() + " wins the round!");
-			winnerDisplay.setFont(new Font("Impact", Font.PLAIN, 20));
-			winnerDisplay.setBounds(280,20,800,60);
+		if (maxBid.getBidWinner().equals(userData1.getPlayerName())) {
+			userData1.setPurseValue(userData1.getPurseValue() - maxBid.getBidValue());
+			userData2.setPurseValue(userData2.getPurseValue() - 50000);
 		}
 		
-		else if (userData2.getGameWinner() == 0) {
-			winnerDisplay = new JLabel(userData2.getPlayerName() + " wins the round!");
-			winnerDisplay.setFont(new Font("Impact", Font.PLAIN, 20));
-			winnerDisplay.setBounds(280,20,800,60);
+		else if (maxBid.getBidWinner().equals(userData2.getPlayerName())) {
+			userData2.setPurseValue(userData2.getPurseValue() - maxBid.getBidValue());
+			userData1.setPurseValue(userData1.getPurseValue() - 50000);
 		}
 		
-		closeButton = new JButton("Close");
-		closeButton.setBounds(610, 530, 100, 40);
-		closeButton.addActionListener(this);
-		closeButton.setBackground(Color.LIGHT_GRAY);
+		winnerDisplay = new JLabel(maxBid.getBidWinner() + " wins the round!");
+		winnerDisplay.setFont(new Font("Impact", Font.PLAIN, 20));
+		winnerDisplay.setBounds(280,20,800,60);
 		
-		frame.add(picLabel);
-		frame.add(closeButton);
-		frame.add(winnerDisplay);
+		purseValueDisplay = new JLabel(userData1.getPlayerName() + ", You have $" + userData1.getPurseValue() + " left in your wallet! \n " + userData2.getPlayerName() + ", You have $" + userData2.getPurseValue() + " left in your wallet! ");
+		purseValueDisplay.setFont(new Font("Impact", Font.PLAIN, 20));
+		purseValueDisplay.setBounds(310,20,800,60);
+		
+		if (maxBid.getNumRounds() < 2) {
+			closeButton = new JButton("Next Round!");
+			closeButton.setBounds(610, 530, 100, 40);
+			closeButton.addActionListener(this);
+			closeButton.setBackground(Color.LIGHT_GRAY);
+			
+			frame.add(picLabel);
+			frame.add(closeButton);
+			frame.add(winnerDisplay);
+			frame.add(purseValueDisplay);
+		}
+		
+		else if (maxBid.getNumRounds() == 2) {
+					
+			resultsButton = new JButton("See Results!");
+			resultsButton.setBounds(610, 530, 100, 40);
+			resultsButton.addActionListener(this);
+			resultsButton.setBackground(Color.LIGHT_GRAY);
+			
+			frame.add(picLabel);
+			frame.add(winnerDisplay);
+			frame.add(purseValueDisplay);
+			frame.add(resultsButton);
+		}
+		
+		
+		
 		
 		
 		frame.setSize(1275, 775);
@@ -65,11 +93,24 @@ public class RoundWinPage extends JFrame implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		
 		if (e.getSource() == closeButton) {
-			  
+				  
+				  frame.dispose();
+				  
+				  try {
+					  
+					  itemDisplayPage newRound = new itemDisplayPage();
+				  } 
+				  catch (IOException e1) {
+					  e1.printStackTrace();
+				  }
+				  
+	    }
+		
 			  frame.dispose();
 		  }
 		
 	}
 
-}
+

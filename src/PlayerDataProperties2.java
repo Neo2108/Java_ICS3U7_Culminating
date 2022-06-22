@@ -1,15 +1,15 @@
-public class PlayerDataProperties1 {
+public class PlayerDataProperties2 {
 	
-	private static PlayerDataProperties1 itemSelectedSingleton = new PlayerDataProperties1();
+	private static PlayerDataProperties2 itemSelectedSingleton = new PlayerDataProperties2();
 	
-	private PlayerDataProperties1() {}
+	private PlayerDataProperties2() {}
 	
-	public static PlayerDataProperties1 getInstance() {
+	public static PlayerDataProperties2 getInstance() {
 		return itemSelectedSingleton;
 	}
 	private String name;
-	private int age;
 	private int purseValue;
+	private int age;
 	private String occupation;
 	private int gameWinner;
 	private int winningBid;
@@ -18,12 +18,12 @@ public class PlayerDataProperties1 {
 		this.name = playerName;
 	}
 	
-	public void setPlayerAge(int playerAge) {
-		this.age = playerAge;
-	}
-	
 	public void setPurseValue(int cashAmount) {
 		this.purseValue = cashAmount;
+	}
+	
+	public void setPlayerAge(int playerAge) {
+		this.age = playerAge;
 	}
 	
 	public void setPlayerOccupation(String playerOccupation) {

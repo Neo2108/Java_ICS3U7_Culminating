@@ -12,6 +12,7 @@ public class BiddingRoundPlayer1 extends JFrame implements ActionListener {
 	MaxBidCalculator maxBid1 = MaxBidCalculator.getInstance();
 	SelectedAuctionItem itemSelected = SelectedAuctionItem.getInstance();
 	PlayerDataProperties1 userData1 = PlayerDataProperties1.getInstance();
+	PlayerDataProperties2 userData2 = PlayerDataProperties2.getInstance();
 	int bid1 = maxBid1.getBidValue();
 	JTextField player1Bid;
 	JLabel bidPrompt;
@@ -50,9 +51,13 @@ public class BiddingRoundPlayer1 extends JFrame implements ActionListener {
 			endBid.addActionListener(this);
 			endBid.setBackground(Color.LIGHT_GRAY);
 			
-			bidPrompt = new JLabel("Player 1 - Enter your Bid, you have 15 seconds: ");
+			if (userData1.getPurseValue() == 0) {
+				userData1.setPurseValue(1000000);
+			}
+			bidPrompt = new JLabel(userData1.getPlayerName() + " You have $" + userData1.getPurseValue() + ", Enter your Bid, you have 15 seconds: ");
 			bidPrompt.setFont(new Font("Impact", Font.PLAIN, 30));
 			bidPrompt.setBounds(380,145,800,90);
+			
 			
 			maxBidDisplay = new JLabel("Max bid so far: $" + bid1);
 			maxBidDisplay.setFont(new Font("Impact", Font.PLAIN, 30));
@@ -90,7 +95,7 @@ public class BiddingRoundPlayer1 extends JFrame implements ActionListener {
 		    			{
 			            @Override
 			            public void run() {
-			            	
+			            	maxBid1.setBidWinner(userData2.getPlayerName());
 			            	frame.dispose();
 			            	
 			            	
@@ -151,6 +156,7 @@ public class BiddingRoundPlayer1 extends JFrame implements ActionListener {
 			  if (player1BidValue > bid1 && player1BidValue > itemSelected.getPrice()) {
 				  
 				  maxBid1.setBidValue(player1BidValue);
+				  maxBid1.setBidWinner(userData1.getPlayerName());
 				  
 				  try {
 					  BiddingRoundPlayer2 player2Turn = new BiddingRoundPlayer2();
@@ -184,8 +190,8 @@ public class BiddingRoundPlayer1 extends JFrame implements ActionListener {
 			  
 			  frame.dispose();
 			  timer.cancel();
-			  gameWinner = 0;
-			  userData1.setGameWinner(gameWinner);
+			  maxBid1.setBidWinner(userData2.getPlayerName());
+			  
 			  
 			  try {
 				  RoundWinPage winnerShow = new RoundWinPage();

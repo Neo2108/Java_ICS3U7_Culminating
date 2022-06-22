@@ -10,7 +10,8 @@ public class BiddingRoundPlayer2 extends JFrame implements ActionListener {
 	Timer timer2 = new Timer();
 	MaxBidCalculator maxBid2 = MaxBidCalculator.getInstance();
 	SelectedAuctionItem itemSelected = SelectedAuctionItem.getInstance();
-	PlayerDataProperties1 userData2 = PlayerDataProperties1.getInstance();
+	PlayerDataProperties1 userData1 = PlayerDataProperties1.getInstance();
+	PlayerDataProperties2 userData2 = PlayerDataProperties2.getInstance();
 	int bid2 = maxBid2.getBidValue();
 	JTextField player2Bid;
 	JLabel bidPrompt;
@@ -51,7 +52,11 @@ public class BiddingRoundPlayer2 extends JFrame implements ActionListener {
 			endBid.addActionListener(this);
 			endBid.setBackground(Color.LIGHT_GRAY);
 			
-			bidPrompt = new JLabel("Player 2 - Enter your Bid, you have 15 seconds: ");
+			if (userData2.getPurseValue() == 0) {
+				userData2.setPurseValue(1000000);
+			}
+			
+			bidPrompt = new JLabel(userData2.getPlayerName() + "You have $" + userData2.getPurseValue() + ", Enter your Bid, you have 15 seconds: ");
 			bidPrompt.setFont(new Font("Impact", Font.PLAIN, 30));
 			bidPrompt.setBounds(380,145,800,90);
 			
@@ -90,10 +95,10 @@ public class BiddingRoundPlayer2 extends JFrame implements ActionListener {
 			        new java.util.TimerTask() {
 			            @Override
 			            public void run() {
+			            	maxBid2.setBidWinner(userData1.getPlayerName());
 			                frame.dispose();
 			                
-			                
-			            	
+			               
 			                try {
 			  				  RoundWinPage roundWinner2 = new RoundWinPage();
 			  			  	} 
@@ -149,7 +154,9 @@ public class BiddingRoundPlayer2 extends JFrame implements ActionListener {
 			  player2BidValue = Integer.parseInt(player2Bid.getText());
 			  
 			  if (player2BidValue > bid2 || bid2 > itemSelected.getPrice()) {
+				  
 				  maxBid2.setBidValue(player2BidValue);
+				  maxBid2.setBidWinner(userData2.getPlayerName());
 				  
 				  try {
 					  BiddingRoundPlayer1 player1Turn = new BiddingRoundPlayer1();
@@ -186,8 +193,7 @@ public class BiddingRoundPlayer2 extends JFrame implements ActionListener {
 			  
 			  frame.dispose();
 			  timer2.cancel();
-			  gameWinner = 0;
-			  userData2.setGameWinner(gameWinner);
+			  maxBid2.setBidWinner(userData1.getPlayerName());
 			  
 			  try {
 				  RoundWinPage winnerShow = new RoundWinPage();

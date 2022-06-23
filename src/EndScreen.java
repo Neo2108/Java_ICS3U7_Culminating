@@ -6,10 +6,14 @@ import javax.swing.*;
 
 // Title page
 public class EndScreen extends JFrame implements ActionListener {
-   ImageIcon img, img2, img3;
-   JLabel image, image2, image3, title, name, age, occupation, cashValue, netWorth, overallWinner;
-   JFrame frame;
-   JButton button;
+	PlayerDataProperties1 userData1 = PlayerDataProperties1.getInstance();
+	PlayerDataProperties2 userData2 = PlayerDataProperties2.getInstance();
+	SinglePlayerDataProperties playerData = SinglePlayerDataProperties.getInstance();
+	ComputerDataProperties computerData = ComputerDataProperties.getInstance();
+    ImageIcon img, img2, img3;
+    JLabel image, image2, image3, title, name, age, occupation, cashValue, netWorth, overallWinner;
+    JFrame frame;
+    JButton button;
    
    // This method contains all the GUI elements required to form up the JFrame
    public EndScreen() throws IOException {
@@ -46,8 +50,38 @@ public class EndScreen extends JFrame implements ActionListener {
 	  img2 = new ImageIcon(this.getClass().getResource("ImagesFolder1/fatcapitalist.png"));
 	  image2 = new JLabel(img2);
 	  title = new JLabel("Thank you for playing the Auctioneer!");
-	  title.setFont(new Font("Impact", Font.PLAIN, 60));
+	  title.setFont(new Font("Impact", Font.PLAIN, 45));
 	  title.setBounds(280,20,800,150);
+	  
+	  if (userData1.getGameMode().equals("Multiplayer") && userData1.getNetWorth() > userData2.getNetWorth()) {
+		  overallWinner = new JLabel(userData1.getPlayerName() + " wins!  With a net worth of: $" + userData1.getNetWorth());
+		  overallWinner.setFont(new Font("Impact", Font.PLAIN, 30));
+		  overallWinner.setForeground(Color.white);
+		  overallWinner.setBounds(150,160,800,150);
+	  }
+	  
+	  else if (userData1.getGameMode().equals("Multiplayer") && userData1.getNetWorth() < userData2.getNetWorth()) {
+		  overallWinner = new JLabel(userData2.getPlayerName() + " wins!  With a net worth of: $" + userData2.getNetWorth());
+		  overallWinner.setFont(new Font("Impact", Font.PLAIN, 30));
+		  overallWinner.setForeground(Color.white);
+		  overallWinner.setBounds(150,160,800,150);
+	  }
+	  
+	  else if (userData1.getGameMode().equals("Singleplayer") && playerData.getNetWorth() > computerData.getNetWorth()) {
+		  overallWinner = new JLabel(playerData.getPlayerName() + " wins!  With a net worth of: $" + playerData.getNetWorth());
+		  overallWinner.setFont(new Font("Impact", Font.PLAIN, 30));
+		  overallWinner.setForeground(Color.white);
+		  overallWinner.setBounds(150,160,800,150);
+	  }
+	  
+	  else if (userData1.getGameMode().equals("Singleplayer") && playerData.getNetWorth() < computerData.getNetWorth()) {
+		  overallWinner = new JLabel("The Computer wins!  With a net worth of: $" + computerData.getNetWorth());
+		  overallWinner.setFont(new Font("Impact", Font.PLAIN, 30));
+		  overallWinner.setForeground(Color.white);
+		  overallWinner.setBounds(150,160,800,150);
+	  }
+	  
+	  
 	  image2.setBounds(0, 20, 550, 650);
 	  title.setForeground(Color.white);
 	  button = new JButton("End Game!");
@@ -60,6 +94,7 @@ public class EndScreen extends JFrame implements ActionListener {
 	  frame.add(title);
 	  frame.add(image2);
 	  frame.add(button);
+	  frame.add(overallWinner);
 	  
 	  frame.setSize(1275, 775);
 	  Color color2 = new Color (32, 82, 92);

@@ -48,11 +48,11 @@ public class RoundWinPage1 extends JFrame implements ActionListener {
 		winnerDisplay.setFont(new Font("Impact", Font.PLAIN, 20));
 		winnerDisplay.setBounds(280,20,800,60);
 		
-		purseValueDisplay = new JLabel(userData1.getPlayerName() + ", You have $" + userData1.getPurseValue() + " left in your wallet! \n " + userData2.getPlayerName() + ", You have $" + userData2.getPurseValue() + " left in your wallet! ");
+		purseValueDisplay = new JLabel(userData1.getPlayerName() + ", You have $" + userData1.getPurseValue() + " left in your wallet! &\n " + userData2.getPlayerName() + ", You have $" + userData2.getPurseValue() + " left in your wallet! ");
 		purseValueDisplay.setFont(new Font("Impact", Font.PLAIN, 20));
 		purseValueDisplay.setBounds(280,60,800,60);
 		
-		netWorthDisplay = new JLabel(userData1.getPlayerName() + ", Your net worth is: $" + userData1.getNetWorth() + "\n " + userData2.getPlayerName() + ", Your net worth is: $" + userData2.getNetWorth());
+		netWorthDisplay = new JLabel(userData1.getPlayerName() + ", Your net worth is: $" + userData1.getNetWorth() + "\n  &  " + userData2.getPlayerName() + ", Your net worth is: $" + userData2.getNetWorth());
 		netWorthDisplay.setFont(new Font("Impact", Font.PLAIN, 20));
 		netWorthDisplay.setBounds(280,95,800,60);
 		

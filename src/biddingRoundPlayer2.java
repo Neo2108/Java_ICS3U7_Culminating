@@ -78,7 +78,7 @@ public class BiddingRoundPlayer2 extends JFrame implements ActionListener {
 		
 			
 			frame.add(submitBid);
-			frame.add(countdownDisplay);
+			//frame.add(countdownDisplay);
 			frame.add(glossaryBackButton);
 			frame.add(rulesBackButton);
 			frame.add(player2Bid);

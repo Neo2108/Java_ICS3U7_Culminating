@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 import java.io.*;
 
 
-// Glossary class
+// Round-win Page2 class
 public class RoundWinPage2 extends JFrame implements ActionListener {
 	
 	JFrame frame;
@@ -48,7 +48,7 @@ public class RoundWinPage2 extends JFrame implements ActionListener {
 		winnerDisplay.setFont(new Font("Impact", Font.PLAIN, 20));
 		winnerDisplay.setBounds(280,20,800,60);
 		
-		purseValueDisplay = new JLabel(playerData.getPlayerName() + ", You have $" + playerData.getPurseValue() + " left in your wallet! \n &  Computer has $" + computerData.getPurseValue() + " left in your wallet! ");
+		purseValueDisplay = new JLabel(playerData.getPlayerName() + ", You have $" + playerData.getPurseValue() + " left in your wallet! \n &  Computer has $" + computerData.getPurseValue() + " left in its wallet! ");
 		purseValueDisplay.setFont(new Font("Impact", Font.PLAIN, 20));
 		purseValueDisplay.setBounds(280,60,800,60);
 		
@@ -72,7 +72,7 @@ public class RoundWinPage2 extends JFrame implements ActionListener {
 		else if (maxBid.getNumRounds() == 3) {
 					
 			resultsButton = new JButton("See Results!");
-			resultsButton.setBounds(610, 530, 100, 40);
+			resultsButton.setBounds(610, 530, 150, 40);
 			resultsButton.addActionListener(this);
 			resultsButton.setBackground(Color.LIGHT_GRAY);
 			

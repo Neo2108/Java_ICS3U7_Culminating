@@ -72,7 +72,7 @@ public class RoundWinPage1 extends JFrame implements ActionListener {
 		else if (maxBid.getNumRounds() == 3) {
 					
 			resultsButton = new JButton("See Results!");
-			resultsButton.setBounds(610, 530, 100, 40);
+			resultsButton.setBounds(610, 530, 150, 40);
 			resultsButton.addActionListener(this);
 			resultsButton.setBackground(Color.LIGHT_GRAY);
 			

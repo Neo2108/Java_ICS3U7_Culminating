@@ -12,7 +12,7 @@ public class BiddingRoundSinglePlayer extends JFrame implements ActionListener {
 	MaxBidCalculator maxBid = MaxBidCalculator.getInstance();
 	SelectedAuctionItem itemSelected = SelectedAuctionItem.getInstance();
 	SinglePlayerDataProperties playerData = SinglePlayerDataProperties.getInstance();
-	int bid1 = maxBid.getBidValue();
+	int actualMaxBid = maxBid.getBidValue();
 	JTextField singlePlayerBid;
 	JLabel bidPrompt;
 	JLabel dollarSign;
@@ -53,7 +53,7 @@ public class BiddingRoundSinglePlayer extends JFrame implements ActionListener {
 			bidPrompt.setFont(new Font("Impact", Font.PLAIN, 30));
 			bidPrompt.setBounds(380,145,800,90);
 			
-			maxBidDisplay = new JLabel("Max bid so far: $" + bid1);
+			maxBidDisplay = new JLabel("Max bid so far: $" + actualMaxBid);
 			maxBidDisplay.setFont(new Font("Impact", Font.PLAIN, 30));
 			maxBidDisplay.setBounds(440,320,800,90);
 			
@@ -64,8 +64,10 @@ public class BiddingRoundSinglePlayer extends JFrame implements ActionListener {
 			singlePlayerBid = new JTextField();
 			singlePlayerBid.setBounds(500, 240, 150, 45);
 			
-			
-		
+			if (playerData.getPurseValue() == 0) {
+				playerData.setPurseValue(1000000);
+				playerData.setNetWorth(1000000);
+			}
 			
 			frame.add(submitBid);
 			frame.add(glossaryBackButton);
@@ -147,7 +149,7 @@ public class BiddingRoundSinglePlayer extends JFrame implements ActionListener {
 			  singlePlayerBidValue = Integer.parseInt(singlePlayerBid.getText()); 
 			  
 			  
-			  if (singlePlayerBidValue > bid1 && singlePlayerBidValue > itemSelected.getPrice()) {
+			  if (singlePlayerBidValue > actualMaxBid && singlePlayerBidValue > itemSelected.getPrice() && playerData.getPurseValue() > singlePlayerBidValue) {
 				  
 				  maxBid.setBidValue(singlePlayerBidValue);
 				  maxBid.setBidWinner(playerData.getPlayerName());
@@ -161,9 +163,9 @@ public class BiddingRoundSinglePlayer extends JFrame implements ActionListener {
 				  }
 			  }
 			  
-			  else if (singlePlayerBidValue < bid1 || bid1 < itemSelected.getPrice()) {
+			  else if (singlePlayerBidValue < actualMaxBid || actualMaxBid < itemSelected.getPrice() || playerData.getPurseValue() <= singlePlayerBidValue) {
 				  try {
-					  BiddingRoundComputer computerTurn = new BiddingRoundComputer();
+					  BiddingRoundSinglePlayer repeat = new BiddingRoundSinglePlayer();
 					  
 				  } 
 				  catch (IOException e1) {
@@ -188,7 +190,7 @@ public class BiddingRoundSinglePlayer extends JFrame implements ActionListener {
 
 			  
 			  try {
-				  RoundWinPage1 winnerShow = new RoundWinPage1();
+				  RoundWinPage2 winnerShow = new RoundWinPage2();
 			  } 
 			  catch (IOException e1) {
 				e1.printStackTrace();

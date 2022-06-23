@@ -11,10 +11,15 @@ public class ComputerDataProperties {
 	private int purseValue;
 	private int gameWinner;
 	private int winningBid;
+	private int netWorth;
 	
 	
 	public void setPurseValue(int cashAmount) {
 		this.purseValue = cashAmount;
+	}
+	
+	public void setNetWorth(int netWorth) {
+		this.netWorth = netWorth;
 	}
 	
 	public void setGameWinner(int winner) {
@@ -27,6 +32,10 @@ public class ComputerDataProperties {
 	
 	public int getPurseValue() {
 		return this.purseValue;
+	}
+	
+	public int getNetWorth() {
+		return this.netWorth;
 	}
 	
 	public int getGameWinner() {

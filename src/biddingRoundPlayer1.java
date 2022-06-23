@@ -13,7 +13,7 @@ public class BiddingRoundPlayer1 extends JFrame implements ActionListener {
 	SelectedAuctionItem itemSelected = SelectedAuctionItem.getInstance();
 	PlayerDataProperties1 userData1 = PlayerDataProperties1.getInstance();
 	PlayerDataProperties2 userData2 = PlayerDataProperties2.getInstance();
-	int bid1 = maxBid1.getBidValue();
+	int actualMaxBid = maxBid1.getBidValue();
 	JTextField player1Bid;
 	JLabel bidPrompt;
 	JLabel dollarSign;
@@ -52,13 +52,14 @@ public class BiddingRoundPlayer1 extends JFrame implements ActionListener {
 			
 			if (userData1.getPurseValue() == 0) {
 				userData1.setPurseValue(1000000);
+				userData1.setNetWorth(1000000);
 			}
 			bidPrompt = new JLabel(userData1.getPlayerName() + " You have $" + userData1.getPurseValue() + ", Enter your Bid, you have 15 seconds: ");
 			bidPrompt.setFont(new Font("Impact", Font.PLAIN, 30));
 			bidPrompt.setBounds(380,145,800,90);
 			
 			
-			maxBidDisplay = new JLabel("Max bid so far: $" + bid1);
+			maxBidDisplay = new JLabel("Max bid so far: $" + actualMaxBid);
 			maxBidDisplay.setFont(new Font("Impact", Font.PLAIN, 30));
 			maxBidDisplay.setBounds(440,320,800,90);
 			
@@ -152,7 +153,7 @@ public class BiddingRoundPlayer1 extends JFrame implements ActionListener {
 			  player1BidValue = Integer.parseInt(player1Bid.getText()); 
 			  
 			  
-			  if (player1BidValue > bid1 && player1BidValue > itemSelected.getPrice()) {
+			  if (player1BidValue > actualMaxBid && player1BidValue > itemSelected.getPrice() && userData1.getPurseValue() > player1BidValue) {
 				  
 				  maxBid1.setBidValue(player1BidValue);
 				  maxBid1.setBidWinner(userData1.getPlayerName());
@@ -166,9 +167,9 @@ public class BiddingRoundPlayer1 extends JFrame implements ActionListener {
 				  }
 			  }
 			  
-			  else if (player1BidValue < bid1 || bid1 < itemSelected.getPrice()) {
+			  else if (player1BidValue < actualMaxBid || actualMaxBid < itemSelected.getPrice() || userData1.getPurseValue() <= player1BidValue) {
 				  try {
-					  BiddingRoundPlayer2 player2Turn = new BiddingRoundPlayer2();
+					  BiddingRoundPlayer1 player2Turn = new BiddingRoundPlayer1();
 					  
 				  } 
 				  catch (IOException e1) {

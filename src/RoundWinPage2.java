@@ -6,11 +6,11 @@ import java.io.*;
 
 
 // Glossary class
-public class RoundWinPage1 extends JFrame implements ActionListener {
+public class RoundWinPage2 extends JFrame implements ActionListener {
 	
 	JFrame frame;
-	PlayerDataProperties1 userData1 = PlayerDataProperties1.getInstance();
-	PlayerDataProperties2 userData2 = PlayerDataProperties2.getInstance();
+	SinglePlayerDataProperties playerData = SinglePlayerDataProperties.getInstance();
+	ComputerDataProperties computerData = ComputerDataProperties.getInstance();
 	MaxBidCalculator maxBid = MaxBidCalculator.getInstance();
 	SelectedAuctionItem itemSelected = SelectedAuctionItem.getInstance();
 	ImageIcon winnerPagePic;
@@ -22,7 +22,7 @@ public class RoundWinPage1 extends JFrame implements ActionListener {
 	JButton resultsButton;
 	
 	// Method for all GUI elements on page
-	public RoundWinPage1() throws IOException {
+	public RoundWinPage2() throws IOException {
 		frame = new JFrame();
 		frame.setLayout(null);
 		winnerPagePic = new ImageIcon(this.getClass().getResource("ImagesFolder1/WinPageSimulation.JPG"));
@@ -30,29 +30,29 @@ public class RoundWinPage1 extends JFrame implements ActionListener {
 		picLabel.setBounds(20, 40, 800, 800);
 		
 		
-		if (maxBid.getBidWinner().equals(userData1.getPlayerName())) {
-			userData1.setPurseValue(userData1.getPurseValue() - maxBid.getBidValue());
-			userData1.setNetWorth(userData1.getNetWorth() + (itemSelected.getPrice()*((itemSelected.getAppreciationRate()/100)+1) + itemSelected.getLiquidity()*100));
-			userData2.setPurseValue(userData2.getPurseValue() - 50000);
-			userData2.setNetWorth(userData2.getNetWorth() - 50000);
+		if (maxBid.getBidWinner().equals(playerData.getPlayerName())) {
+			playerData.setPurseValue(playerData.getPurseValue() - maxBid.getBidValue());
+			playerData.setNetWorth(playerData.getNetWorth() + (itemSelected.getPrice()*((itemSelected.getAppreciationRate()/100)+1) + itemSelected.getLiquidity()*100));
+			computerData.setPurseValue(computerData.getPurseValue() - 50000);
+			computerData.setNetWorth(computerData.getNetWorth() - 50000);
 		}
 		
-		else if (maxBid.getBidWinner().equals(userData2.getPlayerName())) {
-			userData2.setPurseValue(userData2.getPurseValue() - maxBid.getBidValue());
-			userData2.setNetWorth(userData2.getNetWorth() + (itemSelected.getPrice()*((itemSelected.getAppreciationRate()/100)+1) + itemSelected.getLiquidity()*100));
-			userData1.setPurseValue(userData1.getPurseValue() - 50000);
-			userData1.setNetWorth(userData1.getNetWorth() - 50000);
+		else if (maxBid.getBidWinner().equals("Computer")) {
+			computerData.setPurseValue(playerData.getPurseValue() - maxBid.getBidValue());
+			computerData.setNetWorth(playerData.getNetWorth() + (itemSelected.getPrice()*((itemSelected.getAppreciationRate()/100)+1) + itemSelected.getLiquidity()*100));
+			playerData.setPurseValue(computerData.getPurseValue() - 50000);
+			playerData.setNetWorth(computerData.getNetWorth() - 50000);
 		}
 		
 		winnerDisplay = new JLabel(maxBid.getBidWinner() + " wins the round!");
 		winnerDisplay.setFont(new Font("Impact", Font.PLAIN, 20));
 		winnerDisplay.setBounds(280,20,800,60);
 		
-		purseValueDisplay = new JLabel(userData1.getPlayerName() + ", You have $" + userData1.getPurseValue() + " left in your wallet! \n " + userData2.getPlayerName() + ", You have $" + userData2.getPurseValue() + " left in your wallet! ");
+		purseValueDisplay = new JLabel(playerData.getPlayerName() + ", You have $" + playerData.getPurseValue() + " left in your wallet! \n  Computer has $" + computerData.getPurseValue() + " left in your wallet! ");
 		purseValueDisplay.setFont(new Font("Impact", Font.PLAIN, 20));
 		purseValueDisplay.setBounds(280,60,800,60);
 		
-		netWorthDisplay = new JLabel(userData1.getPlayerName() + ", Your net worth is: $" + userData1.getNetWorth() + "\n " + userData2.getPlayerName() + ", Your net worth is: $" + userData2.getNetWorth());
+		netWorthDisplay = new JLabel(playerData.getPlayerName() + ", Your net worth is: $" + playerData.getNetWorth() + "\n and the Computer has a net worth of: $" + computerData.getNetWorth());
 		netWorthDisplay.setFont(new Font("Impact", Font.PLAIN, 20));
 		netWorthDisplay.setBounds(280,95,800,60);
 		
@@ -96,7 +96,7 @@ public class RoundWinPage1 extends JFrame implements ActionListener {
 
 	// Call Glossary Page method
 	public static void main(String[] args) throws IOException {
-		new RoundWinPage1(); 
+		new RoundWinPage2(); 
 		
 
 	}
@@ -104,33 +104,33 @@ public class RoundWinPage1 extends JFrame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		
-					if (e.getSource() == closeButton) {
-							  
-							  frame.dispose();
-							  
-							  try {
-								  
-								  ItemDisplayPage newRound = new ItemDisplayPage();
-							  } 
-							  catch (IOException e1) {
-								  e1.printStackTrace();
-							  }
-							  
-				    }
-					
-					if (e.getSource() == resultsButton) {
+			if (e.getSource() == closeButton) {
+					  
+					  frame.dispose();
+					  
+					  try {
 						  
-						  frame.dispose();
-						  
-						  try {
-							  
-							   EndScreen roundEnd = new EndScreen();
-						  } 
-						  catch (IOException e1) {
-							  e1.printStackTrace();
-						  }
-						  
-			  }
+						  ItemDisplayPage newRound = new ItemDisplayPage();
+					  } 
+					  catch (IOException e1) {
+						  e1.printStackTrace();
+					  }
+					  
+		    }
+			
+			if (e.getSource() == resultsButton) {
+				  
+				  frame.dispose();
+				  
+				  try {
+					  
+					   EndScreen roundEnd = new EndScreen();
+				  } 
+				  catch (IOException e1) {
+					  e1.printStackTrace();
+				  }
+				  
+			}
 		
 			  
 		  }

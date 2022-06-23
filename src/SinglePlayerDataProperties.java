@@ -13,9 +13,14 @@ public class SinglePlayerDataProperties {
 	private String occupation;
 	private int gameWinner;
 	private int winningBid;
+	private int netWorth;
 	
 	public void setPlayerName(String playerName) {
 		this.name = playerName;
+	}
+	
+	public void setNetWorth(int netWorth) {
+		this.netWorth = netWorth;
 	}
 	
 	public void setPlayerAge(String playerAge) {
@@ -46,6 +51,9 @@ public class SinglePlayerDataProperties {
 		return this.age;
 	}
 	
+	public int getNetWorth() {
+		return this.netWorth;
+	}
 	
 	public int getPurseValue() {
 		return this.purseValue;

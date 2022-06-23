@@ -14,6 +14,7 @@ public class PlayerDataProperties1 {
 	private int gameWinner;
 	private int winningBid;
 	private String gameMode;
+	private int netWorth;
 	
 	public void setPlayerName(String playerName) {
 		this.name = playerName;
@@ -29,6 +30,10 @@ public class PlayerDataProperties1 {
 	
 	public void setPurseValue(int cashAmount) {
 		this.purseValue = cashAmount;
+	}
+	
+	public void setNetWorth(int netWorth) {
+		this.netWorth = netWorth;
 	}
 	
 	public void setPlayerOccupation(String playerOccupation) {
@@ -57,6 +62,10 @@ public class PlayerDataProperties1 {
 	
 	public int getPurseValue() {
 		return this.purseValue;
+	}
+	
+	public int getNetWorth() {
+		return this.netWorth;
 	}
 	
 	public String getPlayerOccupation() {

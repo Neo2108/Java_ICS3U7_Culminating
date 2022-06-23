@@ -7,12 +7,39 @@ import javax.swing.*;
 // Title page
 public class EndScreen extends JFrame implements ActionListener {
    ImageIcon img, img2, img3;
-   JLabel image, image2, image3, title;
+   JLabel image, image2, image3, title, name, age, occupation, cashValue, netWorth, overallWinner;
    JFrame frame;
    JButton button;
    
    // This method contains all the GUI elements required to form up the JFrame
    public EndScreen() throws IOException {
+	   
+	  BufferedReader br1 = new BufferedReader(new FileReader("userData1.txt"));
+	  BufferedReader br2 = new BufferedReader(new FileReader("userData2.txt"));
+	  BufferedReader br3 = new BufferedReader(new FileReader("userDataSingle.txt"));
+	  
+	  String st1;
+	  String st2;
+	  String st3;
+      // Condition holds true till
+      // there is character in a string
+      while ((st1 = br1.readLine()) != null) {
+
+          // Print the string
+    	  System.out.println(st1);
+      }
+      
+      while ((st2 = br2.readLine()) != null) {
+
+          // Print the string
+          System.out.println(st2);
+      }
+      
+      while ((st3 = br3.readLine()) != null) {
+
+          // Print the string
+          System.out.println(st3);
+      }
 	   
 	  frame = new JFrame();
 	  frame.setLayout(null);

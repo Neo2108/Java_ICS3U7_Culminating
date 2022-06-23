@@ -13,6 +13,7 @@ public class PlayerDataProperties2 {
 	private String occupation;
 	private int gameWinner;
 	private int winningBid;
+	private int netWorth;
 	
 	public void setPlayerName(String playerName) {
 		this.name = playerName;
@@ -20,6 +21,10 @@ public class PlayerDataProperties2 {
 	
 	public void setPurseValue(int cashAmount) {
 		this.purseValue = cashAmount;
+	}
+	
+	public void setNetWorth(int netWorth) {
+		this.netWorth = netWorth;
 	}
 	
 	public void setPlayerAge(int playerAge) {
@@ -48,6 +53,10 @@ public class PlayerDataProperties2 {
 	
 	public int getPurseValue() {
 		return this.purseValue;
+	}
+	
+	public int getNetWorth() {
+		return this.netWorth;
 	}
 	
 	public String getPlayerOccupation() {

@@ -5,11 +5,12 @@ import java.util.*;
 import java.util.Timer;
 import java.awt.event.*;
 
-public class BiddingRoundComputer extends JFrame implements ActionListener {
+public class BiddingRoundComputer extends JFrame{
 	
 	JFrame frame = new JFrame();
 	Timer timer = new Timer();
 	MaxBidCalculator maxBid1 = MaxBidCalculator.getInstance();
+	SinglePlayerDataProperties playerData = SinglePlayerDataProperties.getInstance();
 	SelectedAuctionItem itemSelected = SelectedAuctionItem.getInstance();
 	int bid1 = maxBid1.getBidValue();
 	JLabel computerBid;
@@ -24,24 +25,48 @@ public class BiddingRoundComputer extends JFrame implements ActionListener {
 			
 			frame.setLayout(null);
 			
-			if (itemSelected.getPrice()* itemSelected.getAppreciationRate() >= maxBid1.getBidValue()) {
+			if (itemSelected.getPrice()* ((itemSelected.getAppreciationRate()/100) + 1) >= maxBid1.getBidValue()) {
 				computerBidValue = maxBid1.getBidValue() + 5000;
+				maxBid1.setBidValue(computerBidValue);
+				maxBid1.setBidWinner("Computer");
 			}
 			
-			else if (itemSelected.getPrice()* itemSelected.getAppreciationRate() <= maxBid1.getBidValue() && itemSelected.getPrice()* (itemSelected.getAppreciationRate()*3) >= maxBid1.getBidValue() && itemSelected.getLiquidity() >= 8) {
-				computerBidValue = maxBid1.getBidValue() + (int)Math.random()*1000 + 800;
+			else if (itemSelected.getPrice()* ((itemSelected.getAppreciationRate()/100) + 1) <= maxBid1.getBidValue() && itemSelected.getPrice()* (((itemSelected.getAppreciationRate()/100) + 1)*3) >= maxBid1.getBidValue() && itemSelected.getLiquidity() >= 8) {
+				computerBidValue = maxBid1.getBidValue() + ((int)Math.random()*1000 + 800);
+				maxBid1.setBidValue(computerBidValue);
+				maxBid1.setBidWinner("Computer");
 			}
 			
-			else if (itemSelected.getPrice()* itemSelected.getAppreciationRate() <= maxBid1.getBidValue() && itemSelected.getPrice()* (itemSelected.getAppreciationRate()*2.6) >= maxBid1.getBidValue() && itemSelected.getLiquidity() >= 7) {
-				computerBidValue = maxBid1.getBidValue() + (int)Math.random()*1000 + 400;
+			else if (itemSelected.getPrice()* ((itemSelected.getAppreciationRate()/100) + 1) <= maxBid1.getBidValue() && itemSelected.getPrice()* (((itemSelected.getAppreciationRate()/100) + 1)*2.6) >= maxBid1.getBidValue() && itemSelected.getLiquidity() >= 7) {
+				computerBidValue = maxBid1.getBidValue() + ((int)Math.random()*1000 + 400);
+				maxBid1.setBidValue(computerBidValue);
+				maxBid1.setBidWinner("Computer");
 			}
 			
-			else if (itemSelected.getPrice()* itemSelected.getAppreciationRate() <= maxBid1.getBidValue() && itemSelected.getPrice()* (itemSelected.getAppreciationRate()*2.3) >= maxBid1.getBidValue() && itemSelected.getLiquidity() >= 5) {
-				computerBidValue = maxBid1.getBidValue() + (int)Math.random()*1000 + 200;
+			else if (itemSelected.getPrice()* ((itemSelected.getAppreciationRate()/100) + 1) <= maxBid1.getBidValue() && itemSelected.getPrice()* (((itemSelected.getAppreciationRate()/100) + 1)*2.3) >= maxBid1.getBidValue() && itemSelected.getLiquidity() >= 5) {
+				computerBidValue = maxBid1.getBidValue() + ((int)Math.random()*1000 + 200);
+				maxBid1.setBidValue(computerBidValue);
+				maxBid1.setBidWinner("Computer");
 			}
 			
-			else if (itemSelected.getPrice()* itemSelected.getAppreciationRate() <= maxBid1.getBidValue() && itemSelected.getPrice()* (itemSelected.getAppreciationRate()*2.2) >= maxBid1.getBidValue()) {
+			else if (itemSelected.getPrice()* ((itemSelected.getAppreciationRate()/100) + 1) <= maxBid1.getBidValue() && itemSelected.getPrice()* (((itemSelected.getAppreciationRate()/100) + 1)*2.2) >= maxBid1.getBidValue()) {
 				computerBidValue = maxBid1.getBidValue() + 1000;
+				maxBid1.setBidValue(computerBidValue);
+				maxBid1.setBidWinner("Computer");
+			}
+			
+			else {
+				frame.dispose();
+			    maxBid1.setBidWinner(playerData.getPlayerName());
+				  
+				  
+				try {
+					RoundWinPage1 winnerShow = new RoundWinPage1();
+				}
+				
+				catch (IOException e1) {
+					e1.printStackTrace();
+				}
 			}
 			
 			
@@ -58,7 +83,7 @@ public class BiddingRoundComputer extends JFrame implements ActionListener {
 			
 			computerBid = new JLabel("Computer bids: $" + computerBidValue);
 			computerBid.setFont(new Font("Barlow", Font.PLAIN, 25));
-			computerBid.setBounds(380,145,800,90);
+			computerBid.setBounds(380,226,800,90);
 			
 			maxBidDisplay = new JLabel("Max bid so far: $" + bid1);
 			maxBidDisplay.setFont(new Font("Impact", Font.PLAIN, 30));
@@ -96,7 +121,7 @@ public class BiddingRoundComputer extends JFrame implements ActionListener {
 			                
 			            }
 			        }, 
-			        5000
+			        8000
 			);
 		    
 		}
@@ -104,12 +129,6 @@ public class BiddingRoundComputer extends JFrame implements ActionListener {
 	public static void main(String[] args) throws IOException {
 		new BiddingRoundComputer();
 
-	}
-
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		
-		
 	}		 
 			  
 			

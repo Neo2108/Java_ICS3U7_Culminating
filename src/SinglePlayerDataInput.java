@@ -109,7 +109,7 @@ public class SinglePlayerDataInput extends JFrame implements ActionListener {
 			   
 			playerData.setPlayerName(nameSelect.getText());
 			playerData.setPlayerOccupation(jobSelect.getText());
-			playerData.setPlayerAge((int) ageSelect.getSelectedItem());
+			playerData.setPlayerAge((String) ageSelect.getSelectedItem());
 			  
 			  
 			try {

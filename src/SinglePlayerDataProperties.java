@@ -8,7 +8,7 @@ public class SinglePlayerDataProperties {
 		return itemSelectedSingleton;
 	}
 	private String name;
-	private int age;
+	private String age;
 	private int purseValue;
 	private String occupation;
 	private int gameWinner;
@@ -18,7 +18,7 @@ public class SinglePlayerDataProperties {
 		this.name = playerName;
 	}
 	
-	public void setPlayerAge(int playerAge) {
+	public void setPlayerAge(String playerAge) {
 		this.age = playerAge;
 	}
 	
@@ -42,7 +42,7 @@ public class SinglePlayerDataProperties {
 		return this.name;
 	}
 	
-	public int getPlayerAge() {
+	public String getPlayerAge() {
 		return this.age;
 	}
 	

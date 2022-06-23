@@ -6,7 +6,7 @@ import java.io.*;
 
 
 // Glossary class
-public class RoundWinPage extends JFrame implements ActionListener {
+public class RoundWinPage1 extends JFrame implements ActionListener {
 	
 	JFrame frame;
 	PlayerDataProperties1 userData1 = PlayerDataProperties1.getInstance();
@@ -22,7 +22,7 @@ public class RoundWinPage extends JFrame implements ActionListener {
 	String nameOfWinner = "";
 	
 	// Method for all GUI elements on page
-	public RoundWinPage() throws IOException {
+	public RoundWinPage1() throws IOException {
 		frame = new JFrame();
 		frame.setLayout(null);
 		winnerPagePic = new ImageIcon(this.getClass().getResource("ImagesFolder1/WinPageSimulation.JPG"));
@@ -86,7 +86,7 @@ public class RoundWinPage extends JFrame implements ActionListener {
 
 	// Call Glossary Page method
 	public static void main(String[] args) throws IOException {
-		new RoundWinPage(); 
+		new RoundWinPage1(); 
 		
 
 	}

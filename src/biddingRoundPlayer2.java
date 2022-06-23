@@ -16,7 +16,6 @@ public class BiddingRoundPlayer2 extends JFrame implements ActionListener {
 	JTextField player2Bid;
 	JLabel bidPrompt;
 	JLabel dollarSign;
-	int gameWinner = 1;
 	public static int secondsLeft = 15;
 	int player2BidValue;
 	JLabel maxBidDisplay;
@@ -111,7 +110,7 @@ public class BiddingRoundPlayer2 extends JFrame implements ActionListener {
 			                
 			               
 			                try {
-			  				  RoundWinPage roundWinner2 = new RoundWinPage();
+			  				  RoundWinPage1 roundWinner2 = new RoundWinPage1();
 			  			  	} 
 			  			  	catch (IOException e1) {
 			  			  		e1.printStackTrace();
@@ -207,7 +206,7 @@ public class BiddingRoundPlayer2 extends JFrame implements ActionListener {
 			  maxBid2.setBidWinner(userData1.getPlayerName());
 			  
 			  try {
-				  RoundWinPage winnerShow = new RoundWinPage();
+				  RoundWinPage1 winnerShow = new RoundWinPage1();
 			  } 
 			  catch (IOException e1) {
 				e1.printStackTrace();

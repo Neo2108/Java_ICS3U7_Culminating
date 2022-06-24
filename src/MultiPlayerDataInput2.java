@@ -120,7 +120,6 @@ public void actionPerformed(ActionEvent e) {
 			try {
 				FileWriter dataWriter = new FileWriter("userData2.txt");
 				BufferedWriter writer = new BufferedWriter(dataWriter);
-				// writer.write("\n----------------------------------------------\n");
 				writer.write("Name: " + nameText + "\n");
 				writer.write("Occupation: " + occupationText + "\n");
 				writer.write("Age: " + ageText);

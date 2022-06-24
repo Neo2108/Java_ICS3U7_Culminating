@@ -214,11 +214,14 @@ public class BiddingRoundComputer extends JFrame{
 				}
 			}
 			
-			
+			Color astronautBlue = new Color (32, 82, 92);
+			Color mindara = new Color (223, 230, 103);
 
-			description = new JLabel("You have 5 seconds to look at the computer's bid! Get ready for your turn!");
-			description.setFont(new Font("Barlow", Font.PLAIN, 20));
-			description.setBounds(180,145,800,90);
+			description = new JLabel("You have 8 seconds to look at the computer's bid! Get ready for your turn!");
+			description.setFont(new Font("Barlow", Font.PLAIN, 30));
+			description.setBounds(0,145,1275,50);
+			description.setForeground(astronautBlue);
+			description.setHorizontalAlignment(JLabel.CENTER);
 			
 			if(computerBidValue == 0) {
 				computerBid = new JLabel("Computer gives up and does not want to bid further");
@@ -226,12 +229,16 @@ public class BiddingRoundComputer extends JFrame{
 				computerBid = new JLabel("Computer bids: $" + computerBidValue);
 			}
 			
-			computerBid.setFont(new Font("Barlow", Font.PLAIN, 25));
-			computerBid.setBounds(380,226,800,90);
+			computerBid.setFont(new Font("Barlow", Font.PLAIN, 30));
+			computerBid.setBounds(0,226,1275,90);
+			computerBid.setForeground(astronautBlue);
+			computerBid.setHorizontalAlignment(JLabel.CENTER);
 			
 			maxBidDisplay = new JLabel("Max bid so far: $" + bid1);
-			maxBidDisplay.setFont(new Font("Impact", Font.PLAIN, 30));
-			maxBidDisplay.setBounds(440,320,800,90);
+			maxBidDisplay.setFont(new Font("Impact", Font.PLAIN, 70));
+			maxBidDisplay.setBounds(0,350,1275,90);
+			maxBidDisplay.setForeground(astronautBlue);
+			maxBidDisplay.setHorizontalAlignment(JLabel.CENTER);
 			
 			if (computerData.getPurseValue() == 0) {
 				computerData.setPurseValue(1000000);
@@ -244,8 +251,7 @@ public class BiddingRoundComputer extends JFrame{
 			
 			
 			frame.setSize(1275, 775);
-			Color color2 = new Color (195, 195, 0);
-			frame.getContentPane().setBackground(color2);
+			frame.getContentPane().setBackground(mindara);
 			frame.setVisible(true);
 		    frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		    

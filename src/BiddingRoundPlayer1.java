@@ -96,8 +96,7 @@ public class BiddingRoundPlayer1 extends JFrame implements ActionListener {
 		    frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		    
 		    
-		    
-<<<<<<< HEAD:src/biddingRoundPlayer1.java
+		
 		    
 		    
 		
@@ -120,25 +119,9 @@ public class BiddingRoundPlayer1 extends JFrame implements ActionListener {
 }, 
 15000
 );
-}
+
 	
-	public void countdownTimer() {
-		counterLabel.setText("15");
-		second =15;
-		countdown = new Timer(1000, new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				second--;
-				formattedSecond = dFormat.format(second);
-				counterLabel.setText(formattedSecond);
-				if(second==0) {
-					countdown.stop();
-				}
-			}
-		});		
-	}	
-	
-=======
+
 		    timer.schedule(new TimerTask() 
 		    			{
 			            @Override
@@ -160,7 +143,7 @@ public class BiddingRoundPlayer1 extends JFrame implements ActionListener {
 			);
 		    
 		}
->>>>>>> fbf774689308be7f1a0816011f51d126b2d32c68:src/BiddingRoundPlayer1.java
+
 
 	public static void main(String[] args) throws IOException {
 		new BiddingRoundPlayer1();

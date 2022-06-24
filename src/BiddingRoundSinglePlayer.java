@@ -135,7 +135,7 @@ public class BiddingRoundSinglePlayer extends JFrame implements ActionListener {
 		    			{
 			            @Override
 			            public void run() {
-			            	if (maxBid.getNumRounds() == 0) {
+			            	if (maxBid.getNumRounds() == 1) {
 			            		maxBid.setBidWinner("Computer");
 			            		maxBid.setBidValue(itemSelected.getPrice()/2);
 			            		frame.dispose();
@@ -253,14 +253,22 @@ public class BiddingRoundSinglePlayer extends JFrame implements ActionListener {
 		  }
 		
 		  else if (e.getSource() == endBid) {
-			  
-			  frame.dispose();
-			  timer.cancel();
-			  maxBid.setBidWinner("Computer");
-			  maxBid.setBidWinner("Computer");
-          	  //maxBid.setBidValue(itemSelected.getPrice()/2);
-          	  computerData.setPurseValue(computerData.getPurseValue() - (maxBid.getBidValue()));
+          	  
+			  if (maxBid.getNumRounds() == 1) {
+				  frame.dispose();
+				  timer.cancel();
+				  maxBid.setBidWinner("Computer");
+				  maxBid.setBidValue(itemSelected.getPrice()/2);
+				  computerData.setPurseValue(computerData.getPurseValue() - (maxBid.getBidValue()));
+			  }
 
+			  else {
+				  frame.dispose();
+				  timer.cancel();
+				  maxBid.setBidWinner("Computer");
+				  maxBid.setBidValue(maxBid.getBidValue());
+				  computerData.setPurseValue(computerData.getPurseValue() - (maxBid.getBidValue()));
+			  }
 			  
 			  try {
 				  RoundWinPage2 winnerShow = new RoundWinPage2();

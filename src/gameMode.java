@@ -20,28 +20,30 @@ public class GameMode extends JFrame implements ActionListener {
 	public GameMode() throws IOException {
 		// between player data and main menu
 		// between itemdisplay and biddinground1
+		Color mindara = new Color (223, 230, 103);
+		Color astronautBlue = new Color (32, 82, 92);
 		
 		frame = new JFrame();
 		frame.setLayout(null);
 		heading = new JLabel("Mode Choice");
 		heading.setFont(new Font("Impact", Font.PLAIN, 60));
 		heading.setBounds(480,20,800,150);
-		heading.setForeground(Color.white);
+		heading.setForeground(astronautBlue);
 		
 		modeExplanation = new JLabel("Please pick the game mode you want to play ");
 		modeExplanation.setFont(new Font("Barlow", Font.PLAIN, 30));
 		modeExplanation.setBounds(280,200,800,60);
-		modeExplanation.setForeground(Color.white);
+		modeExplanation.setForeground(astronautBlue);
 		
 		
 		button = new JButton("Single-Player Mode");
-		button.setBounds(730, 300, 250, 60);
+		button.setBounds(520, 340, 250, 60);
 		button.addActionListener(this);
 		Color color1 = new Color (0, 210, 0);
 		button.setBackground(color1);
 		
 		button2 = new JButton("Multiplayer Mode");
-		button2.setBounds(730, 450, 250, 60);
+		button2.setBounds(520, 490, 250, 60);
 		button2.addActionListener(this);
 		button2.setBackground(color1);
 		
@@ -56,12 +58,11 @@ public class GameMode extends JFrame implements ActionListener {
 		
 		
 		 frame.setSize(1275, 775);
-		 Color color2 = new Color (32, 82, 92);
-		 frame.getContentPane().setBackground(color2);
+		 frame.getContentPane().setBackground(mindara);
 	     frame.setVisible(true);
 	     frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
 	}
-
+		
 	 public void actionPerformed(ActionEvent e) {
 		   
 		  if (e.getSource() == button) {

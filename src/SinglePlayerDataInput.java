@@ -29,22 +29,23 @@ public class SinglePlayerDataInput extends JFrame implements ActionListener {
 		heading = new JLabel("Please enter your data:");
 		heading.setFont(new Font("Impact", Font.PLAIN, 60));
 		heading.setBounds(350,20,800,150);
-		heading.setForeground(Color.white);
+		Color astronautBlue = new Color (32, 82, 92);
+		heading.setForeground(astronautBlue);
 		
 		age = new JLabel("AGE: ");
 		age.setFont(new Font("Barlow", Font.PLAIN, 20));
 		age.setBounds(400,325,800,25);
-		age.setForeground(Color.white);
+		age.setForeground(astronautBlue);
 		
 		name = new JLabel("NAME: ");
 		name.setFont(new Font("Barlow", Font.PLAIN, 20));
 		name.setBounds(400,225,800,25);
-		name.setForeground(Color.white);
+		name.setForeground(astronautBlue);
 		
 		occupation = new JLabel("OCCUPATION: ");
 		occupation.setFont(new Font("Barlow", Font.PLAIN, 20));
 		occupation.setBounds(400,425,800,25);
-		occupation.setForeground(Color.white);
+		occupation.setForeground(astronautBlue);
 		
 		// textFields
 		nameSelect = new JTextField();
@@ -86,8 +87,8 @@ public class SinglePlayerDataInput extends JFrame implements ActionListener {
 		
 		
 		frame.setSize(1275, 775);
-		Color color2 = new Color (32, 82, 92);
-		frame.getContentPane().setBackground(color2);
+		Color mindara = new Color (223, 230, 103);
+		frame.getContentPane().setBackground(mindara);
 		frame.setVisible(true);
 	    frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
 	    

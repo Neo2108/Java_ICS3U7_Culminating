@@ -67,7 +67,7 @@ public class BiddingRoundPlayer2 extends JFrame implements ActionListener {
 				userData2.setNetWorth(1000000);
 			}
 			
-			playerName = new JLabel(userData1.getPlayerName()+"");
+			playerName = new JLabel(userData2.getPlayerName()+"");
 			playerName.setFont(new Font("Impact", Font.PLAIN, 70));
 			playerName.setBounds(0,20,1275,150);
 			playerName.setHorizontalAlignment(JLabel.CENTER);
@@ -219,7 +219,7 @@ public class BiddingRoundPlayer2 extends JFrame implements ActionListener {
 			  
 			  else if (player2BidValue < actualMaxBid || actualMaxBid < itemSelected.getPrice() || userData2.getPurseValue() <= player2BidValue) {
 				  try {
-					  BiddingRoundPlayer2 player1Turn = new BiddingRoundPlayer2();
+					  BiddingRoundPlayer2 player2redo = new BiddingRoundPlayer2();
 					  
 				  } 
 				  catch (IOException e1) {

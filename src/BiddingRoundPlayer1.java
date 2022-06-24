@@ -95,7 +95,6 @@ public class BiddingRoundPlayer1 extends JFrame implements ActionListener {
 				userData1.setPurseValue(1000000);
 			}
 
-
 			startingPrice = new JLabel("Starting Price of Item: $" + itemSelected.getPrice());
 			startingPrice.setFont(new Font("Impact", Font.PLAIN, 30));
 			startingPrice.setBounds(500,360+30,800,90);
@@ -138,19 +137,11 @@ public class BiddingRoundPlayer1 extends JFrame implements ActionListener {
 		    			{
 			            @Override
 			            public void run() {
-			            	if (maxBid1.getNumRounds() == 1) {
-			            		maxBid1.setBidWinner(userData2.getPlayerName());
-			            		maxBid1.setBidValue(itemSelected.getPrice()/2);
-			            		frame.dispose();
-			            		userData2.setPurseValue(userData2.getPurseValue() - (maxBid1.getBidValue()));
-			            	}
-			            	
-			            	else {
-			            		maxBid1.setBidWinner(userData2.getPlayerName());
-			            		maxBid1.setBidValue(maxBid1.getBidValue());
-			            		frame.dispose();
-			            		userData2.setPurseValue(userData2.getPurseValue() - maxBid1.getBidValue());
-			            	}
+			            	timer.cancel();
+			            	maxBid1.setBidWinner(userData2.getPlayerName());
+			            	maxBid1.setBidValue(maxBid1.getBidValue());
+			            	frame.dispose();
+			            	userData2.setPurseValue(userData2.getPurseValue() - (maxBid1.getBidValue()));
 			            	
 			                try {
 			  				  RoundWinPage1 roundWinner = new RoundWinPage1();
@@ -193,8 +184,6 @@ public class BiddingRoundPlayer1 extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == rulesBackButton) {
 			  
-			  //frame.dispose();
-			  
 			  try {
 				  Rules newRulesPage1 = new Rules();
 			  } 
@@ -205,8 +194,6 @@ public class BiddingRoundPlayer1 extends JFrame implements ActionListener {
 		  }
 		  
 		  else if (e.getSource() == glossaryBackButton) {
-			  
-			  //frame.dispose();
 			  
 			  try {
 				  Glossary howToPlay1 = new Glossary();
@@ -259,21 +246,12 @@ public class BiddingRoundPlayer1 extends JFrame implements ActionListener {
 		
 		  else if (e.getSource() == endBid) {
 			  
-			  if (maxBid1.getNumRounds() == 1) {
-				  frame.dispose();
-          		  timer.cancel();
-          		  maxBid1.setBidWinner(userData2.getPlayerName());
-          		  maxBid1.setBidValue(itemSelected.getPrice()/2);
-          		  userData2.setPurseValue(userData2.getPurseValue() - (maxBid1.getBidValue()));
-          	  }
-          	
-          	  else {
-          		  frame.dispose();
-          		  timer.cancel();
-          		  maxBid1.setBidWinner(userData2.getPlayerName());
-          		  maxBid1.setBidValue(maxBid1.getBidValue());
-          		  userData2.setPurseValue(userData2.getPurseValue() - maxBid1.getBidValue());
-          	}
+			  timer.cancel();
+			  maxBid1.setBidWinner(userData2.getPlayerName());
+          	  maxBid1.setBidValue(maxBid1.getBidValue());
+          	  frame.dispose();
+          	  userData2.setPurseValue(userData2.getPurseValue() - (maxBid1.getBidValue()));
+			  
 			  
 			  try {
 				  RoundWinPage1 winnerShow = new RoundWinPage1();

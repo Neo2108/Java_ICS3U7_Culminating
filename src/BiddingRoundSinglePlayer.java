@@ -39,6 +39,7 @@ public class BiddingRoundSinglePlayer extends JFrame implements ActionListener {
 	DecimalFormat dFormat = new DecimalFormat("00");
 	
 	public BiddingRoundSinglePlayer() throws IOException {
+		
 		Color mindara = new Color (223, 230, 103);
 		Color astronautBlue = new Color (32, 82, 92);
 			
@@ -64,13 +65,23 @@ public class BiddingRoundSinglePlayer extends JFrame implements ActionListener {
 			endBid.addActionListener(this);
 			endBid.setBackground(Color.LIGHT_GRAY);
 			
+			if (playerData.getPurseValue() == 0) {
+				playerData.setPurseValue(1000000);
+				playerData.setNetWorth(1000000);
+			}
+			
+			if (computerData.getPurseValue() == 0) {
+				computerData.setPurseValue(1000000);
+				computerData.setNetWorth(1000000);
+			}
+			
 			playerName = new JLabel(playerData.getPlayerName()+"");
 			playerName.setFont(new Font("Impact", Font.PLAIN, 70));
 			playerName.setBounds(0,20,1275,150);
 			playerName.setHorizontalAlignment(JLabel.CENTER);
 			playerName.setForeground(astronautBlue);
 			
-			bidPrompt = new JLabel("You have 15 seconds to enter your bid");
+			bidPrompt = new JLabel("You have $" + playerData.getPurseValue());
 			bidPrompt.setFont(new Font("Impact", Font.PLAIN, 30));
 			bidPrompt.setBounds(0,145,1275,90);
 			bidPrompt.setHorizontalAlignment(JLabel.CENTER);
@@ -81,7 +92,9 @@ public class BiddingRoundSinglePlayer extends JFrame implements ActionListener {
 			maxBidDisplay.setBounds(500,320+30,1275,90);
 			maxBidDisplay.setForeground(astronautBlue);
 
-					
+			if (maxBid.getNumRounds() == 0) {
+				playerData.setPurseValue(1000000);
+			}
 			
 			startingPrice = new JLabel("Starting Price of Item: $" + itemSelected.getPrice());
 			startingPrice.setFont(new Font("Impact", Font.PLAIN, 30));
@@ -135,19 +148,12 @@ public class BiddingRoundSinglePlayer extends JFrame implements ActionListener {
 		    			{
 			            @Override
 			            public void run() {
-			            	if (maxBid.getNumRounds() == 1) {
-			            		maxBid.setBidWinner("Computer");
-			            		maxBid.setBidValue(itemSelected.getPrice()/2);
-			            		frame.dispose();
-			            		computerData.setPurseValue(computerData.getPurseValue() - (maxBid.getBidValue()));
-			            	}
 			            	
-			            	else {
-			            		maxBid.setBidWinner("Computer");
-			            		maxBid.setBidValue(maxBid.getBidValue());
-			            		frame.dispose();
-			            		computerData.setPurseValue(computerData.getPurseValue() - (maxBid.getBidValue()));
-			            	}
+			            	timer.cancel();
+			            	maxBid.setBidWinner("Computer");
+			            	maxBid.setBidValue(maxBid.getBidValue());
+			            	frame.dispose();
+			            	computerData.setPurseValue(computerData.getPurseValue() - (maxBid.getBidValue()));
 			            	
 			                try {
 			  				  RoundWinPage2 roundWinner = new RoundWinPage2();
@@ -165,7 +171,7 @@ public class BiddingRoundSinglePlayer extends JFrame implements ActionListener {
 
 	public void countdownTimer() {
 		counterLabel.setText("15");
-		second =15;
+		second = 15;
 		countdown = new Timer(1000, new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -253,22 +259,12 @@ public class BiddingRoundSinglePlayer extends JFrame implements ActionListener {
 		  }
 		
 		  else if (e.getSource() == endBid) {
-          	  
-			  if (maxBid.getNumRounds() == 1) {
-				  frame.dispose();
-				  timer.cancel();
-				  maxBid.setBidWinner("Computer");
-				  maxBid.setBidValue(itemSelected.getPrice()/2);
-				  computerData.setPurseValue(computerData.getPurseValue() - (maxBid.getBidValue()));
-			  }
-
-			  else {
-				  frame.dispose();
-				  timer.cancel();
-				  maxBid.setBidWinner("Computer");
-				  maxBid.setBidValue(maxBid.getBidValue());
-				  computerData.setPurseValue(computerData.getPurseValue() - (maxBid.getBidValue()));
-			  }
+			  
+			  frame.dispose();
+			  timer.cancel();
+			  maxBid.setBidWinner("Computer");
+          	  maxBid.setBidValue(maxBid.getBidValue());
+          	  computerData.setPurseValue(computerData.getPurseValue() - (maxBid.getBidValue()));
 			  
 			  try {
 				  RoundWinPage2 winnerShow = new RoundWinPage2();

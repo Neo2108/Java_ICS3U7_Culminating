@@ -67,6 +67,11 @@ public class BiddingRoundPlayer2 extends JFrame implements ActionListener {
 				userData2.setNetWorth(1000000);
 			}
 			
+			if (userData1.getPurseValue() == 0) {
+				userData1.setPurseValue(1000000);
+				userData1.setNetWorth(1000000);
+			}
+			
 			playerName = new JLabel(userData2.getPlayerName()+"");
 			playerName.setFont(new Font("Impact", Font.PLAIN, 70));
 			playerName.setBounds(0,20,1275,150);
@@ -88,6 +93,10 @@ public class BiddingRoundPlayer2 extends JFrame implements ActionListener {
 			startingPrice.setFont(new Font("Impact", Font.PLAIN, 30));
 			startingPrice.setBounds(500,360+30,800,90);
 			startingPrice.setForeground(astronautBlue);
+			
+			if (maxBid2.getNumRounds() == 0) {
+				userData1.setPurseValue(1000000);
+			}
 
 			dollarSign = new JLabel("$");
 			dollarSign.setFont(new Font("Impact", Font.PLAIN, 30));

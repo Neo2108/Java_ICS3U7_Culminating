@@ -23,12 +23,14 @@ public class RoundWinPage2 extends JFrame implements ActionListener {
 	
 	// Method for all GUI elements on page
 	public RoundWinPage2() throws IOException {
+		
 		frame = new JFrame();
 		frame.setLayout(null);
 		winnerPagePic = new ImageIcon(this.getClass().getResource("ImagesFolder1/WinPageSimulation.png"));
 		picLabel = new JLabel(winnerPagePic);
 		picLabel.setBounds(20, 40, 800, 800);
 		
+		Color astronautBlue = new Color (32, 82, 92);
 		
 		if (maxBid.getBidWinner().equals(playerData.getPlayerName())) {
 			playerData.setPurseValue(playerData.getPurseValue() - maxBid.getBidValue());
@@ -47,14 +49,17 @@ public class RoundWinPage2 extends JFrame implements ActionListener {
 		winnerDisplay = new JLabel(maxBid.getBidWinner() + " wins the round!");
 		winnerDisplay.setFont(new Font("Impact", Font.PLAIN, 20));
 		winnerDisplay.setBounds(280,20,800,60);
+		winnerDisplay.setForeground(Color.white);
 		
 		purseValueDisplay = new JLabel(playerData.getPlayerName() + ", You have $" + playerData.getPurseValue() + " left in your wallet! \n &  Computer has $" + computerData.getPurseValue() + " left in its wallet! ");
 		purseValueDisplay.setFont(new Font("Impact", Font.PLAIN, 20));
 		purseValueDisplay.setBounds(280,60,800,60);
+		purseValueDisplay.setForeground(Color.white);
 		
 		netWorthDisplay = new JLabel(playerData.getPlayerName() + ", Your net worth is: $" + playerData.getNetWorth() + "\n &  Computer's net worth is: $" + computerData.getNetWorth());
 		netWorthDisplay.setFont(new Font("Impact", Font.PLAIN, 20));
 		netWorthDisplay.setBounds(280,95,800,60);
+		netWorthDisplay.setForeground(Color.white);
 		
 		if (maxBid.getNumRounds() < 3) {
 			closeButton = new JButton("Next Round!");
@@ -84,12 +89,8 @@ public class RoundWinPage2 extends JFrame implements ActionListener {
 		}
 		
 		
-		
-		
-		
 		frame.setSize(1275, 775);
-		Color color2 = new Color (195, 195, 0);
-		frame.getContentPane().setBackground(color2);
+		frame.getContentPane().setBackground(astronautBlue);
 	    frame.setVisible(true);
 	    frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
 	}
@@ -97,8 +98,6 @@ public class RoundWinPage2 extends JFrame implements ActionListener {
 	// Call Glossary Page method
 	public static void main(String[] args) throws IOException {
 		new RoundWinPage2(); 
-		
-
 	}
 
 	@Override
@@ -136,5 +135,3 @@ public class RoundWinPage2 extends JFrame implements ActionListener {
 		  }
 		
 	}
-
-

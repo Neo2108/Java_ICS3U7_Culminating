@@ -12,6 +12,7 @@ public class BiddingRoundSinglePlayer extends JFrame implements ActionListener {
 	MaxBidCalculator maxBid = MaxBidCalculator.getInstance();
 	SelectedAuctionItem itemSelected = SelectedAuctionItem.getInstance();
 	SinglePlayerDataProperties playerData = SinglePlayerDataProperties.getInstance();
+	ComputerDataProperties computerData = ComputerDataProperties.getInstance();
 	int actualMaxBid = maxBid.getBidValue();
 	JTextField singlePlayerBid;
 	JLabel bidPrompt;
@@ -73,6 +74,10 @@ public class BiddingRoundSinglePlayer extends JFrame implements ActionListener {
 				playerData.setPurseValue(1000000);
 				playerData.setNetWorth(1000000);
 			}
+			if (computerData.getPurseValue() == 0) {
+				computerData.setPurseValue(1000000);
+				computerData.setNetWorth(1000000);
+			}
 			
 			frame.add(submitBid);
 			frame.add(glossaryBackButton);
@@ -100,9 +105,11 @@ public class BiddingRoundSinglePlayer extends JFrame implements ActionListener {
 			            	
 			            	frame.dispose();
 			            	maxBid.setBidWinner("Computer");
+			            	maxBid.setBidValue(itemSelected.getPrice()/2);
+			            	computerData.setPurseValue(computerData.getPurseValue() - (maxBid.getBidValue()));
 			            	
 			                try {
-			  				  RoundWinPage1 roundWinner = new RoundWinPage1();
+			  				  RoundWinPage2 roundWinner = new RoundWinPage2();
 			  			  	} 
 			  			  	catch (IOException e1) {
 			  			  		e1.printStackTrace();

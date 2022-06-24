@@ -95,17 +95,15 @@ public class BiddingRoundPlayer1 extends JFrame implements ActionListener {
 			dollarSign.setBounds(475,215,800,90);
 			
 			player1Bid = new JTextField();
-<<<<<<< HEAD
+
 			player1Bid.setBounds(500, 240, 150, 45);			
 		
-=======
 			player1Bid.setBounds(500, 240, 150, 45);
 			
 			counterLabel = new JLabel();
 			counterLabel.setBounds(300, 230, 200, 100);
 			counterLabel.setHorizontalAlignment(JLabel.CENTER);
 			counterLabel.setFont(font1);
->>>>>>> 7669ab6ca050aa3671df42f8d9454647d6e5f525
 			
 			frame.add(submitBid);
 			frame.add(glossaryBackButton);
@@ -123,20 +121,18 @@ public class BiddingRoundPlayer1 extends JFrame implements ActionListener {
 			frame.getContentPane().setBackground(color2);
 			frame.setVisible(true);
 		    frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
-		    
-<<<<<<< HEAD
 
-=======
 			countdownTimer();
 			countdown.start();	
 		    
->>>>>>> 7669ab6ca050aa3671df42f8d9454647d6e5f525
 		    timer.schedule(new TimerTask() 
 		    			{
 			            @Override
 			            public void run() {
 			            	maxBid1.setBidWinner(userData2.getPlayerName());
+			            	maxBid1.setBidValue(itemSelected.getPrice()/2);
 			            	frame.dispose();
+			            	userData2.setPurseValue(userData2.getPurseValue() - (maxBid1.getBidValue()));
 			            	
 			                try {
 			  				  RoundWinPage1 roundWinner = new RoundWinPage1();

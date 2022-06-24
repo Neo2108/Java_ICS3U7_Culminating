@@ -19,10 +19,13 @@ public class Glossary extends JFrame implements ActionListener {
 		frame.setLayout(null);
 		Glossary = new ImageIcon(this.getClass().getResource("ImagesFolder1/GlossaryPage.png"));
 		Image image = Glossary.getImage();
-        Image newImg = image.getScaledInstance(600, 700,  java.awt.Image.SCALE_SMOOTH);
+//        Image newImg = image.getScaledInstance(600, 700,  java.awt.Image.SCALE_SMOOTH);
+        Image newImg = image.getScaledInstance(image.getWidth(null)*730/image.getHeight(null), 730,  java.awt.Image.SCALE_SMOOTH);
         Glossary = new ImageIcon(newImg);
 		glossaryImage1 = new JLabel(Glossary);
-		glossaryImage1.setBounds(-100, -40, 800, 800);
+		int imgWidth = newImg.getWidth(null);
+		int imgHeight = newImg.getHeight(null);
+		glossaryImage1.setBounds(0, 0, imgWidth, imgHeight);
 		
 		closeButton = new JButton("Close");
 		closeButton.setBounds(610, 530, 100, 40);
@@ -32,10 +35,9 @@ public class Glossary extends JFrame implements ActionListener {
 		frame.add(glossaryImage1);
 		frame.add(closeButton);
 		
-		
-		frame.setSize(1275, 730);
-		Color color2 = new Color (195, 195, 0);
-		frame.getContentPane().setBackground(color2);
+		frame.setSize(750, 730);
+		Color mindara = new Color (223, 230, 103);
+		frame.getContentPane().setBackground(mindara);
 	    frame.setVisible(true);
 	    frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
 	}
@@ -43,8 +45,6 @@ public class Glossary extends JFrame implements ActionListener {
 	// Call Glossary Page method
 	public static void main(String[] args) throws IOException {
 		new Glossary(); 
-		
-
 	}
 
 	@Override

@@ -1,4 +1,3 @@
-
 import javax.swing.*;
 import javax.swing.Timer;
 
@@ -18,6 +17,7 @@ public class BiddingRoundPlayer1 extends JFrame implements ActionListener {
 	PlayerDataProperties2 userData2 = PlayerDataProperties2.getInstance();
 	int actualMaxBid = maxBid1.getBidValue();
 	JTextField player1Bid;
+	JLabel playerName;
 	JLabel bidPrompt;
 	JLabel dollarSign;
 	public static int secondsLeft = 15;
@@ -39,7 +39,9 @@ public class BiddingRoundPlayer1 extends JFrame implements ActionListener {
 	DecimalFormat dFormat = new DecimalFormat("00");
 	
 	public BiddingRoundPlayer1() throws IOException {
-			
+		Color mindara = new Color (223, 230, 103);
+		Color astronautBlue = new Color (32, 82, 92);
+		
 			frame.setLayout(null);
 			
 			rulesBackButton = new JButton("Rules");
@@ -53,14 +55,15 @@ public class BiddingRoundPlayer1 extends JFrame implements ActionListener {
 			glossaryBackButton.setBackground(Color.LIGHT_GRAY);
 			
 			submitBid = new JButton("Submit Bid");
-			submitBid.setBounds(522, 300, 100, 40);
+			submitBid.setBounds(500+100, 300, 100, 40);
 			submitBid.addActionListener(this);
 			submitBid.setBackground(Color.LIGHT_GRAY);
 			
 			endBid = new JButton("End Bid");
-			endBid.setBounds(322, 300, 100, 40);
+			endBid.setBounds(500, 300, 100, 40);
 			endBid.addActionListener(this);
 			endBid.setBackground(Color.LIGHT_GRAY);
+			
 			if (userData1.getPurseValue() == 0) {
 				userData1.setPurseValue(1000000);
 				userData1.setNetWorth(1000000);
@@ -71,14 +74,22 @@ public class BiddingRoundPlayer1 extends JFrame implements ActionListener {
 				userData2.setNetWorth(1000000);
 			}
 			
-			bidPrompt = new JLabel(userData1.getPlayerName() + " You have $" + userData1.getPurseValue() + ", Enter your Bid, you have 15 seconds: ");
-			bidPrompt.setFont(new Font("Impact", Font.PLAIN, 30));
-			bidPrompt.setBounds(380,145,800,90);
+			playerName = new JLabel(userData1.getPlayerName()+"");
+			playerName.setFont(new Font("Impact", Font.PLAIN, 70));
+			playerName.setBounds(0,20,1275,150);
+			playerName.setHorizontalAlignment(JLabel.CENTER);
+			playerName.setForeground(astronautBlue);
 			
+			bidPrompt = new JLabel("You have $" + userData1.getPurseValue());
+			bidPrompt.setFont(new Font("Impact", Font.PLAIN, 30));
+			bidPrompt.setBounds(0,145,1275,90);
+			bidPrompt.setHorizontalAlignment(JLabel.CENTER);
+			bidPrompt.setForeground(astronautBlue);
 			
 			maxBidDisplay = new JLabel("Max bid so far: $" + actualMaxBid);
 			maxBidDisplay.setFont(new Font("Impact", Font.PLAIN, 30));
-			maxBidDisplay.setBounds(440,320,800,90);
+			maxBidDisplay.setBounds(500,320+30,1275,90);
+			maxBidDisplay.setForeground(astronautBlue);
 
 			if (maxBid1.getNumRounds() == 0) {
 				userData1.setPurseValue(1000000);
@@ -86,24 +97,22 @@ public class BiddingRoundPlayer1 extends JFrame implements ActionListener {
 
 
 			startingPrice = new JLabel("Starting Price of Item: $" + itemSelected.getPrice());
-			startingPrice.setFont(new Font("Impact", Font.PLAIN, 25));
-			startingPrice.setBounds(440,360,800,90);
-			frame.add(startingPrice);
+			startingPrice.setFont(new Font("Impact", Font.PLAIN, 30));
+			startingPrice.setBounds(500,360+30,800,90);
+			startingPrice.setForeground(astronautBlue);
 		
 			dollarSign = new JLabel("$");
-			dollarSign.setFont(new Font("Impact", Font.PLAIN, 32));
-			dollarSign.setBounds(475,215,800,90);
+			dollarSign.setFont(new Font("Impact", Font.PLAIN, 30));
+			dollarSign.setBounds(475,217,800,90);
+			dollarSign.setForeground(astronautBlue);
 			
 			player1Bid = new JTextField();
-
 			player1Bid.setBounds(500, 240, 150, 45);			
-		
-			player1Bid.setBounds(500, 240, 150, 45);
 			
 			counterLabel = new JLabel();
-			counterLabel.setBounds(300, 230, 200, 100);
-			counterLabel.setHorizontalAlignment(JLabel.CENTER);
+			counterLabel.setBounds(30, 30, 100, 100);
 			counterLabel.setFont(font1);
+			counterLabel.setForeground(astronautBlue);
 			
 			frame.add(submitBid);
 			frame.add(glossaryBackButton);
@@ -115,10 +124,10 @@ public class BiddingRoundPlayer1 extends JFrame implements ActionListener {
 			frame.add(endBid);
 			frame.add(startingPrice);
 			frame.add(counterLabel);
+			frame.add(playerName);
 			
 			frame.setSize(1275, 775);
-			Color color2 = new Color (195, 195, 0);
-			frame.getContentPane().setBackground(color2);
+			frame.getContentPane().setBackground(mindara);
 			frame.setVisible(true);
 		    frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
 

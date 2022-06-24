@@ -35,8 +35,6 @@ public class ItemDisplayPage extends JFrame implements ActionListener {
 		
 		int itemNumber = ((int) (Math.random()*10) + 1);
 		int[] itemNumberArray = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11};
-		int[] alreadyChosen = new int [3];
-		alreadyChosen[] = 
 		
 		
 		

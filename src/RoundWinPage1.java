@@ -29,6 +29,8 @@ public class RoundWinPage1 extends JFrame implements ActionListener {
 		picLabel = new JLabel(winnerPagePic);
 		picLabel.setBounds(20, 40, 800, 800);
 		
+		Color astronautBlue = new Color (32, 82, 92);
+		Color mindara = new Color (223, 230, 103);
 		
 		if (maxBid.getBidWinner().equals(userData1.getPlayerName())) {
 			userData1.setPurseValue(userData1.getPurseValue() - maxBid.getBidValue());
@@ -47,14 +49,17 @@ public class RoundWinPage1 extends JFrame implements ActionListener {
 		winnerDisplay = new JLabel(maxBid.getBidWinner() + " wins the round!");
 		winnerDisplay.setFont(new Font("Impact", Font.PLAIN, 20));
 		winnerDisplay.setBounds(280,20,800,60);
+		winnerDisplay.setForeground(astronautBlue);
 		
 		purseValueDisplay = new JLabel(userData1.getPlayerName() + ", You have $" + userData1.getPurseValue() + " left in your wallet! &\n " + userData2.getPlayerName() + ", You have $" + userData2.getPurseValue() + " left in your wallet! ");
 		purseValueDisplay.setFont(new Font("Impact", Font.PLAIN, 20));
 		purseValueDisplay.setBounds(280,60,800,60);
+		purseValueDisplay.setForeground(astronautBlue);
 		
 		netWorthDisplay = new JLabel(userData1.getPlayerName() + ", Your net worth is: $" + userData1.getNetWorth() + "\n  &  " + userData2.getPlayerName() + ", Your net worth is: $" + userData2.getNetWorth());
 		netWorthDisplay.setFont(new Font("Impact", Font.PLAIN, 20));
 		netWorthDisplay.setBounds(280,95,800,60);
+		netWorthDisplay.setForeground(astronautBlue);
 		
 		if (maxBid.getNumRounds() < 3) {
 			closeButton = new JButton("Next Round!");
@@ -89,8 +94,7 @@ public class RoundWinPage1 extends JFrame implements ActionListener {
 		
 		
 		frame.setSize(1275, 775);
-		Color color2 = new Color (195, 195, 0);
-		frame.getContentPane().setBackground(color2);
+		frame.getContentPane().setBackground(mindara);
 	    frame.setVisible(true);
 	    frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
 	}
@@ -137,5 +141,3 @@ public class RoundWinPage1 extends JFrame implements ActionListener {
 		  }
 		
 	}
-
-

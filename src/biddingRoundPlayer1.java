@@ -72,23 +72,12 @@ public class BiddingRoundPlayer1 extends JFrame implements ActionListener {
 			maxBidDisplay = new JLabel("Max bid so far: $" + actualMaxBid);
 			maxBidDisplay.setFont(new Font("Impact", Font.PLAIN, 30));
 			maxBidDisplay.setBounds(440,320,800,90);
-<<<<<<< HEAD
 			
-=======
-			if (maxBid1.getNumRounds() == 0) {
-				userData1.setPurseValue(1000000);
-			}
 
-			displayCashValue = new JLabel("Cash Value: $" + userData1.getPurseValue());
-			displayCashValue.setFont(new Font("Impact", Font.PLAIN, 30));
-			displayCashValue.setBounds(40,20,800,90);
-
->>>>>>> 28beec6eb644a54de591301ef0c70b3146d95127
 			startingPrice = new JLabel("Starting Price of Item: $" + itemSelected.getPrice());
 			startingPrice.setFont(new Font("Impact", Font.PLAIN, 25));
 			startingPrice.setBounds(440,360,800,90);
 			frame.add(startingPrice);
-			frame.add(displayCashValue);
 		
 			dollarSign = new JLabel("$");
 			dollarSign.setFont(new Font("Impact", Font.PLAIN, 32));
@@ -111,12 +100,7 @@ public class BiddingRoundPlayer1 extends JFrame implements ActionListener {
 			frame.add(maxBidDisplay);
 			frame.add(endBid);
 			frame.add(startingPrice);
-<<<<<<< HEAD
-			
-=======
-			frame.add(displayCashValue);
 			frame.add(counterLabel);
->>>>>>> 28beec6eb644a54de591301ef0c70b3146d95127
 			
 			frame.setSize(1275, 775);
 			Color color2 = new Color (195, 195, 0);

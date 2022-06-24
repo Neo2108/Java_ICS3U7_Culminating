@@ -114,7 +114,7 @@ public class SinglePlayerDataInput extends JFrame implements ActionListener {
 			  
 			  
 			try {
-				FileWriter dataWriter = new FileWriter("userData.txt");
+				FileWriter dataWriter = new FileWriter("userDataSingle.txt");
 				BufferedWriter writer = new BufferedWriter(dataWriter);
 				writer.write("Name: " + nameText + "\n");
 				writer.write("Occupation: " + occupationText + "\n");

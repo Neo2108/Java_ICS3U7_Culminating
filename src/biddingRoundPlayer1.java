@@ -63,7 +63,7 @@ public class BiddingRoundPlayer1 extends JFrame implements ActionListener {
 			maxBidDisplay.setFont(new Font("Impact", Font.PLAIN, 30));
 			maxBidDisplay.setBounds(440,320,800,90);
 			
-			startingPrice = new JLabel("Starting Price of Item So Far: $" + itemSelected.getPrice());
+			startingPrice = new JLabel("Starting Price of Item: $" + itemSelected.getPrice());
 			startingPrice.setFont(new Font("Impact", Font.PLAIN, 25));
 			startingPrice.setBounds(440,360,800,90);
 			

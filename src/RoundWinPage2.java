@@ -38,10 +38,10 @@ public class RoundWinPage2 extends JFrame implements ActionListener {
 		}
 		
 		else if (maxBid.getBidWinner().equals("Computer")) {
-			computerData.setPurseValue(playerData.getPurseValue() - maxBid.getBidValue());
-			computerData.setNetWorth(playerData.getNetWorth() + (itemSelected.getPrice()*((itemSelected.getAppreciationRate()/100)+1) + itemSelected.getLiquidity()*100));
-			playerData.setPurseValue(computerData.getPurseValue() - 50000);
-			playerData.setNetWorth(computerData.getNetWorth() - 50000);
+			computerData.setPurseValue(computerData.getPurseValue() - maxBid.getBidValue());
+			computerData.setNetWorth(computerData.getNetWorth() + (itemSelected.getPrice()*((itemSelected.getAppreciationRate()/100)+1) + itemSelected.getLiquidity()*100));
+			playerData.setPurseValue(playerData.getPurseValue() - 50000);
+			playerData.setNetWorth(playerData.getNetWorth() - 50000);
 		}
 		
 		winnerDisplay = new JLabel(maxBid.getBidWinner() + " wins the round!");

@@ -81,6 +81,7 @@ public class RoundWinPage1 extends JFrame implements ActionListener {
 			frame.add(purseValueDisplay);
 			frame.add(resultsButton);
 			frame.add(netWorthDisplay);
+			
 		}
 		
 		

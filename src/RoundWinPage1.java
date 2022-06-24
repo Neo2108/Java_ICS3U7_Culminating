@@ -25,7 +25,7 @@ public class RoundWinPage1 extends JFrame implements ActionListener {
 	public RoundWinPage1() throws IOException {
 		frame = new JFrame();
 		frame.setLayout(null);
-		winnerPagePic = new ImageIcon(this.getClass().getResource("ImagesFolder1/WinPageSimulation.JPG"));
+		winnerPagePic = new ImageIcon(this.getClass().getResource("ImagesFolder1/WinPageSimulation.png"));
 		picLabel = new JLabel(winnerPagePic);
 		picLabel.setBounds(20, 40, 800, 800);
 		

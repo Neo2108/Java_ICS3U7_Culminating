@@ -1,3 +1,3 @@
-Name: Miya
-Occupation: ABC
+Name: miya
+Occupation: abc
 Age: 18

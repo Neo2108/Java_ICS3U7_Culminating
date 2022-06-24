@@ -19,7 +19,6 @@ public class BiddingRoundPlayer2 extends JFrame implements ActionListener {
 	public static int secondsLeft = 15;
 	int player2BidValue;
 	JLabel maxBidDisplay;
-	JLabel countdownDisplay;
 	JLabel player1BidDisplay;
 	JButton submitBid;
 	JButton glossaryBackButton;
@@ -71,14 +70,9 @@ public class BiddingRoundPlayer2 extends JFrame implements ActionListener {
 			player2Bid = new JTextField();
 			player2Bid.setBounds(500, 240, 150, 45);
 			
-			countdownDisplay = new JLabel("Time Left: " + secondsLeft + " seconds");
-			countdownDisplay.setFont(new Font("Barlow", Font.BOLD, 32));
-			countdownDisplay.setBounds(455,365,800,90);
-			
 		
 			
 			frame.add(submitBid);
-			//frame.add(countdownDisplay);
 			frame.add(glossaryBackButton);
 			frame.add(rulesBackButton);
 			frame.add(player2Bid);
@@ -97,18 +91,12 @@ public class BiddingRoundPlayer2 extends JFrame implements ActionListener {
 		    
 		    timer2.schedule( 
 			        new java.util.TimerTask() {
-			            @Override
+			           
 			            public void run() {
-			            	if (secondsLeft == 0) {
-			            		countdownDisplay.setText("    Time left: " + secondsLeft + " seconds"); //update JLabel
-			            		timer2.cancel();
-			            		frame.dispose();
-			            	}
+			            	timer2.cancel();
+		            		frame.dispose();
 			            	
-			            	maxBid2.setBidWinner(userData1.getPlayerName());
-			            	secondsLeft--; //decrement timeLeft
-							countdownDisplay.setText("    Time left: " + secondsLeft + " seconds"); //update JLabel
-			                
+			            	maxBid2.setBidWinner(userData1.getPlayerName());			                
 			               
 			                try {
 			  				  RoundWinPage1 roundWinner2 = new RoundWinPage1();

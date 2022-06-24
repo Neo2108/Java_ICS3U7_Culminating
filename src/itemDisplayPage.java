@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
+import java.util.*;
 
 public class ItemDisplayPage extends JFrame implements ActionListener {
 	
@@ -27,29 +28,41 @@ public class ItemDisplayPage extends JFrame implements ActionListener {
 	public int currentRoundItemPrice;
 	public int currentRoundItemAppreciationRate;
 	public int currentRoundItemLiquidity;
+	public static int[] itemDisplayedNumber = new int [3];
+	public boolean itemExists = false;
 	
 	
 	public ItemDisplayPage() throws IOException {
 		
-		// Picks random item from the number of items available
-		
+		// Picks random item from the number of items available, and ensures no duplicate items are displayed
 		int itemNumber = ((int) (Math.random()*10) + 1);
-		int[] itemNumberArray = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11};
+		System.out.println(itemNumber);
+		for (int i = 0; i < itemDisplayedNumber.length; i++) {
+			if (itemDisplayedNumber[i] == itemNumber) {
+				itemExists = true;
+			}
+			else {
+				itemNumber = ((int) (Math.random()*10) + 1);
+			}
+		}
+		
 		
 		
 		
 		// Assign item properties to variables for convenience in using
-		currentRoundItemName = itemName(itemNumber);
-		itemSelected.setItemName(currentRoundItemName);
-		currentRoundImage = itemImage(itemNumber);
-		currentRoundYearItemMade = yearItemMade(itemNumber);
-		itemSelected.setYearMade(currentRoundYearItemMade);
-		currentRoundItemPrice = itemPrices(itemNumber);
-		itemSelected.setPrice(currentRoundItemPrice);
-		currentRoundItemAppreciationRate = itemAppreciationRate(itemNumber);
-		itemSelected.setAppreciationRate(currentRoundItemAppreciationRate);
-		currentRoundItemLiquidity = itemLiquidity(itemNumber);
-		itemSelected.setLiquidity(currentRoundItemLiquidity);
+		
+			currentRoundItemName = itemName(itemNumber);
+			itemSelected.setItemName(currentRoundItemName);
+			currentRoundImage = itemImage(itemNumber);
+			currentRoundYearItemMade = yearItemMade(itemNumber);
+			itemSelected.setYearMade(currentRoundYearItemMade);
+			currentRoundItemPrice = itemPrices(itemNumber);
+			itemSelected.setPrice(currentRoundItemPrice);
+			currentRoundItemAppreciationRate = itemAppreciationRate(itemNumber);
+			itemSelected.setAppreciationRate(currentRoundItemAppreciationRate);
+			currentRoundItemLiquidity = itemLiquidity(itemNumber);
+			itemSelected.setLiquidity(currentRoundItemLiquidity);
+		
 
 		frame.setLayout(null);
 		
@@ -138,6 +151,10 @@ public class ItemDisplayPage extends JFrame implements ActionListener {
 		
 		new ItemDisplayPage();
 		
+	}
+	
+	public static void itemDisplayedNumber (int itemNumber) {
+		Arrays.fill(itemDisplayedNumber,itemNumber);
 	}
 
 	public static String itemName(int itemNumber) {

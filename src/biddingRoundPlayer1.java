@@ -25,6 +25,7 @@ public class BiddingRoundPlayer1 extends JFrame implements ActionListener {
 	JButton glossaryBackButton;
 	JButton rulesBackButton;
 	JButton endBid;
+	JLabel startingPrice;
 	
 	public BiddingRoundPlayer1() throws IOException {
 			
@@ -58,10 +59,13 @@ public class BiddingRoundPlayer1 extends JFrame implements ActionListener {
 			bidPrompt.setFont(new Font("Impact", Font.PLAIN, 30));
 			bidPrompt.setBounds(380,145,800,90);
 			
-			
 			maxBidDisplay = new JLabel("Max bid so far: $" + actualMaxBid);
 			maxBidDisplay.setFont(new Font("Impact", Font.PLAIN, 30));
 			maxBidDisplay.setBounds(440,320,800,90);
+			
+			startingPrice = new JLabel("Starting Price of Item So Far: $" + itemSelected.getPrice());
+			startingPrice.setFont(new Font("Impact", Font.PLAIN, 25));
+			startingPrice.setBounds(440,360,800,90);
 			
 			dollarSign = new JLabel("$");
 			dollarSign.setFont(new Font("Impact", Font.PLAIN, 32));
@@ -81,6 +85,7 @@ public class BiddingRoundPlayer1 extends JFrame implements ActionListener {
 			frame.add(dollarSign);
 			frame.add(maxBidDisplay);
 			frame.add(endBid);
+			frame.add(startingPrice);
 			
 			
 			frame.setSize(1275, 775);

@@ -1,3 +1,0 @@
-Name: null
-Occupation: null
-Age: null

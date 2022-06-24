@@ -24,6 +24,7 @@ public class BiddingRoundPlayer2 extends JFrame implements ActionListener {
 	JButton glossaryBackButton;
 	JButton rulesBackButton;
 	JButton endBid;
+	JLabel displayCashValue;
 	JLabel startingPrice;
 	
 	public BiddingRoundPlayer2() throws IOException {
@@ -63,6 +64,13 @@ public class BiddingRoundPlayer2 extends JFrame implements ActionListener {
 			maxBidDisplay.setFont(new Font("Impact", Font.PLAIN, 30));
 			maxBidDisplay.setBounds(440,320,800,90);
 			
+			displayCashValue = new JLabel("Cash Value: $" + userData2.getPurseValue());
+			displayCashValue.setFont(new Font("Impact", Font.PLAIN, 30));
+			displayCashValue.setBounds(40,20,800,90);
+			
+			if (maxBid2.getNumRounds() == 0) {
+				userData2.setPurseValue(1000000);
+			}
 			startingPrice = new JLabel("Starting Price of Item: $" + itemSelected.getPrice());
 			startingPrice.setFont(new Font("Impact", Font.PLAIN, 25));
 			startingPrice.setBounds(440,360,800,90);
@@ -85,6 +93,7 @@ public class BiddingRoundPlayer2 extends JFrame implements ActionListener {
 			frame.add(maxBidDisplay);
 			frame.add(endBid);
 			frame.add(startingPrice);
+			frame.add(displayCashValue);
 			
 			
 			frame.setSize(1275, 775);

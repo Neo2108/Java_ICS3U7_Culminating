@@ -23,32 +23,37 @@ public class MultiPlayerDataInput2 extends JFrame implements ActionListener {
 	JButton submit;
 	
 	public MultiPlayerDataInput2() throws IOException {
-
+		Color astronautBlue = new Color (32, 82, 92);
+		Color mindara = new Color (223, 230, 103);
 		frame.setLayout(null);
 		
 		heading = new JLabel("Please enter Player 2's Data: ");
 		heading.setFont(new Font("Impact", Font.PLAIN, 60));
-		heading.setBounds(280,20,800,60);
+		heading.setBounds(300,20,800,150);
+		heading.setForeground(astronautBlue);
 		
-		age = new JLabel("Age: ");
+		age = new JLabel("AGE: ");
 		age.setFont(new Font("Barlow", Font.PLAIN, 20));
 		age.setBounds(400,325,800,25);
+		age.setForeground(astronautBlue);
 		
-		name = new JLabel("Name: ");
+		name = new JLabel("NAME: ");
 		name.setFont(new Font("Barlow", Font.PLAIN, 20));
 		name.setBounds(400,225,800,25);
+		name.setForeground(astronautBlue);
 		
-		occupation = new JLabel("Occupation: ");
+		occupation = new JLabel("OCCUPATION: ");
 		occupation.setFont(new Font("Barlow", Font.PLAIN, 20));
 		occupation.setBounds(400,425,800,25);
+		occupation.setForeground(astronautBlue);
 		
 		// textFields
 		nameSelect = new JTextField();
-		nameSelect.setBounds(500, 225, 150, 25);
+		nameSelect.setBounds(550, 225, 150, 25);
 		
 		
 		jobSelect = new JTextField();
-		jobSelect.setBounds(530, 425, 150, 25);
+		jobSelect.setBounds(550, 425, 150, 25);
 		
 		
 		
@@ -62,7 +67,7 @@ public class MultiPlayerDataInput2 extends JFrame implements ActionListener {
 		//JComboBox ageSelect = new JComboBox(ages);
 		
 		ageSelect.setEditable(true);
-		ageSelect.setBounds(500, 325, 60, 23);
+		ageSelect.setBounds(550, 325, 60, 23);
 		ageSelect.addActionListener(this);
 		
 		
@@ -82,8 +87,7 @@ public class MultiPlayerDataInput2 extends JFrame implements ActionListener {
 		
 		
 		frame.setSize(1275, 775);
-		Color color2 = new Color (195, 195, 0);
-		frame.getContentPane().setBackground(color2);
+		frame.getContentPane().setBackground(mindara);
 		frame.setVisible(true);
 	    frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
 	    
@@ -99,7 +103,7 @@ public class MultiPlayerDataInput2 extends JFrame implements ActionListener {
 
 
 	// Once submit button is clicked, write data into a text file for use later on, while outputting result
-	public void actionPerformed(ActionEvent e) {
+public void actionPerformed(ActionEvent e) {
 		
 		if (e.getSource() == submit) {
 			  
@@ -140,5 +144,6 @@ public class MultiPlayerDataInput2 extends JFrame implements ActionListener {
 		  }
 		
 	}
+
 
 }

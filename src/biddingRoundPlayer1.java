@@ -1,14 +1,16 @@
 import javax.swing.*;
+import javax.swing.Timer;
+
 import java.awt.*;
 import java.io.*;
+import java.text.DecimalFormat;
 import java.util.*;
-import java.util.Timer;
 import java.awt.event.*;
 
 public class BiddingRoundPlayer1 extends JFrame implements ActionListener {
 	
 	JFrame frame = new JFrame();
-	Timer timer = new Timer();
+	java.util.Timer timer = new java.util.Timer();
 	MaxBidCalculator maxBid1 = MaxBidCalculator.getInstance();
 	SelectedAuctionItem itemSelected = SelectedAuctionItem.getInstance();
 	PlayerDataProperties1 userData1 = PlayerDataProperties1.getInstance();
@@ -26,6 +28,14 @@ public class BiddingRoundPlayer1 extends JFrame implements ActionListener {
 	JButton rulesBackButton;
 	JButton endBid;
 	JLabel startingPrice;
+	
+	// countdown
+	JLabel counterLabel;
+	Font font1 = new Font("Impact", Font.PLAIN, 70);	
+	javax.swing.Timer countdown;	
+	int second;
+	String formattedSecond;	
+	DecimalFormat dFormat = new DecimalFormat("00");
 	
 	public BiddingRoundPlayer1() throws IOException {
 			
@@ -50,24 +60,36 @@ public class BiddingRoundPlayer1 extends JFrame implements ActionListener {
 			endBid.setBounds(322, 300, 100, 40);
 			endBid.addActionListener(this);
 			endBid.setBackground(Color.LIGHT_GRAY);
-			
 			if (userData1.getPurseValue() == 0) {
 				userData1.setPurseValue(1000000);
 				userData1.setNetWorth(1000000);
 			}
-			
 			bidPrompt = new JLabel(userData1.getPlayerName() + " You have $" + userData1.getPurseValue() + ", Enter your Bid, you have 15 seconds: ");
 			bidPrompt.setFont(new Font("Impact", Font.PLAIN, 30));
 			bidPrompt.setBounds(380,145,800,90);
 			
+			
 			maxBidDisplay = new JLabel("Max bid so far: $" + actualMaxBid);
 			maxBidDisplay.setFont(new Font("Impact", Font.PLAIN, 30));
 			maxBidDisplay.setBounds(440,320,800,90);
+<<<<<<< HEAD
 			
+=======
+			if (maxBid1.getNumRounds() == 0) {
+				userData1.setPurseValue(1000000);
+			}
+
+			displayCashValue = new JLabel("Cash Value: $" + userData1.getPurseValue());
+			displayCashValue.setFont(new Font("Impact", Font.PLAIN, 30));
+			displayCashValue.setBounds(40,20,800,90);
+
+>>>>>>> 28beec6eb644a54de591301ef0c70b3146d95127
 			startingPrice = new JLabel("Starting Price of Item: $" + itemSelected.getPrice());
 			startingPrice.setFont(new Font("Impact", Font.PLAIN, 25));
 			startingPrice.setBounds(440,360,800,90);
-			
+			frame.add(startingPrice);
+			frame.add(displayCashValue);
+		
 			dollarSign = new JLabel("$");
 			dollarSign.setFont(new Font("Impact", Font.PLAIN, 32));
 			dollarSign.setBounds(475,215,800,90);
@@ -75,8 +97,10 @@ public class BiddingRoundPlayer1 extends JFrame implements ActionListener {
 			player1Bid = new JTextField();
 			player1Bid.setBounds(500, 240, 150, 45);
 			
-			
-		
+			counterLabel = new JLabel();
+			counterLabel.setBounds(300, 230, 200, 100);
+			counterLabel.setHorizontalAlignment(JLabel.CENTER);
+			counterLabel.setFont(font1);
 			
 			frame.add(submitBid);
 			frame.add(glossaryBackButton);
@@ -87,7 +111,12 @@ public class BiddingRoundPlayer1 extends JFrame implements ActionListener {
 			frame.add(maxBidDisplay);
 			frame.add(endBid);
 			frame.add(startingPrice);
+<<<<<<< HEAD
 			
+=======
+			frame.add(displayCashValue);
+			frame.add(counterLabel);
+>>>>>>> 28beec6eb644a54de591301ef0c70b3146d95127
 			
 			frame.setSize(1275, 775);
 			Color color2 = new Color (195, 195, 0);
@@ -95,7 +124,8 @@ public class BiddingRoundPlayer1 extends JFrame implements ActionListener {
 			frame.setVisible(true);
 		    frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		    
-		    
+			countdownTimer();
+			countdown.start();	
 		    
 		    timer.schedule(new TimerTask() 
 		    			{
@@ -103,7 +133,6 @@ public class BiddingRoundPlayer1 extends JFrame implements ActionListener {
 			            public void run() {
 			            	maxBid1.setBidWinner(userData2.getPlayerName());
 			            	frame.dispose();
-			            	
 			            	
 			                try {
 			  				  RoundWinPage1 roundWinner = new RoundWinPage1();
@@ -118,9 +147,27 @@ public class BiddingRoundPlayer1 extends JFrame implements ActionListener {
 			);
 		    
 		}
+	
+	public void countdownTimer() {
+		counterLabel.setText("15");
+		second =15;
+		countdown = new Timer(1000, new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				second--;
+				formattedSecond = dFormat.format(second);
+				counterLabel.setText(formattedSecond);
+				if(second==0) {
+					countdown.stop();
+				}
+			}
+		});		
+	}	
+	
 
 	public static void main(String[] args) throws IOException {
 		new BiddingRoundPlayer1();
+//		new CountDownTimer();
 
 	}
 

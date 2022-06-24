@@ -149,10 +149,16 @@ public class BiddingRoundSinglePlayer extends JFrame implements ActionListener {
 			            @Override
 			            public void run() {
 			            	
+<<<<<<< HEAD
 			            	timer.cancel();
 			            	maxBid.setBidWinner("Computer");
 			            	maxBid.setBidValue(maxBid.getBidValue());
 			            	frame.dispose();
+=======
+			            	frame.dispose();
+			            	maxBid.setBidWinner("Computer");
+			            	maxBid.setBidValue(itemSelected.getPrice()/2);
+>>>>>>> 3126bea2861fd9df67af83246f56ae9dad2c424f
 			            	computerData.setPurseValue(computerData.getPurseValue() - (maxBid.getBidValue()));
 			            	
 			                try {
@@ -164,7 +170,7 @@ public class BiddingRoundSinglePlayer extends JFrame implements ActionListener {
 			                
 			            }
 			        }, 
-			        15000
+			        secondsLeft*1000
 			);
 		    
 		}
@@ -222,8 +228,17 @@ public class BiddingRoundSinglePlayer extends JFrame implements ActionListener {
 			  frame.dispose();
 			  timer.cancel();
 			  
+			  try {
 			  singlePlayerBidValue = Integer.parseInt(singlePlayerBid.getText()); 
-			  
+			  }
+			  catch (final NumberFormatException illegal) {
+				  try {
+					ExceptionPage errorOccurred = new ExceptionPage();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			  }
 			  
 			  if (singlePlayerBidValue > actualMaxBid && singlePlayerBidValue > itemSelected.getPrice() && playerData.getPurseValue() > singlePlayerBidValue) {
 				  
@@ -248,7 +263,7 @@ public class BiddingRoundSinglePlayer extends JFrame implements ActionListener {
 					  e1.printStackTrace();
 				  }
 				  try {
-					  ExceptionPage errorOcurred = new ExceptionPage();
+					  ExceptionPage errorOccurred = new ExceptionPage();
 					  
 				  } 
 				  catch (IOException e1) {
@@ -263,8 +278,15 @@ public class BiddingRoundSinglePlayer extends JFrame implements ActionListener {
 			  frame.dispose();
 			  timer.cancel();
 			  maxBid.setBidWinner("Computer");
+<<<<<<< HEAD
           	  maxBid.setBidValue(maxBid.getBidValue());
           	  computerData.setPurseValue(computerData.getPurseValue() - (maxBid.getBidValue()));
+=======
+			  maxBid.setBidWinner("Computer");
+          	  //maxBid.setBidValue(itemSelected.getPrice()/2);
+          	  computerData.setPurseValue(computerData.getPurseValue() - (maxBid.getBidValue()));
+
+>>>>>>> 3126bea2861fd9df67af83246f56ae9dad2c424f
 			  
 			  try {
 				  RoundWinPage2 winnerShow = new RoundWinPage2();

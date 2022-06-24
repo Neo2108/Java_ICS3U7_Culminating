@@ -78,7 +78,7 @@ public class BiddingRoundPlayer2 extends JFrame implements ActionListener {
 			playerName.setHorizontalAlignment(JLabel.CENTER);
 			playerName.setForeground(astronautBlue);
 
-			bidPrompt = new JLabel("You have $" + userData1.getPurseValue());
+			bidPrompt = new JLabel("You have $" + userData2.getPurseValue());
 			bidPrompt.setFont(new Font("Impact", Font.PLAIN, 30));
 			bidPrompt.setBounds(0,145,1275,90);
 			bidPrompt.setHorizontalAlignment(JLabel.CENTER);
@@ -136,12 +136,10 @@ public class BiddingRoundPlayer2 extends JFrame implements ActionListener {
 			        new java.util.TimerTask() {
 			           
 			            public void run() {
-			            	
 			            	timer2.cancel();
-		            		frame.dispose(); 
-			            	maxBid2.setBidWinner(userData1.getPlayerName());
-			            	maxBid2.setBidValue(maxBid2.getBidValue());
-			           		userData1.setPurseValue(userData1.getPurseValue() - maxBid2.getBidValue());
+		            		frame.dispose();
+			            	
+			            	maxBid2.setBidWinner(userData1.getPlayerName());			                
 			               
 			                try {
 			  				  RoundWinPage1 roundWinner2 = new RoundWinPage1();
@@ -211,8 +209,19 @@ public class BiddingRoundPlayer2 extends JFrame implements ActionListener {
 			  timer2.cancel();
 			  frame.dispose();
 			  // MaxBidCalculator maxBid1 = new MaxBidCalculator();
-			  
-			  player2BidValue = Integer.parseInt(player2Bid.getText());
+
+
+			  try {
+				  player2BidValue = Integer.parseInt(player2Bid.getText()); 
+				  }
+				  catch (final NumberFormatException illegal) {
+					  try {
+						ExceptionPage errorOccurred = new ExceptionPage();
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+				  }
 			  
 			  if (player2BidValue > actualMaxBid && player2BidValue > itemSelected.getPrice() && userData2.getPurseValue() > player2BidValue) {
 				  
@@ -230,7 +239,7 @@ public class BiddingRoundPlayer2 extends JFrame implements ActionListener {
 			  
 			  else if (player2BidValue < actualMaxBid || actualMaxBid < itemSelected.getPrice() || userData2.getPurseValue() <= player2BidValue) {
 				  try {
-					  BiddingRoundPlayer2 player2redo = new BiddingRoundPlayer2();
+					  BiddingRoundPlayer2 player1Turn = new BiddingRoundPlayer2();
 					  
 				  } 
 				  catch (IOException e1) {
@@ -255,8 +264,6 @@ public class BiddingRoundPlayer2 extends JFrame implements ActionListener {
 			  frame.dispose();
 			  timer2.cancel();
 			  maxBid2.setBidWinner(userData1.getPlayerName());
-          	  maxBid2.setBidValue(maxBid2.getBidValue());
-         	  userData1.setPurseValue(userData1.getPurseValue() - maxBid2.getBidValue());
 			  
 			  try {
 				  RoundWinPage1 winnerShow = new RoundWinPage1();

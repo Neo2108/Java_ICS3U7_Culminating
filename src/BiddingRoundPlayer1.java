@@ -137,9 +137,14 @@ public class BiddingRoundPlayer1 extends JFrame implements ActionListener {
 		    			{
 			            @Override
 			            public void run() {
+<<<<<<< HEAD
 			            	timer.cancel();
 			            	maxBid1.setBidWinner(userData2.getPlayerName());
 			            	maxBid1.setBidValue(maxBid1.getBidValue());
+=======
+			            	maxBid1.setBidWinner(userData2.getPlayerName());
+			            	maxBid1.setBidValue(itemSelected.getPrice()/2);
+>>>>>>> 3126bea2861fd9df67af83246f56ae9dad2c424f
 			            	frame.dispose();
 			            	userData2.setPurseValue(userData2.getPurseValue() - (maxBid1.getBidValue()));
 			            	
@@ -208,8 +213,17 @@ public class BiddingRoundPlayer1 extends JFrame implements ActionListener {
 			  frame.dispose();
 			  timer.cancel();
 			  
-			  player1BidValue = Integer.parseInt(player1Bid.getText()); 
-			  
+			  try {
+				  player1BidValue = Integer.parseInt(player1Bid.getText()); 
+				  }
+				  catch (final NumberFormatException illegal) {
+					  try {
+						ExceptionPage errorOccurred = new ExceptionPage();
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+				  }
 			  
 			  if (player1BidValue > actualMaxBid && player1BidValue > itemSelected.getPrice() && userData1.getPurseValue() > player1BidValue) {
 				  
@@ -246,11 +260,17 @@ public class BiddingRoundPlayer1 extends JFrame implements ActionListener {
 		
 		  else if (e.getSource() == endBid) {
 			  
+<<<<<<< HEAD
 			  timer.cancel();
 			  maxBid1.setBidWinner(userData2.getPlayerName());
           	  maxBid1.setBidValue(maxBid1.getBidValue());
           	  frame.dispose();
           	  userData2.setPurseValue(userData2.getPurseValue() - (maxBid1.getBidValue()));
+=======
+			  frame.dispose();
+			  timer.cancel();
+			  maxBid1.setBidWinner(userData2.getPlayerName());
+>>>>>>> 3126bea2861fd9df67af83246f56ae9dad2c424f
 			  
 			  
 			  try {

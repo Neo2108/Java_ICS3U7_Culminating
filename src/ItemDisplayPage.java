@@ -83,12 +83,12 @@ public class ItemDisplayPage extends JFrame implements ActionListener {
 		
 		continueButtonMessage1 = new JLabel("Player 1 will have 15 seconds to place their bid");
 		continueButtonMessage1.setFont(new Font("Barlow", Font.PLAIN, 20));
-		continueButtonMessage1.setBounds(20,250+1*20,8000,30);
+		continueButtonMessage1.setBounds(20,250+1*40,8000,30);
 		continueButtonMessage1.setForeground(Color.white);
 		
 		continueButtonMessage2 = new JLabel("Press only when fully prepared to play");
 		continueButtonMessage2.setFont(new Font("Barlow", Font.PLAIN, 20));
-		continueButtonMessage2.setBounds(20,250+2*20,8000,30);
+		continueButtonMessage2.setBounds(20,250+2*40,8000,30);
 		continueButtonMessage2.setForeground(Color.white);
 		
 		itemDisplay = new ImageIcon(this.getClass().getResource(currentRoundImage));

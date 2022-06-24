@@ -135,19 +135,11 @@ public class BiddingRoundSinglePlayer extends JFrame implements ActionListener {
 		    			{
 			            @Override
 			            public void run() {
-			            	if (maxBid.getNumRounds() == 1) {
-			            		maxBid.setBidWinner("Computer");
-			            		maxBid.setBidValue(itemSelected.getPrice()/2);
-			            		frame.dispose();
-			            		computerData.setPurseValue(computerData.getPurseValue() - (maxBid.getBidValue()));
-			            	}
 			            	
-			            	else {
-			            		maxBid.setBidWinner("Computer");
-			            		maxBid.setBidValue(maxBid.getBidValue());
-			            		frame.dispose();
-			            		computerData.setPurseValue(computerData.getPurseValue() - (maxBid.getBidValue()));
-			            	}
+			            	frame.dispose();
+			            	maxBid.setBidWinner("Computer");
+			            	maxBid.setBidValue(itemSelected.getPrice()/2);
+			            	computerData.setPurseValue(computerData.getPurseValue() - (maxBid.getBidValue()));
 			            	
 			                try {
 			  				  RoundWinPage2 roundWinner = new RoundWinPage2();
@@ -158,7 +150,7 @@ public class BiddingRoundSinglePlayer extends JFrame implements ActionListener {
 			                
 			            }
 			        }, 
-			        15000
+			        secondsLeft*1000
 			);
 		    
 		}
@@ -216,8 +208,17 @@ public class BiddingRoundSinglePlayer extends JFrame implements ActionListener {
 			  frame.dispose();
 			  timer.cancel();
 			  
+			  try {
 			  singlePlayerBidValue = Integer.parseInt(singlePlayerBid.getText()); 
-			  
+			  }
+			  catch (final NumberFormatException illegal) {
+				  try {
+					ExceptionPage errorOccurred = new ExceptionPage();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			  }
 			  
 			  if (singlePlayerBidValue > actualMaxBid && singlePlayerBidValue > itemSelected.getPrice() && playerData.getPurseValue() > singlePlayerBidValue) {
 				  
@@ -242,7 +243,7 @@ public class BiddingRoundSinglePlayer extends JFrame implements ActionListener {
 					  e1.printStackTrace();
 				  }
 				  try {
-					  ExceptionPage errorOcurred = new ExceptionPage();
+					  ExceptionPage errorOccurred = new ExceptionPage();
 					  
 				  } 
 				  catch (IOException e1) {
@@ -253,22 +254,14 @@ public class BiddingRoundSinglePlayer extends JFrame implements ActionListener {
 		  }
 		
 		  else if (e.getSource() == endBid) {
-          	  
-			  if (maxBid.getNumRounds() == 1) {
-				  frame.dispose();
-				  timer.cancel();
-				  maxBid.setBidWinner("Computer");
-				  maxBid.setBidValue(itemSelected.getPrice()/2);
-				  computerData.setPurseValue(computerData.getPurseValue() - (maxBid.getBidValue()));
-			  }
+			  
+			  frame.dispose();
+			  timer.cancel();
+			  maxBid.setBidWinner("Computer");
+			  maxBid.setBidWinner("Computer");
+          	  //maxBid.setBidValue(itemSelected.getPrice()/2);
+          	  computerData.setPurseValue(computerData.getPurseValue() - (maxBid.getBidValue()));
 
-			  else {
-				  frame.dispose();
-				  timer.cancel();
-				  maxBid.setBidWinner("Computer");
-				  maxBid.setBidValue(maxBid.getBidValue());
-				  computerData.setPurseValue(computerData.getPurseValue() - (maxBid.getBidValue()));
-			  }
 			  
 			  try {
 				  RoundWinPage2 winnerShow = new RoundWinPage2();

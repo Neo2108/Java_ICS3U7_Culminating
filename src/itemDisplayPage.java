@@ -49,7 +49,7 @@ public class ItemDisplayPage extends JFrame implements ActionListener {
 		
 		
 		
-		// Assign item properties to variables for convenience in using
+		// Assign item properties to variables for convenience in using the methods
 		
 			currentRoundItemName = itemName(itemNumber);
 			itemSelected.setItemName(currentRoundItemName);

@@ -56,6 +56,12 @@ public class BiddingRoundPlayer1 extends JFrame implements ActionListener {
 				userData1.setPurseValue(1000000);
 				userData1.setNetWorth(1000000);
 			}
+			
+			if (userData2.getPurseValue() == 0) {
+				userData2.setPurseValue(1000000);
+				userData2.setNetWorth(1000000);
+			}
+			
 			bidPrompt = new JLabel(userData1.getPlayerName() + " You have $" + userData1.getPurseValue() + ", Enter your Bid, you have 15 seconds: ");
 			bidPrompt.setFont(new Font("Impact", Font.PLAIN, 30));
 			bidPrompt.setBounds(380,145,800,90);
@@ -73,9 +79,7 @@ public class BiddingRoundPlayer1 extends JFrame implements ActionListener {
 			dollarSign.setBounds(475,215,800,90);
 			
 			player1Bid = new JTextField();
-			player1Bid.setBounds(500, 240, 150, 45);
-			
-			
+			player1Bid.setBounds(500, 240, 150, 45);			
 		
 			
 			frame.add(submitBid);
@@ -95,32 +99,6 @@ public class BiddingRoundPlayer1 extends JFrame implements ActionListener {
 			frame.setVisible(true);
 		    frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		    
-		    
-		
-		    
-		    
-		
-	
-	timer.schedule(new TimerTask() 
-	{
-    @Override
-    public void run() {
-    	maxBid1.setBidWinner(userData2.getPlayerName());
-    	frame.dispose();
-    	
-        try {
-			  RoundWinPage1 roundWinner = new RoundWinPage1();
-		  	} 
-		  	catch (IOException e1) {
-		  		e1.printStackTrace();
-		  	}
-        
-    }
-}, 
-15000
-);
-
-	
 
 		    timer.schedule(new TimerTask() 
 		    			{

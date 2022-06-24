@@ -138,19 +138,10 @@ public class BiddingRoundPlayer1 extends JFrame implements ActionListener {
 		    			{
 			            @Override
 			            public void run() {
-			            	if (maxBid1.getNumRounds() == 1) {
-			            		maxBid1.setBidWinner(userData2.getPlayerName());
-			            		maxBid1.setBidValue(itemSelected.getPrice()/2);
-			            		frame.dispose();
-			            		userData2.setPurseValue(userData2.getPurseValue() - (maxBid1.getBidValue()));
-			            	}
-			            	
-			            	else {
-			            		maxBid1.setBidWinner(userData2.getPlayerName());
-			            		maxBid1.setBidValue(maxBid1.getBidValue());
-			            		frame.dispose();
-			            		userData2.setPurseValue(userData2.getPurseValue() - maxBid1.getBidValue());
-			            	}
+			            	maxBid1.setBidWinner(userData2.getPlayerName());
+			            	maxBid1.setBidValue(itemSelected.getPrice()/2);
+			            	frame.dispose();
+			            	userData2.setPurseValue(userData2.getPurseValue() - (maxBid1.getBidValue()));
 			            	
 			                try {
 			  				  RoundWinPage1 roundWinner = new RoundWinPage1();
@@ -221,8 +212,17 @@ public class BiddingRoundPlayer1 extends JFrame implements ActionListener {
 			  frame.dispose();
 			  timer.cancel();
 			  
-			  player1BidValue = Integer.parseInt(player1Bid.getText()); 
-			  
+			  try {
+				  player1BidValue = Integer.parseInt(player1Bid.getText()); 
+				  }
+				  catch (final NumberFormatException illegal) {
+					  try {
+						ExceptionPage errorOccurred = new ExceptionPage();
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+				  }
 			  
 			  if (player1BidValue > actualMaxBid && player1BidValue > itemSelected.getPrice() && userData1.getPurseValue() > player1BidValue) {
 				  
@@ -259,21 +259,10 @@ public class BiddingRoundPlayer1 extends JFrame implements ActionListener {
 		
 		  else if (e.getSource() == endBid) {
 			  
-			  if (maxBid1.getNumRounds() == 1) {
-				  frame.dispose();
-          		  timer.cancel();
-          		  maxBid1.setBidWinner(userData2.getPlayerName());
-          		  maxBid1.setBidValue(itemSelected.getPrice()/2);
-          		  userData2.setPurseValue(userData2.getPurseValue() - (maxBid1.getBidValue()));
-          	  }
-          	
-          	  else {
-          		  frame.dispose();
-          		  timer.cancel();
-          		  maxBid1.setBidWinner(userData2.getPlayerName());
-          		  maxBid1.setBidValue(maxBid1.getBidValue());
-          		  userData2.setPurseValue(userData2.getPurseValue() - maxBid1.getBidValue());
-          	}
+			  frame.dispose();
+			  timer.cancel();
+			  maxBid1.setBidWinner(userData2.getPlayerName());
+			  
 			  
 			  try {
 				  RoundWinPage1 winnerShow = new RoundWinPage1();

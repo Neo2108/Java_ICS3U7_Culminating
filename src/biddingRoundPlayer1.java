@@ -111,26 +111,29 @@ public class BiddingRoundPlayer1 extends JFrame implements ActionListener {
 			countdownTimer();
 			countdown.start();	
 		    
-		    timer.schedule(new TimerTask() 
-		    			{
-			            @Override
-			            public void run() {
-			            	maxBid1.setBidWinner(userData2.getPlayerName());
-			            	frame.dispose();
-			            	
-			                try {
-			  				  RoundWinPage1 roundWinner = new RoundWinPage1();
-			  			  	} 
-			  			  	catch (IOException e1) {
-			  			  		e1.printStackTrace();
-			  			  	}
-			                
-			            }
-			        }, 
-			        15000
-			);
 		    
-		}
+		    
+		
+	
+	timer.schedule(new TimerTask() 
+	{
+    @Override
+    public void run() {
+    	maxBid1.setBidWinner(userData2.getPlayerName());
+    	frame.dispose();
+    	
+        try {
+			  RoundWinPage1 roundWinner = new RoundWinPage1();
+		  	} 
+		  	catch (IOException e1) {
+		  		e1.printStackTrace();
+		  	}
+        
+    }
+}, 
+15000
+);
+}
 	
 	public void countdownTimer() {
 		counterLabel.setText("15");

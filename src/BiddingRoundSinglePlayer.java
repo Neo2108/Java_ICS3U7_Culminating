@@ -149,17 +149,11 @@ public class BiddingRoundSinglePlayer extends JFrame implements ActionListener {
 			            @Override
 			            public void run() {
 			            	
-<<<<<<< HEAD
 			            	timer.cancel();
 			            	maxBid.setBidWinner("Computer");
 			            	maxBid.setBidValue(maxBid.getBidValue());
 			            	frame.dispose();
-=======
-			            	frame.dispose();
-			            	maxBid.setBidWinner("Computer");
-			            	maxBid.setBidValue(itemSelected.getPrice()/2);
->>>>>>> 3126bea2861fd9df67af83246f56ae9dad2c424f
-			            	computerData.setPurseValue(computerData.getPurseValue() - (maxBid.getBidValue()));
+			               	computerData.setPurseValue(computerData.getPurseValue() - (maxBid.getBidValue()));
 			            	
 			                try {
 			  				  RoundWinPage2 roundWinner = new RoundWinPage2();
@@ -200,8 +194,6 @@ public class BiddingRoundSinglePlayer extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == rulesBackButton) {
 			  
-			  //frame.dispose();
-			  
 			  try {
 				  Rules newRulesPage1 = new Rules();
 			  } 
@@ -212,8 +204,6 @@ public class BiddingRoundSinglePlayer extends JFrame implements ActionListener {
 		  }
 		  
 		  else if (e.getSource() == glossaryBackButton) {
-			  
-			  //frame.dispose();
 			  
 			  try {
 				  Glossary howToPlay1 = new Glossary();
@@ -278,15 +268,9 @@ public class BiddingRoundSinglePlayer extends JFrame implements ActionListener {
 			  frame.dispose();
 			  timer.cancel();
 			  maxBid.setBidWinner("Computer");
-<<<<<<< HEAD
           	  maxBid.setBidValue(maxBid.getBidValue());
           	  computerData.setPurseValue(computerData.getPurseValue() - (maxBid.getBidValue()));
-=======
-			  maxBid.setBidWinner("Computer");
-          	  //maxBid.setBidValue(itemSelected.getPrice()/2);
-          	  computerData.setPurseValue(computerData.getPurseValue() - (maxBid.getBidValue()));
 
->>>>>>> 3126bea2861fd9df67af83246f56ae9dad2c424f
 			  
 			  try {
 				  RoundWinPage2 winnerShow = new RoundWinPage2();

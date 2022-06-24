@@ -137,14 +137,10 @@ public class BiddingRoundPlayer1 extends JFrame implements ActionListener {
 		    			{
 			            @Override
 			            public void run() {
-<<<<<<< HEAD
+			            	
 			            	timer.cancel();
 			            	maxBid1.setBidWinner(userData2.getPlayerName());
-			            	maxBid1.setBidValue(maxBid1.getBidValue());
-=======
-			            	maxBid1.setBidWinner(userData2.getPlayerName());
-			            	maxBid1.setBidValue(itemSelected.getPrice()/2);
->>>>>>> 3126bea2861fd9df67af83246f56ae9dad2c424f
+			            	maxBid1.setBidValue(maxBid1.getBidValue());			            	
 			            	frame.dispose();
 			            	userData2.setPurseValue(userData2.getPurseValue() - (maxBid1.getBidValue()));
 			            	
@@ -164,7 +160,7 @@ public class BiddingRoundPlayer1 extends JFrame implements ActionListener {
 	
 	public void countdownTimer() {
 		counterLabel.setText("15");
-		second =15;
+		second = 15;
 		countdown = new Timer(1000, new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -260,17 +256,11 @@ public class BiddingRoundPlayer1 extends JFrame implements ActionListener {
 		
 		  else if (e.getSource() == endBid) {
 			  
-<<<<<<< HEAD
 			  timer.cancel();
 			  maxBid1.setBidWinner(userData2.getPlayerName());
           	  maxBid1.setBidValue(maxBid1.getBidValue());
           	  frame.dispose();
           	  userData2.setPurseValue(userData2.getPurseValue() - (maxBid1.getBidValue()));
-=======
-			  frame.dispose();
-			  timer.cancel();
-			  maxBid1.setBidWinner(userData2.getPlayerName());
->>>>>>> 3126bea2861fd9df67af83246f56ae9dad2c424f
 			  
 			  
 			  try {

@@ -1,0 +1,3 @@
+Name: NEO
+Occupation: ABC
+Age: 18

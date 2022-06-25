@@ -1,9 +1,13 @@
+/**
+ * This class is for displaying the roundWinPage for the single-player game mode
+ * @author Nischae Tiwari
+ */
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.*;
-
 
 // Round-win Page2 class
 public class RoundWinPage2 extends JFrame implements ActionListener {

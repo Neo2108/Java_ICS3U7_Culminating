@@ -1,3 +1,8 @@
+/**
+ * This class is for getting the properties and data of player 2 in multiplayer
+ * @author Nischae Tiwari
+ */
+
 // OOP Class
 public class PlayerDataProperties2 {
 	

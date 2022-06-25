@@ -1,3 +1,8 @@
+/**
+ * This class is for showing the computer's various data properties and etc.
+ * @author Nischae Tiwari
+ */
+
 // OOP Class
 public class ComputerDataProperties {
 	

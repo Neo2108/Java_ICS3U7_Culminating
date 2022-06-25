@@ -1,3 +1,8 @@
+/**
+ * This class is for getting the properties of the items up for auction
+ * @author Nischae Tiwari
+ */
+
 // OOP Class
 public class SelectedAuctionItem {
 	

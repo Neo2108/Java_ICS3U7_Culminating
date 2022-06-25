@@ -1,3 +1,8 @@
+/**
+ * This class is for displaying the rules page when needed
+ * @author Nischae Tiwari
+ */
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;

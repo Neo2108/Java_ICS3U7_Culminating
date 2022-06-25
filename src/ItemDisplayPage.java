@@ -1,3 +1,8 @@
+/**
+ * This class is for displaying the item-to-be-auctioned and its various properties
+ * @author Nischae Tiwari
+ */
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;

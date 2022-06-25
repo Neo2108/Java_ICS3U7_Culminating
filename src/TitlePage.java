@@ -1,3 +1,8 @@
+/**
+ * The TitlePage class -> Beginner class for user
+ * @author Nischae Tiwari
+ */
+
 // Import packages as needed
 import java.awt.*;
 import java.awt.event.ActionEvent;

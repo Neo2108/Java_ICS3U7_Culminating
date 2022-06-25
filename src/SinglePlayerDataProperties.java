@@ -1,3 +1,8 @@
+/**
+ * This class is for getting the singlePlayer's various dataProperties
+ * @author Nischae Tiwari
+ */
+
 // OOP Class
 public class SinglePlayerDataProperties {
 	

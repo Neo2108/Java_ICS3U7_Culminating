@@ -1,3 +1,8 @@
+/**
+ * This class is to get maxBid and numRounds (OOP CLASS)
+ * @author Nischae Tiwari
+ */
+
 // OOP Class
 public class MaxBidCalculator {
 	

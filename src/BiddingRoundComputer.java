@@ -1,3 +1,8 @@
+/**
+ * This class is for the user to decide the computer's bid, based on the user's bid, and display the computer's choice
+ * @author Nischae Tiwari
+ */
+
 import javax.swing.*;
 import java.awt.*;
 import java.io.*;

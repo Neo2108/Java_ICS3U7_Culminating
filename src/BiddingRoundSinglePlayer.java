@@ -1,3 +1,8 @@
+/**
+ * This class is for the single player to decide whether or not they want to bid and continue bidding
+ * @author Nischae Tiwari
+ */
+
 import javax.swing.*;
 import javax.swing.Timer;
 

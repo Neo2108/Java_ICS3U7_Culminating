@@ -1,3 +1,8 @@
+/**
+ * This class is for displaying the glossary page, if the user wishes to see it
+ * @author Nischae Tiwari
+ */
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;

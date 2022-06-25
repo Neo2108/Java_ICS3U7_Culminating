@@ -1,3 +1,8 @@
+/**
+ * This class is for displaying the exceptionPage, in case, the user enters an inappropriate bid
+ * @author Nischae Tiwari
+ */
+
 import java.io.*;
 
 import javax.swing.*;

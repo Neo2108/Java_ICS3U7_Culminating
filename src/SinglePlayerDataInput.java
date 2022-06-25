@@ -1,9 +1,13 @@
+/**
+ * This class is for the single player to input their data
+ * @author Nischae Tiwari
+ */
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.*;
-
 
 // Class for user to enter their data (name, age, occupation) and then export it to text file, for use later while outputting the final results
 public class SinglePlayerDataInput extends JFrame implements ActionListener {

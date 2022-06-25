@@ -1,3 +1,8 @@
+/**
+ * This class is for the user to choose what gameMode they want to play (Either single-player, or multi-player)
+ * @author Nischae Tiwari
+ */
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

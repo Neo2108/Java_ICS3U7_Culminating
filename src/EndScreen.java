@@ -1,3 +1,8 @@
+/**
+ * This class is for displaying the final end results of the game, overall
+ * @author Nischae Tiwari
+ */
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

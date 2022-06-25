@@ -1,3 +1,8 @@
+/**
+ * This class is for the user to decide whether to bid, not bid, or continue bidding in the round (Player 2 in multiplayer)
+ * @author Nischae Tiwari
+ */
+
 import javax.swing.*;
 
 import java.awt.*;

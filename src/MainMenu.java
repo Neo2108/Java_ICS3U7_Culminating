@@ -1,3 +1,8 @@
+/**
+ * This class is for the user to choose whether they want to first take a look at rules and glossary, or to jump straight into the game
+ * @author Nischae Tiwari
+ */
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

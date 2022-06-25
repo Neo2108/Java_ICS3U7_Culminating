@@ -1,3 +1,8 @@
+/**
+ * This class is for the user to input their properties and data (Player 1 in multiplayer)
+ * @author Nischae Tiwari
+ */
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;

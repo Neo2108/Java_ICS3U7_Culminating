@@ -1,3 +1,8 @@
+/**
+ * This class acts just as a time filler, and as a loading screen to make the game look a little more realistic
+ * @author Nischae Tiwari
+ */
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

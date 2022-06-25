@@ -1,12 +1,16 @@
+// OOP Class
 public class SinglePlayerDataProperties {
 	
 	private static SinglePlayerDataProperties itemSelectedSingleton = new SinglePlayerDataProperties();
 	
 	private SinglePlayerDataProperties() {}
 	
+	// Singleton
 	public static SinglePlayerDataProperties getInstance() {
 		return itemSelectedSingleton;
 	}
+	
+	// Initialize all variables needed to define properties of the singlePlayer
 	private String name;
 	private String age;
 	private int purseValue;
@@ -15,6 +19,7 @@ public class SinglePlayerDataProperties {
 	private int winningBid;
 	private int netWorth;
 	
+	// SETTER METHODS
 	public void setPlayerName(String playerName) {
 		this.name = playerName;
 	}
@@ -43,6 +48,7 @@ public class SinglePlayerDataProperties {
 		this.winningBid = bid;
 	}
 	
+	// GETTER METHODS
 	public String getPlayerName() {
 		return this.name;
 	}

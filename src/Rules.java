@@ -47,7 +47,7 @@ public class Rules extends JFrame implements ActionListener {
 
 	}
 
-
+	// If user clicks "Close", dispose rules panel
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == closeButton) {
 			  

@@ -1,3 +1,4 @@
+// Import packages as needed
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -13,7 +14,8 @@ public class TitlePage extends JFrame implements ActionListener {
    
    // This method contains all the GUI elements required to form up the JFrame
    public TitlePage() throws IOException {
-	   
+	  
+	  // Initializing all variables needed for this frame (Labels, buttons, colours, images), and declaring them as desired
 	  frame = new JFrame();
 	  frame.setLayout(null);
 	  img = new ImageIcon(this.getClass().getResource("ImagesFolder1/3dDollarSign.png"));
@@ -35,13 +37,14 @@ public class TitlePage extends JFrame implements ActionListener {
 	  Color color1 = new Color (0, 210, 0);
 	  button.setBackground(color1);
 	  
-
+	  // Add all elements to this frame
 	  frame.add(title);
 	  frame.add(image);
 	  frame.add(image2);
 	  frame.add(image3);
 	  frame.add(button);
 	  
+	  // Basic and fundamental additions to get the appropriate JFrame Panel required
 	  frame.setSize(1275, 775);
 	  Color color2 = new Color (32, 82, 92);
 	  frame.getContentPane().setBackground(color2);
@@ -51,7 +54,7 @@ public class TitlePage extends JFrame implements ActionListener {
    
    
    
-   // If button clicked... go to the next class
+   // If "Proceed" button is clicked... go to the next class
    public void actionPerformed(ActionEvent e) {
 	   
 	  if (e.getSource() == button) {

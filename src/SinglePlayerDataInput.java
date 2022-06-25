@@ -8,6 +8,7 @@ import java.io.*;
 // Class for user to enter their data (name, age, occupation) and then export it to text file, for use later while outputting the final results
 public class SinglePlayerDataInput extends JFrame implements ActionListener {
 	
+	// Initialize all GUI Elements needed for JFrame
 	SinglePlayerDataProperties playerData = SinglePlayerDataProperties.getInstance();
 	JFrame frame = new JFrame();
 	JLabel heading;
@@ -47,24 +48,21 @@ public class SinglePlayerDataInput extends JFrame implements ActionListener {
 		occupation.setBounds(400,425,800,25);
 		occupation.setForeground(astronautBlue);
 		
-		// textFields
+		// TextFields
 		nameSelect = new JTextField();
 		nameSelect.setBounds(550, 225, 150, 25);
-		
 		
 		jobSelect = new JTextField();
 		jobSelect.setBounds(550, 425, 150, 25);
 		
 		
-		
-		// age field -> combo-box
+		// Age field -> combo-box (FOR LOOP FROM 18 - 100)
 		String[] ages = new String [83];
 		for (int i = 0; i <= 82; i++) {
 			ages[i] = i+18 +"";
 			
 		}
 		ageSelect = new JComboBox(ages);
-		//JComboBox ageSelect = new JComboBox(ages);
 		
 		ageSelect.setEditable(true);
 		ageSelect.setBounds(550, 325, 60, 23);
@@ -76,6 +74,7 @@ public class SinglePlayerDataInput extends JFrame implements ActionListener {
 		submit.addActionListener(this);
 		submit.setBackground(Color.LIGHT_GRAY);
 
+		// Adding all GUI elements to JFrame
 		frame.add(ageSelect);
 		frame.add(nameSelect);
 		frame.add(jobSelect);
@@ -85,7 +84,7 @@ public class SinglePlayerDataInput extends JFrame implements ActionListener {
 		frame.add(occupation);
 		frame.add(submit);
 		
-		
+		// Setting basic and fundamental properties of JFrame
 		frame.setSize(1275, 775);
 		Color mindara = new Color (223, 230, 103);
 		frame.getContentPane().setBackground(mindara);
@@ -114,6 +113,7 @@ public class SinglePlayerDataInput extends JFrame implements ActionListener {
 			  
 			  
 			try {
+				// Write all userData into "userDataSingle.txt" file for use later on, while displaying results
 				FileWriter dataWriter = new FileWriter("userDataSingle.txt");
 				BufferedWriter writer = new BufferedWriter(dataWriter);
 				writer.write("Name: " + playerData.getPlayerName() + "\n");
@@ -130,7 +130,9 @@ public class SinglePlayerDataInput extends JFrame implements ActionListener {
 			  
 			  		  
 			  try {
-		    		 frame.dispose();
+				
+				// display loading screen gif, and then display MAIN MENU
+		    	frame.dispose();
 				MainMenu newMenu = new MainMenu();
 				Loading newLoad = new Loading();
 

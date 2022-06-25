@@ -1,3 +1,4 @@
+// OOP Class
 public class SelectedAuctionItem {
 	
 	private static SelectedAuctionItem itemSelectedSingleton = new SelectedAuctionItem();
@@ -7,12 +8,15 @@ public class SelectedAuctionItem {
 	public static SelectedAuctionItem getInstance() {
 		return itemSelectedSingleton;
 	}
+	
+	// Initialize variables needed for itemProperties
 	private String name;
 	private int yearMade;
 	private int appreciationRate;
 	private int liquidity;
 	private int price;
 	
+	// SETTER Methods
 	public void setItemName(String itemName) {
 		this.name = itemName;
 	}
@@ -33,6 +37,7 @@ public class SelectedAuctionItem {
 		this.liquidity = itemLiquidity;
 	}
 	
+	// GETTER Methods
 	public String getItemName() {
 		return this.name;
 	}

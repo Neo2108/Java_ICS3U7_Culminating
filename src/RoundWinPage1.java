@@ -8,6 +8,7 @@ import java.io.*;
 // Glossary class
 public class RoundWinPage1 extends JFrame implements ActionListener {
 	
+	// Initialize all GUI elements needed
 	JFrame frame;
 	PlayerDataProperties1 userData1 = PlayerDataProperties1.getInstance();
 	PlayerDataProperties2 userData2 = PlayerDataProperties2.getInstance();
@@ -18,7 +19,7 @@ public class RoundWinPage1 extends JFrame implements ActionListener {
 	JLabel winnerDisplay;
 	JLabel purseValueDisplay;
 	JLabel netWorthDisplay;
-	JButton closeButton;
+	JButton nextButton;
 	JButton resultsButton;
 	
 	// Method for all GUI elements on page
@@ -31,6 +32,7 @@ public class RoundWinPage1 extends JFrame implements ActionListener {
 		
 		Color astronautBlue = new Color (32, 82, 92);
 		
+		// Modify cash Values, and net Worths of players based on who wins the round
 		if (maxBid.getBidWinner().equals(userData1.getPlayerName())) {
 			userData1.setPurseValue(userData1.getPurseValue() - maxBid.getBidValue());
 			userData1.setNetWorth(userData1.getNetWorth() + (itemSelected.getPrice()*((itemSelected.getAppreciationRate()/100)+1) + itemSelected.getLiquidity()*100));
@@ -45,6 +47,7 @@ public class RoundWinPage1 extends JFrame implements ActionListener {
 			userData1.setNetWorth(userData1.getNetWorth() - 50000);
 		}
 		
+		// JLabels
 		winnerDisplay = new JLabel(maxBid.getBidWinner() + " wins the round!");
 		winnerDisplay.setFont(new Font("Impact", Font.PLAIN, 20));
 		winnerDisplay.setBounds(280,20,800,60);
@@ -60,14 +63,15 @@ public class RoundWinPage1 extends JFrame implements ActionListener {
 		netWorthDisplay.setBounds(280,95,800,60);
 		netWorthDisplay.setForeground(Color.white);
 		
+		// Run rounds up to only 3 times, and then display the RESULTS page
 		if (maxBid.getNumRounds() < 3) {
-			closeButton = new JButton("Next Round!");
-			closeButton.setBounds(610, 530, 150, 40);
-			closeButton.addActionListener(this);
-			closeButton.setBackground(Color.LIGHT_GRAY);
+			nextButton = new JButton("Next Round!");
+			nextButton.setBounds(610, 530, 150, 40);
+			nextButton.addActionListener(this);
+			nextButton.setBackground(Color.LIGHT_GRAY);
 			
 			frame.add(picLabel);
-			frame.add(closeButton);
+			frame.add(nextButton);
 			frame.add(winnerDisplay);
 			frame.add(purseValueDisplay);
 			frame.add(netWorthDisplay);
@@ -88,55 +92,48 @@ public class RoundWinPage1 extends JFrame implements ActionListener {
 			
 		}
 		
-		
-		
-		
-		
+		// Basic and fundamentals of GUI JFrame
 		frame.setSize(1275, 775);
 		frame.getContentPane().setBackground(astronautBlue);
 	    frame.setVisible(true);
 	    frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
 	}
 
-	// Call Glossary Page method
+	// Call Page
 	public static void main(String[] args) throws IOException {
 		new RoundWinPage1(); 
-		
-
 	}
 
-	@Override
 	public void actionPerformed(ActionEvent e) {
-		
-					if (e.getSource() == closeButton) {
+				
+		// If nextButton is clicked go into next round
+				if (e.getSource() == nextButton) {
 							  
-							  frame.dispose();
+					frame.dispose();
 							  
-							  try {
-								  
-								  ItemDisplayPage newRound = new ItemDisplayPage();
-							  } 
-							  catch (IOException e1) {
-								  e1.printStackTrace();
-							  }
+					try {			  
+						ItemDisplayPage newRound = new ItemDisplayPage();
+					} 
+					catch (IOException e1) {
+						e1.printStackTrace();
+					}
 							  
 				    }
-					
-					if (e.getSource() == resultsButton) {
+				
+		// If resultsButton is clicked display results			
+				if (e.getSource() == resultsButton) {
 						  
-						  frame.dispose();
+					frame.dispose();
 						  
-						  try {
+					try {
 							  
-							   EndScreen roundEnd = new EndScreen();
-						  } 
-						  catch (IOException e1) {
-							  e1.printStackTrace();
-						  }
-						  
+						EndScreen roundEnd = new EndScreen();
+					} 
+					catch (IOException e1) {
+						e1.printStackTrace();
+					}	  
 			  }
 		
-			  
 		  }
 		
 	}

@@ -33,7 +33,7 @@ public class PlayerDataProperties1 {
 		this.gameMode = mode;
 	}
 	
-	public void setPlayerAge(int playerAge) {
+	public void setPlayerAge(String playerAge) {
 		this.age = playerAge;
 	}
 	

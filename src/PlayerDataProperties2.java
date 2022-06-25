@@ -57,7 +57,7 @@ public class PlayerDataProperties2 {
 		return this.name;
 	}
 	
-	public int getPlayerAge() {
+	public String getPlayerAge() {
 		return this.age;
 	}
 	

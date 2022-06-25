@@ -17,6 +17,8 @@ public class EndScreen extends JFrame implements ActionListener {
    
    // This method contains all the GUI elements required to form up the JFrame
    public EndScreen() throws IOException {
+	  
+	   // BufferedReader involvement in program
 	  BufferedReader br = null;
 	  
 	  // main decorations
@@ -38,37 +40,48 @@ public class EndScreen extends JFrame implements ActionListener {
 	  // bas
 	  String nameText = "[name]";
 	  String occupationText = "[occupation]";
-	  String ageText = "[age]";
+	  String ageText = "";
 	  
 	  // if p1 wins
 	  br = new BufferedReader(new FileReader("userData1.txt"));
 	  int netWorth = 0;
 	  if (userData1.getGameMode().equals("Multiplayer") && userData1.getNetWorth() > userData2.getNetWorth()) {
-		   br = new BufferedReader(new FileReader("userData1.txt"));
+		   //br = new BufferedReader(new FileReader("userData1.txt"));
 		   netWorth = userData1.getNetWorth();
+		   nameText = userData1.getPlayerName();
+		   ageText = userData1.getPlayerAge();
+		   occupationText = userData1.getPlayerOccupation();
+		   
 	  }
 	  
 	  // if p2 wins
 	  else if (userData1.getGameMode().equals("Multiplayer") && userData1.getNetWorth() < userData2.getNetWorth()) {
-		   br = new BufferedReader(new FileReader("userData2.txt"));
+		   //br = new BufferedReader(new FileReader("userData2.txt"));
 		   netWorth = userData2.getNetWorth();
+		   nameText = userData2.getPlayerName();
+		   ageText = userData2.getPlayerAge();
+		   occupationText = userData2.getPlayerOccupation();
 	  }
 	  
 	  // if single player wins
 	  else if (userData1.getGameMode().equals("Singleplayer") && playerData.getNetWorth() > computerData.getNetWorth()) {
-		   br = new BufferedReader(new FileReader("userDataSingle.txt"));
+		   //br = new BufferedReader(new FileReader("userDataSingle.txt"));
 		   netWorth = playerData.getNetWorth();
+		   nameText = playerData.getPlayerName();
+		   ageText = playerData.getPlayerAge();
+		   occupationText = playerData.getPlayerOccupation();
 	  }
 	  
 	  // read everything with the buffered reader
-	  nameText = br.readLine().replace("Name: ", "");
-	  occupationText = br.readLine().replace("Occupation: ", "") + " with a net worth of $" + netWorth;
-	  ageText = "(" + br.readLine().replace("Age: ", "") + " years old)";
+	  //nameText = br.readLine().replace("Name: ", "");
+	  //occupationText = br.readLine().replace("Occupation: ", "") + " with a net worth of $" + netWorth;
+	  //ageText = "(" + br.readLine().replace("Age: ", "") + " years old)";
+	  nameText = nameText + " " + ageText+ " is the winner!"; 
 	  
 	  // capitalize first letter of the name
 	  String s1 = nameText.substring(0, 1).toUpperCase();
 	  nameText = s1 + nameText.substring(1);
-	  nameText = nameText + " " + ageText+ " is the winner!";
+	  
 	  
 	  
 	  // capitalize first letter of the occupation
@@ -80,8 +93,7 @@ public class EndScreen extends JFrame implements ActionListener {
 	  if (userData1.getGameMode().equals("Singleplayer") && playerData.getNetWorth() < computerData.getNetWorth()) {
 		  netWorth = computerData.getNetWorth();
 		  nameText = "Computer is the winner!";
-		  occupationText = "Computer has a net worth of" + netWorth;
-		  ageText = "";
+		  occupationText = "Computer has a net worth of $" + netWorth;
 	  }
 	  
 	  // write the occupation

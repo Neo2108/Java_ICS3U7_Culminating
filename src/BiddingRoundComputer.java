@@ -7,6 +7,7 @@ import java.awt.event.*;
 
 public class BiddingRoundComputer extends JFrame{
 	
+	// Initializing variables needed for displaying various GUI Elements
 	JFrame frame = new JFrame();
 	Timer timer = new Timer();
 	MaxBidCalculator maxBid1 = MaxBidCalculator.getInstance();
@@ -26,6 +27,7 @@ public class BiddingRoundComputer extends JFrame{
 			
 			frame.setLayout(null);
 			
+			// Use various calculations and algorithms to determine what the computer should bid, and display computer's choice for 8 seconds
 			if (itemSelected.getPrice()* ((itemSelected.getAppreciationRate()/100) + 1) >= maxBid1.getBidValue() && computerData.getPurseValue() > maxBid1.getBidValue()) {
 				computerBidValue = maxBid1.getBidValue() + 5000;
 				maxBid1.setBidValue(computerBidValue);
@@ -245,27 +247,22 @@ public class BiddingRoundComputer extends JFrame{
 				computerData.setNetWorth(1000000);
 			}
 			
+			// Add all elements onto JFrame
 			frame.add(computerBid);
 			frame.add(maxBidDisplay);
 			frame.add(description);
 			
-			
+			// Basics and fundamentals of JFrame added on
 			frame.setSize(1275, 775);
 			frame.getContentPane().setBackground(mindara);
 			frame.setVisible(true);
 		    frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		    
-		    
-		    
-		    
-		    
 		}
 
+	// Call Page
 	public static void main(String[] args) throws IOException {
 		new BiddingRoundComputer();
 
-	}		 
-			  
-			
-		
+	}		 		
 }

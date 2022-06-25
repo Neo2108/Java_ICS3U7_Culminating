@@ -7,6 +7,7 @@ import javax.swing.*;
 // Main menu class, with the three options: One for rules, one for glossary of terms, and one for starting the game
 public class MainMenu extends JFrame implements ActionListener {
 	
+	// Initialize variables needed for GUI Elements
 	JFrame frame;
 	JButton button;
 	JButton button2;
@@ -44,29 +45,25 @@ public class MainMenu extends JFrame implements ActionListener {
 		button3.setBackground(color1);
 		
 		
-		
+		// Add Elements to GUI Frame
 		frame.add(heading);
 		frame.add(button);
 		frame.add(button2);
 		frame.add(button3);
 			
-		
-		
-		
-		 frame.setSize(1275, 775);
-		 Color color2 = new Color (32, 82, 92);
-		 frame.getContentPane().setBackground(color2);
-	     frame.setVisible(true);
-	     frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
+		frame.setSize(1275, 775);
+		Color color2 = new Color (32, 82, 92);
+		frame.getContentPane().setBackground(color2);
+	    frame.setVisible(true);
+	    frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
 	}
 
 	// If one of the three buttons are clicked, divert the page to where the user wants to specifically go
 	 public void actionPerformed(ActionEvent e) {
-		   
+		  
+		  // RULES BackButton page
 		  if (e.getSource() == button) {
-			  
-			  // frame.dispose();
-			  
+
 			  try {
 				Rules displayRules = new Rules();
 			  } 
@@ -76,6 +73,7 @@ public class MainMenu extends JFrame implements ActionListener {
 			  
 		  }
 		  
+		  // This button takes player(s) into game by displaying itemDisplayPage first
 		  else if (e.getSource() == button2) {
 			  
 			  frame.dispose();
@@ -86,13 +84,10 @@ public class MainMenu extends JFrame implements ActionListener {
 			  catch (IOException e1) {
 					e1.printStackTrace();
 				  }
-			  
 		  }
 		  
-		  
+		// GLOSSARY BackButton page
 		  else if (e.getSource() == button3) {
-			  
-			  // frame.dispose();
 			  
 			  try {
 				Glossary displayGlossary = new Glossary();

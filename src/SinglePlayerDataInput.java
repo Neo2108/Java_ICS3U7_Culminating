@@ -93,7 +93,7 @@ public class SinglePlayerDataInput extends JFrame implements ActionListener {
 	    
 	}
 	
-	// call the method with the GUI elements
+	// Call Page
 	public static void main(String[] args) throws IOException {
 		new SinglePlayerDataInput();
 		

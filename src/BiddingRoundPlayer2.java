@@ -7,6 +7,7 @@ import java.awt.event.*;
 
 public class BiddingRoundPlayer2 extends JFrame implements ActionListener {
 	
+	// Initializing variables needed for displaying various GUI Elements
 	JFrame frame = new JFrame();
 	java.util.Timer timer2 = new java.util.Timer();
 	MaxBidCalculator maxBid2 = MaxBidCalculator.getInstance();
@@ -28,7 +29,7 @@ public class BiddingRoundPlayer2 extends JFrame implements ActionListener {
 	JButton endBid;
 	JLabel startingPrice;
 
-	// countdown
+	// Countdown display (VISUAL)
 	JLabel counterLabel;
 	Font font1 = new Font("Impact", Font.PLAIN, 70);
 	javax.swing.Timer countdown;
@@ -111,6 +112,7 @@ public class BiddingRoundPlayer2 extends JFrame implements ActionListener {
 			counterLabel.setFont(font1);
 			counterLabel.setForeground(astronautBlue);
 			
+			// Add all elements onto JFrame
 			frame.add(submitBid);
 			frame.add(glossaryBackButton);
 			frame.add(rulesBackButton);
@@ -123,7 +125,7 @@ public class BiddingRoundPlayer2 extends JFrame implements ActionListener {
 			frame.add(counterLabel);
 			frame.add(playerName);
 			
-			 
+			// Basics and fundamentals of JFrame added on 
 			frame.setSize(1275, 775);
 			frame.getContentPane().setBackground(mindara);
 			frame.setVisible(true);
@@ -132,6 +134,7 @@ public class BiddingRoundPlayer2 extends JFrame implements ActionListener {
 			countdownTimer();
 			countdown.start();	
 			
+			// Start IN-GAME Timer
 		    timer2.schedule( 
 			        new java.util.TimerTask() {
 			           
@@ -156,7 +159,8 @@ public class BiddingRoundPlayer2 extends JFrame implements ActionListener {
 			);
 		    
 		}
-
+	
+	 // Start VISUAL Display Timer
 	 public void countdownTimer() {
 		 counterLabel.setText("15");
 		 second =15;
@@ -173,17 +177,15 @@ public class BiddingRoundPlayer2 extends JFrame implements ActionListener {
 		 });
 		 }
 		  
-	 
+	// Call Page 
 	public static void main(String[] args) throws IOException {
 		new BiddingRoundPlayer2();
 
 	}
 
-	
+	// Open Rules BackButton, if user clicks on it
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == rulesBackButton) {
-			  
-			  //frame.dispose();
 			  
 			  try {
 				  Rules newRulesPage1 = new Rules();
@@ -193,11 +195,10 @@ public class BiddingRoundPlayer2 extends JFrame implements ActionListener {
 			  }
 			  
 		  }
-		  
+		
+		// Open Glossary BackButton, if user clicks on it
 		  else if (e.getSource() == glossaryBackButton) {
-			  
-			  //frame.dispose();
-			  
+
 			  try {
 				  Glossary howToPlay1 = new Glossary();
 			  } 
@@ -205,7 +206,7 @@ public class BiddingRoundPlayer2 extends JFrame implements ActionListener {
 				e1.printStackTrace();
 			  }
 		  }
-		
+		// Button to confirm bid, that user types in, in the textfield
 		  else if (e.getSource() == submitBid) {
 			  
 			  timer2.cancel();
@@ -224,6 +225,7 @@ public class BiddingRoundPlayer2 extends JFrame implements ActionListener {
 					}
 				  }
 			  
+			// Makes sure user-entered bid is appropriate, if it is - > moves on to computer's turn
 			  if (player2BidValue > actualMaxBid && player2BidValue > itemSelected.getPrice() && userData2.getPurseValue() > player2BidValue) {
 				  
 				  maxBid2.setBidValue(player2BidValue);
@@ -238,6 +240,7 @@ public class BiddingRoundPlayer2 extends JFrame implements ActionListener {
 				  }
 			  }
 			  
+			// If user-entered bid is inappropriate, display exception Page, and ask user to re-enter an appropriate bid
 			  else if (player2BidValue < actualMaxBid || actualMaxBid < itemSelected.getPrice() || userData2.getPurseValue() <= player2BidValue) {
 				  try {
 					  BiddingRoundPlayer2 player1Turn = new BiddingRoundPlayer2();
@@ -260,6 +263,7 @@ public class BiddingRoundPlayer2 extends JFrame implements ActionListener {
 
 		  }
 		
+		// If user decides not to bid anymore, they can simply end the bid, meaning the other plays wins
 		  else if (e.getSource() == endBid) {
 			  
 			  frame.dispose();

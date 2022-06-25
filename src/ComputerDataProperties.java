@@ -1,3 +1,4 @@
+// OOP Class
 public class ComputerDataProperties {
 	
 	private static ComputerDataProperties itemSelectedSingleton = new ComputerDataProperties();
@@ -8,12 +9,13 @@ public class ComputerDataProperties {
 		return itemSelectedSingleton;
 	}
 
+	// Initializing variables needed for computerProperties
 	private int purseValue;
 	private int gameWinner;
 	private int winningBid;
 	private int netWorth;
 	
-	
+	// SETTER Methods
 	public void setPurseValue(int cashAmount) {
 		this.purseValue = cashAmount;
 	}
@@ -30,6 +32,7 @@ public class ComputerDataProperties {
 		this.winningBid = bid;
 	}
 	
+	// GETTER Methods
 	public int getPurseValue() {
 		return this.purseValue;
 	}

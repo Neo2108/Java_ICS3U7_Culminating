@@ -5,7 +5,7 @@ import java.io.*;
 import javax.swing.*;
 
 // Main menu class, with the three options: One for rules, one for glossary of terms, and one for starting the game
-public class Loading extends JFrame implements ActionListener {
+public class Loading extends JFrame{
 	
 	JFrame frame;
 	ImageIcon img;
@@ -16,7 +16,7 @@ public class Loading extends JFrame implements ActionListener {
 		frame = new JFrame();
 		frame.setLayout(null);
 		
-		
+		// Initialize variables for gif, and call GIF only for 3 seconds before closing
 		img = new ImageIcon(this.getClass().getResource("ImagesFolder1/512x512.gif"));
 		image = new JLabel(img);
 		image.setBounds(350,170,600,400);
@@ -31,7 +31,7 @@ public class Loading extends JFrame implements ActionListener {
 		 frame.getContentPane().setBackground(color2);
 	     frame.setVisible(true);
 	     frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
-	     Timer timer = new Timer(3000, new ActionListener(){
+	     Timer timer = new Timer(2000, new ActionListener(){
 	    	    public void actionPerformed(ActionEvent evt) {
 	    	        frame.dispose();
 	    	    }
@@ -39,14 +39,8 @@ public class Loading extends JFrame implements ActionListener {
 	    	timer.setRepeats(false);
 	    	timer.start();
 	}
-
-	// If one of the three buttons are clicked, divert the page to where the user wants to specifically go
-	 public void actionPerformed(ActionEvent e) {
-		   
-		  
-	  }
 	 
-	 // Call Main menu page
+	 // Call Loading Screen page
 	 public static void main(String[] args) throws Exception {
 		 new Loading();
 	 }

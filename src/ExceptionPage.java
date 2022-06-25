@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 
 public class ExceptionPage extends JFrame implements ActionListener {
 	
+	// Initializing variables for use in GUI
 	private JLabel label;
 	private JLabel label2;
 	private JLabel label3;
@@ -15,7 +16,6 @@ public class ExceptionPage extends JFrame implements ActionListener {
 	JButton button;
 	
 	public ExceptionPage() throws IOException  {
-		
 		
 		Color astronautBlue = new Color (32, 82, 92);
 
@@ -43,6 +43,7 @@ public class ExceptionPage extends JFrame implements ActionListener {
 		label4.setBounds(0,0,0,0);
 		label4.setForeground(Color.white);
 		
+		// Add GUI Elements onto JFrame
 		frame.add(button);
 		frame.add(label);
 		frame.add(label2);
@@ -55,20 +56,18 @@ public class ExceptionPage extends JFrame implements ActionListener {
 		frame.setVisible(true);
 	}
 
+	// Call Page
 	public static void main(String[] args) throws IOException {
 		new ExceptionPage();
-		
-		
 	}
 
-	@Override
+	// Close page, if user clicks on closeButton
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == button) {
 			  
 			  frame.dispose();
 			  
 		  }
-		
 	}
 
 }

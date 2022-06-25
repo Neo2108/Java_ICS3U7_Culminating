@@ -9,6 +9,7 @@ import java.awt.event.*;
 
 public class BiddingRoundSinglePlayer extends JFrame implements ActionListener {
 	
+	// Initializing variables needed for displaying various GUI Elements
 	JFrame frame = new JFrame();
 	java.util.Timer timer = new java.util.Timer();
 	MaxBidCalculator maxBid = MaxBidCalculator.getInstance();
@@ -30,7 +31,7 @@ public class BiddingRoundSinglePlayer extends JFrame implements ActionListener {
 	JButton endBid;
 	JLabel startingPrice;
 	
-	// countdown
+	// Countdown display (VISUAL)
 	JLabel counterLabel;
 	Font font1 = new Font("Impact", Font.PLAIN, 70);	
 	javax.swing.Timer countdown;	
@@ -123,6 +124,7 @@ public class BiddingRoundSinglePlayer extends JFrame implements ActionListener {
 			counterLabel.setFont(font1);
 			counterLabel.setForeground(astronautBlue);
 			
+			// Add all elements onto JFrame
 			frame.add(submitBid);
 			frame.add(glossaryBackButton);
 			frame.add(rulesBackButton);
@@ -135,7 +137,7 @@ public class BiddingRoundSinglePlayer extends JFrame implements ActionListener {
 			frame.add(counterLabel);
 			frame.add(playerName);
 			
-			
+			// Basics and fundamentals of JFrame added on
 			frame.setSize(1275, 775);
 			frame.getContentPane().setBackground(mindara);
 			frame.setVisible(true);
@@ -144,6 +146,7 @@ public class BiddingRoundSinglePlayer extends JFrame implements ActionListener {
 		    countdownTimer();
 			countdown.start();	
 		    
+			// Start IN-GAME Timer
 		    timer.schedule(new TimerTask() 
 		    			{
 			            @Override
@@ -169,6 +172,7 @@ public class BiddingRoundSinglePlayer extends JFrame implements ActionListener {
 		    
 		}
 
+	// Start VISUAL Display Timer
 	public void countdownTimer() {
 		counterLabel.setText("15");
 		second = 15;
@@ -185,12 +189,13 @@ public class BiddingRoundSinglePlayer extends JFrame implements ActionListener {
 		});		
 	}	
 	
+	// Call Page
 	public static void main(String[] args) throws IOException {
 		new BiddingRoundSinglePlayer();
 
 	}
 
-	
+	// Open Rules BackButton, if user clicks on it
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == rulesBackButton) {
 			  
@@ -203,6 +208,7 @@ public class BiddingRoundSinglePlayer extends JFrame implements ActionListener {
 			  
 		  }
 		  
+		// Open Glossary BackButton, if user clicks on it
 		  else if (e.getSource() == glossaryBackButton) {
 			  
 			  try {
@@ -213,6 +219,7 @@ public class BiddingRoundSinglePlayer extends JFrame implements ActionListener {
 			  }
 		  }
 		
+		  // Button to confirm bid, that user types in, in the textfield
 		  else if (e.getSource() == submitBid) {
 			  
 			  frame.dispose();
@@ -225,11 +232,11 @@ public class BiddingRoundSinglePlayer extends JFrame implements ActionListener {
 				  try {
 					ExceptionPage errorOccurred = new ExceptionPage();
 				} catch (IOException e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
 			  }
 			  
+			  // Makes sure user-entered bid is appropriate, if it is - > moves on to computer's turn
 			  if (singlePlayerBidValue > actualMaxBid && singlePlayerBidValue > itemSelected.getPrice() && playerData.getPurseValue() > singlePlayerBidValue) {
 				  
 				  maxBid.setBidValue(singlePlayerBidValue);
@@ -244,6 +251,7 @@ public class BiddingRoundSinglePlayer extends JFrame implements ActionListener {
 				  }
 			  }
 			  
+			  // If user-entered bid is inappropriate, display exception Page, and ask user to re-enter an appropriate bid
 			  else if (singlePlayerBidValue < actualMaxBid || actualMaxBid < itemSelected.getPrice() || playerData.getPurseValue() <= singlePlayerBidValue) {
 				  try {
 					  BiddingRoundSinglePlayer repeat = new BiddingRoundSinglePlayer();
@@ -263,6 +271,7 @@ public class BiddingRoundSinglePlayer extends JFrame implements ActionListener {
 			  
 		  }
 		
+		  // If user decides not to bid anymore, they can simply end the bid, meaning the other plays wins
 		  else if (e.getSource() == endBid) {
 			  
 			  frame.dispose();

@@ -9,6 +9,7 @@ import java.awt.event.*;
 
 public class BiddingRoundPlayer1 extends JFrame implements ActionListener {
 	
+	// Initializing variables needed for displaying various GUI Elements
 	JFrame frame = new JFrame();
 	java.util.Timer timer = new java.util.Timer();
 	MaxBidCalculator maxBid1 = MaxBidCalculator.getInstance();
@@ -30,7 +31,7 @@ public class BiddingRoundPlayer1 extends JFrame implements ActionListener {
 	JButton endBid;
 	JLabel startingPrice;
 	
-	// countdown
+	// Countdown display (VISUAL)
 	JLabel counterLabel;
 	Font font1 = new Font("Impact", Font.PLAIN, 70);	
 	javax.swing.Timer countdown;	
@@ -39,6 +40,7 @@ public class BiddingRoundPlayer1 extends JFrame implements ActionListener {
 	DecimalFormat dFormat = new DecimalFormat("00");
 	
 	public BiddingRoundPlayer1() throws IOException {
+		
 		Color mindara = new Color (223, 230, 103);
 		Color astronautBlue = new Color (32, 82, 92);
 		
@@ -113,6 +115,7 @@ public class BiddingRoundPlayer1 extends JFrame implements ActionListener {
 			counterLabel.setFont(font1);
 			counterLabel.setForeground(astronautBlue);
 			
+			// Add all elements onto JFrame
 			frame.add(submitBid);
 			frame.add(glossaryBackButton);
 			frame.add(rulesBackButton);
@@ -125,6 +128,7 @@ public class BiddingRoundPlayer1 extends JFrame implements ActionListener {
 			frame.add(counterLabel);
 			frame.add(playerName);
 			
+			// Basics and fundamentals of JFrame added on
 			frame.setSize(1275, 775);
 			frame.getContentPane().setBackground(mindara);
 			frame.setVisible(true);
@@ -133,6 +137,7 @@ public class BiddingRoundPlayer1 extends JFrame implements ActionListener {
 			countdownTimer();
 			countdown.start();	
 		    
+			// Start IN-GAME Timer
 		    timer.schedule(new TimerTask() 
 		    			{
 			            @Override
@@ -158,6 +163,7 @@ public class BiddingRoundPlayer1 extends JFrame implements ActionListener {
 		    
 		}
 	
+	// Start VISUAL Display Timer
 	public void countdownTimer() {
 		counterLabel.setText("15");
 		second = 15;
@@ -174,14 +180,12 @@ public class BiddingRoundPlayer1 extends JFrame implements ActionListener {
 		});		
 	}	
 	
-
+	// Call Page
 	public static void main(String[] args) throws IOException {
 		new BiddingRoundPlayer1();
-//		new CountDownTimer();
-
 	}
 
-	
+	// Open Rules BackButton, if user clicks on it
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == rulesBackButton) {
 			  
@@ -193,7 +197,7 @@ public class BiddingRoundPlayer1 extends JFrame implements ActionListener {
 			  }
 			  
 		  }
-		  
+	// Open Glossary BackButton, if user clicks on it	  
 		  else if (e.getSource() == glossaryBackButton) {
 			  
 			  try {
@@ -203,7 +207,8 @@ public class BiddingRoundPlayer1 extends JFrame implements ActionListener {
 				e1.printStackTrace();
 			  }
 		  }
-		
+		  
+		// Button to confirm bid, that user types in, in the textfield
 		  else if (e.getSource() == submitBid) {
 			  
 			  frame.dispose();
@@ -220,7 +225,7 @@ public class BiddingRoundPlayer1 extends JFrame implements ActionListener {
 						e1.printStackTrace();
 					}
 				  }
-			  
+			// Makes sure user-entered bid is appropriate, if it is - > moves on to computer's turn
 			  if (player1BidValue > actualMaxBid && player1BidValue > itemSelected.getPrice() && userData1.getPurseValue() > player1BidValue) {
 				  
 				  maxBid1.setBidValue(player1BidValue);
@@ -234,7 +239,7 @@ public class BiddingRoundPlayer1 extends JFrame implements ActionListener {
 					  e1.printStackTrace();
 				  }
 			  }
-			  
+			// If user-entered bid is inappropriate, display exception Page, and ask user to re-enter an appropriate bid
 			  else if (player1BidValue < actualMaxBid || actualMaxBid < itemSelected.getPrice() || userData1.getPurseValue() <= player1BidValue) {
 				  try {
 					  BiddingRoundPlayer1 player2Turn = new BiddingRoundPlayer1();
@@ -254,6 +259,7 @@ public class BiddingRoundPlayer1 extends JFrame implements ActionListener {
 			  
 		  }
 		
+		// If user decides not to bid anymore, they can simply end the bid, meaning the other plays wins
 		  else if (e.getSource() == endBid) {
 			  
 			  frame.dispose();

@@ -5,6 +5,7 @@ import java.io.*;
 import javax.swing.*;
 
 // Class for user to pick the gameMode they want to play, either multiplayer with a friend or single-player against computer
+
 public class GameMode extends JFrame implements ActionListener {
 	PlayerDataProperties1 userData1 = PlayerDataProperties1.getInstance();
 	JFrame frame;
@@ -12,14 +13,13 @@ public class GameMode extends JFrame implements ActionListener {
 	JButton button2;
 	JLabel heading;
 	JLabel modeExplanation;
-	JLabel rules;
-	// If modeChoice = 0, gameMode selected is 'Single-player', and if modeChoice = 1, gameMode is 'Multiplayer'
-	public int modeChoice = 0;
-	
+	JLabel rules;	
 		
 	public GameMode() throws IOException {
-		// between player data and main menu
-		// between itemdisplay and biddinground1
+		
+		// Between player data and main menu
+		// Between itemDisplay and biddinground1
+		
 		Color mindara = new Color (223, 230, 103);
 		Color astronautBlue = new Color (32, 82, 92);
 		
@@ -35,7 +35,6 @@ public class GameMode extends JFrame implements ActionListener {
 		modeExplanation.setBounds(280,200,800,60);
 		modeExplanation.setForeground(astronautBlue);
 		
-		
 		button = new JButton("Single-Player Mode");
 		button.setBounds(520, 340, 250, 60);
 		button.addActionListener(this);
@@ -47,20 +46,17 @@ public class GameMode extends JFrame implements ActionListener {
 		button2.addActionListener(this);
 		button2.setBackground(color1);
 		
-		
-		
+		// Add GUI Elements onto JFrame
 		frame.add(heading);
 		frame.add(button);
 		frame.add(button2);
 		frame.add(modeExplanation);
 			
-		
-		
-		
-		 frame.setSize(1275, 775);
-		 frame.getContentPane().setBackground(mindara);
-	     frame.setVisible(true);
-	     frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
+		// Basics and fundamentals of JFrame added on
+		frame.setSize(1275, 775);
+		frame.getContentPane().setBackground(mindara);
+	    frame.setVisible(true);
+	    frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
 	}
 		
 	 public void actionPerformed(ActionEvent e) {
@@ -71,6 +67,7 @@ public class GameMode extends JFrame implements ActionListener {
 			  
 			  userData1.setGameMode("Singleplayer");
 			  
+			  // After choosing gameMode, take user to SinglePlayerDataInput, if they choose singlePlayer mode
 			  try {
 				  SinglePlayerDataInput difficultyPick = new SinglePlayerDataInput();
 			  } 
@@ -86,6 +83,7 @@ public class GameMode extends JFrame implements ActionListener {
 			  
 			  userData1.setGameMode("Multiplayer");
 			  
+			  // After choosing gameMode, take user to MultiPlayerDataInput1, if they choose multiPlayer mode
 			  try {
 				  MultiPlayerDataInput1 multiplayerModeSelect = new MultiPlayerDataInput1();
 			  } 
@@ -96,6 +94,7 @@ public class GameMode extends JFrame implements ActionListener {
 		  }
 	  }
 	 
+	 // Call Page
 	 public static void main(String[] args) throws Exception {
 		 new GameMode();
 	 }

@@ -8,6 +8,7 @@ import java.io.*;
 // Class for user to enter their data (name, age, occupation) and then export it to text file, for use later while outputting the final results
 public class MultiPlayerDataInput2 extends JFrame implements ActionListener {
 	
+	// Initialize all GUI Elements needed for JFrame
 	JFrame frame = new JFrame();
 	PlayerDataProperties2 userData2 = PlayerDataProperties2.getInstance();
 	JLabel heading;
@@ -47,35 +48,31 @@ public class MultiPlayerDataInput2 extends JFrame implements ActionListener {
 		occupation.setBounds(400,425,800,25);
 		occupation.setForeground(astronautBlue);
 		
-		// textFields
+		// TextFields
 		nameSelect = new JTextField();
 		nameSelect.setBounds(550, 225, 150, 25);
-		
 		
 		jobSelect = new JTextField();
 		jobSelect.setBounds(550, 425, 150, 25);
 		
 		
-		
-		// age field -> combo-box
+		// Age field -> combo-box (FOR LOOP FROM 18 - 100)
 		String[] ages = new String [83];
 		for (int i = 0; i <= 82; i++) {
 			ages[i] = i+18 +"";
 			
 		}
 		ageSelect = new JComboBox(ages);
-		//JComboBox ageSelect = new JComboBox(ages);
-		
 		ageSelect.setEditable(true);
 		ageSelect.setBounds(550, 325, 60, 23);
 		ageSelect.addActionListener(this);
-		
 		
 		submit = new JButton("Submit");
 		submit.setBounds(470, 525, 100, 30);
 		submit.addActionListener(this);
 		submit.setBackground(Color.LIGHT_GRAY);
 
+		// Adding all GUI elements to JFrame
 		frame.add(ageSelect);
 		frame.add(nameSelect);
 		frame.add(jobSelect);
@@ -85,7 +82,7 @@ public class MultiPlayerDataInput2 extends JFrame implements ActionListener {
 		frame.add(occupation);
 		frame.add(submit);
 		
-		
+		// Setting basic and fundamental properties of JFrame
 		frame.setSize(1275, 775);
 		frame.getContentPane().setBackground(mindara);
 		frame.setVisible(true);
@@ -93,7 +90,7 @@ public class MultiPlayerDataInput2 extends JFrame implements ActionListener {
 	    
 	}
 	
-	// call the method with the GUI elements
+	// Call Page
 	public static void main(String[] args) throws IOException {
 		new MultiPlayerDataInput1();
 		
@@ -132,7 +129,7 @@ public void actionPerformed(ActionEvent e) {
 			
 			frame.dispose();
 			  
-			  		  
+			  // Display MAIN MENU after inputting data		  
 			  try {
 				  MainMenu newMenu = new MainMenu();
 			  } 

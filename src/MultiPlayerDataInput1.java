@@ -8,6 +8,7 @@ import java.io.*;
 // Class for user to enter their data (name, age, occupation) and then export it to text file, for use later while outputting the final results
 public class MultiPlayerDataInput1 extends JFrame implements ActionListener {
 	
+	// Initialize all GUI Elements needed for JFrame
 	JFrame frame = new JFrame();
 	PlayerDataProperties1 userData1 = PlayerDataProperties1.getInstance();
 	JLabel heading;
@@ -47,25 +48,20 @@ public class MultiPlayerDataInput1 extends JFrame implements ActionListener {
 		occupation.setBounds(400,425,800,25);
 		occupation.setForeground(astronautBlue);
 		
-		// textFields
+		// TextFields
 		nameSelect = new JTextField();
 		nameSelect.setBounds(550, 225, 150, 25);
-		
 		
 		jobSelect = new JTextField();
 		jobSelect.setBounds(550, 425, 150, 25);
 		
-		
-		
-		// age field -> combo-box
+		// Age field -> combo-box (FOR LOOP FROM 18 - 100)
 		String[] ages = new String [83];
 		for (int i = 0; i <= 82; i++) {
 			ages[i] = i+18 +"";
 			
 		}
-		ageSelect = new JComboBox(ages);
-		//JComboBox ageSelect = new JComboBox(ages);
-		
+		ageSelect = new JComboBox(ages);		
 		ageSelect.setEditable(true);
 		ageSelect.setBounds(550, 325, 60, 23);
 		ageSelect.addActionListener(this);
@@ -76,6 +72,7 @@ public class MultiPlayerDataInput1 extends JFrame implements ActionListener {
 		submit.addActionListener(this);
 		submit.setBackground(Color.LIGHT_GRAY);
 
+		// Adding all GUI elements to JFrame
 		frame.add(ageSelect);
 		frame.add(nameSelect);
 		frame.add(jobSelect);
@@ -85,7 +82,7 @@ public class MultiPlayerDataInput1 extends JFrame implements ActionListener {
 		frame.add(occupation);
 		frame.add(submit);
 		
-		
+		// Setting basic and fundamental properties of JFrame
 		frame.setSize(1275, 775);
 		frame.getContentPane().setBackground(mindara);
 		frame.setVisible(true);
@@ -93,21 +90,15 @@ public class MultiPlayerDataInput1 extends JFrame implements ActionListener {
 	    
 	}
 	
-	// call the method with the GUI elements
+	// Call Page
 	public static void main(String[] args) throws IOException {
 		new MultiPlayerDataInput1();
-		
-		
 	}
-
-
 
 	// Once submit button is clicked, write data into a text file for use later on, while outputting result
 	public void actionPerformed(ActionEvent e) {
 		
 		if (e.getSource() == submit) {
-			  
-			  
 			  
 			  nameText = nameSelect.getText();
 			  userData1.setPlayerName(nameText);
@@ -115,7 +106,6 @@ public class MultiPlayerDataInput1 extends JFrame implements ActionListener {
 			  userData1.setPlayerOccupation(occupationText);
 			  ageText =  (String) ageSelect.getSelectedItem();
 			  userData1.setPlayerAge(Integer.parseInt(ageText));
-			  
 			  
 			try {
 				FileWriter dataWriter = new FileWriter("userData1.txt");
@@ -132,7 +122,7 @@ public class MultiPlayerDataInput1 extends JFrame implements ActionListener {
 			
 			frame.dispose();
 			  
-			  		  
+			  // Display MultiPlayerDataInput2 after inputting data, for player 2 to input their data as well		  
 			  try {
 				  MultiPlayerDataInput2 newData = new MultiPlayerDataInput2();
 			  } 

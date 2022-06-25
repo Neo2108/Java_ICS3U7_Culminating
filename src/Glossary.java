@@ -15,11 +15,11 @@ public class Glossary extends JFrame implements ActionListener {
 	
 	// Method for all GUI elements on page
 	public Glossary() throws IOException {
+		
 		frame = new JFrame();
 		frame.setLayout(null);
 		Glossary = new ImageIcon(this.getClass().getResource("ImagesFolder1/GlossaryPage.png"));
 		Image image = Glossary.getImage();
-//        Image newImg = image.getScaledInstance(600, 700,  java.awt.Image.SCALE_SMOOTH);
         Image newImg = image.getScaledInstance(image.getWidth(null)*730/image.getHeight(null), 730,  java.awt.Image.SCALE_SMOOTH);
         Glossary = new ImageIcon(newImg);
 		glossaryImage1 = new JLabel(Glossary);
@@ -32,9 +32,11 @@ public class Glossary extends JFrame implements ActionListener {
 		closeButton.addActionListener(this);
 		closeButton.setBackground(Color.LIGHT_GRAY);
 		
+		// Add GUI Elements onto JFrame
 		frame.add(glossaryImage1);
 		frame.add(closeButton);
 		
+		// Basic and fundamentals of GUI JFrame
 		frame.setSize(750, 730);
 		Color mindara = new Color (223, 230, 103);
 		frame.getContentPane().setBackground(mindara);
@@ -47,7 +49,7 @@ public class Glossary extends JFrame implements ActionListener {
 		new Glossary(); 
 	}
 
-	@Override
+	
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == closeButton) {
 			  

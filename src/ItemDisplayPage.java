@@ -6,6 +6,7 @@ import java.util.*;
 
 public class ItemDisplayPage extends JFrame implements ActionListener {
 	
+	// Initializing all variables needed for GUI Elements of this JFrame
 	JFrame frame = new JFrame();
 	PlayerDataProperties1 userData1 = PlayerDataProperties1.getInstance();
 	SelectedAuctionItem itemSelected = SelectedAuctionItem.getInstance();
@@ -34,7 +35,7 @@ public class ItemDisplayPage extends JFrame implements ActionListener {
 	
 	public ItemDisplayPage() throws IOException {
 		
-		// Picks random item from the number of items available, and ensures no duplicate items are displayed
+		// Picks random item from the number of items available, and ensures that no duplicate items are displayed
 		int itemNumber = ((int) (Math.random()*10) + 1);
 		System.out.println(itemNumber);
 		for (int i = 0; i < itemDisplayedNumber.length; i++) {
@@ -45,12 +46,8 @@ public class ItemDisplayPage extends JFrame implements ActionListener {
 				itemNumber = ((int) (Math.random()*10) + 1);
 			}
 		}
-		
-		
-		
-		
+
 		// Assign item properties to variables for convenience in using the methods
-		
 			currentRoundItemName = itemName(itemNumber);
 			itemSelected.setItemName(currentRoundItemName);
 			currentRoundImage = itemImage(itemNumber);
@@ -62,8 +59,8 @@ public class ItemDisplayPage extends JFrame implements ActionListener {
 			itemSelected.setAppreciationRate(currentRoundItemAppreciationRate);
 			currentRoundItemLiquidity = itemLiquidity(itemNumber);
 			itemSelected.setLiquidity(currentRoundItemLiquidity);
-		
-
+			
+	
 		frame.setLayout(null);
 		
 		rulesBackButton = new JButton("Rules");
@@ -125,7 +122,7 @@ public class ItemDisplayPage extends JFrame implements ActionListener {
 		itemLiquidityProperty.setBounds(400,450+5*30,800,30);
 		itemLiquidityProperty.setForeground(Color.white);
 		
-
+		// Add all elements onto JFrame
 		frame.add(itemNameProperty);
 		frame.add(itemAgeProperty);
 		frame.add(itemPriceProperty);
@@ -138,7 +135,7 @@ public class ItemDisplayPage extends JFrame implements ActionListener {
 		frame.add(continueButtonMessage2);
 		frame.add(rulesBackButton);
 		
-		
+		// Basics and fundamentals of JFrame added on
 		frame.setSize(1275, 775);
 		Color color2 = new Color (32, 82, 92);
 		frame.getContentPane().setBackground(color2);
@@ -147,12 +144,12 @@ public class ItemDisplayPage extends JFrame implements ActionListener {
 	    
 	}
 
+	// Call Page
 	public static void main(String[] args) throws IOException {
-		
 		new ItemDisplayPage();
-		
 	}
 	
+	// These are all methods with the property values of all the different items stored in arrays, respective to property
 	public static void itemDisplayedNumber (int itemNumber) {
 		Arrays.fill(itemDisplayedNumber,itemNumber);
 	}
@@ -199,9 +196,8 @@ public class ItemDisplayPage extends JFrame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == rulesBackButton) {
-			  
-			  //frame.dispose();
-			  
+
+			 // Rules BackButton
 			  try {
 				  Rules newRulesPage = new Rules();
 			  } 
@@ -212,9 +208,8 @@ public class ItemDisplayPage extends JFrame implements ActionListener {
 		  }
 		  
 		  else if (e.getSource() == glossaryBackButton) {
-			  
-			  //frame.dispose();
-			  
+
+			  // Glossary BackButton
 			  try {
 				  Glossary howToPlay = new Glossary();
 			  } 
@@ -227,6 +222,7 @@ public class ItemDisplayPage extends JFrame implements ActionListener {
 			  
 			  frame.dispose();
 			  
+			  // By clicking "Continue", it takes player 1 straight into its biddingRound
 			  try {
 				  if (userData1.getGameMode().equals("Singleplayer")) {
 					  maxBid.setNumRounds(maxBid.getNumRounds()+1);

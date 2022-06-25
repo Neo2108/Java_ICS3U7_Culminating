@@ -1,3 +1,0 @@
-Name: MIYA
-Occupation: ABC
-Age: 18

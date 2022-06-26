@@ -16,7 +16,7 @@ public class PlayerDataProperties1 {
 	
 	// Initializing variables needed for playerData1Properties
 	private String name;
-	private String age;
+	private int age;
 	private int purseValue;
 	private String occupation;
 	private int gameWinner;
@@ -33,7 +33,7 @@ public class PlayerDataProperties1 {
 		this.gameMode = mode;
 	}
 	
-	public void setPlayerAge(String playerAge) {
+	public void setPlayerAge(int playerAge) {
 		this.age = playerAge;
 	}
 	
@@ -62,7 +62,7 @@ public class PlayerDataProperties1 {
 		return this.name;
 	}
 	
-	public String getPlayerAge() {
+	public int getPlayerAge() {
 		return this.age;
 	}
 	

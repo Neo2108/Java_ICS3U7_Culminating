@@ -3,7 +3,6 @@ javac GameMode.java
 javac Glossary.java
 javac Rules.java
 javac MainMenu.java
-javac Player.java
 javac SinglePlayerDataInput.java
 javac MultiPlayerDataInput1.java
 javac MultiPlayerDataInput2.java

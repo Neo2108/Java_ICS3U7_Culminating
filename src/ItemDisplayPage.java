@@ -42,7 +42,6 @@ public class ItemDisplayPage extends JFrame implements ActionListener {
 		
 		// Picks random item from the number of items available, and ensures that no duplicate items are displayed
 		int itemNumber = ((int) (Math.random()*10) + 1);
-		System.out.println(itemNumber);
 		for (int i = 0; i < itemDisplayedNumber.length; i++) {
 			if (itemDisplayedNumber[i] == itemNumber) {
 				itemExists = true;

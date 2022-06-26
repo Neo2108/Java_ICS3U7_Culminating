@@ -80,7 +80,7 @@ public class EndScreen extends JFrame implements ActionListener {
 	  if (userData1.getGameMode().equals("Singleplayer") && playerData.getNetWorth() < computerData.getNetWorth()) {
 		  netWorth = computerData.getNetWorth();
 		  nameText = "Computer is the winner!";
-		  occupationText = "Computer has a net worth of" + netWorth;
+		  occupationText = "Computer has a net worth of $" + netWorth + "!";
 		  ageText = "";
 	  }
 	  

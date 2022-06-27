@@ -1,3 +1,3 @@
-Name: Neo
-Occupation: Student
+Name: neo
+Occupation: student
 Age: 18
